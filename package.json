@@ -16,6 +16,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reset-css": "5.0.1",
+    "sass": "1.54.7",
+    "styled-components": "5.3.5",
     "reset.css": "2.0.2"
   },
   "devDependencies": {
@@ -27,8 +29,6 @@
     "eslint": "8.23.0",
     "eslint-config-dva": "0.0.16",
     "release-it": "15.4.1",
-    "sass": "1.54.7",
-    "styled-components": "5.3.5",
     "typescript": "4.8.2"
   }
 }
