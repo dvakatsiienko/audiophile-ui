@@ -3,6 +3,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import type { NextPage } from 'next';
 
+/* Components */
+import { Button } from '@/components';
+
 /* Instruments */
 import styles from '../theme/Index.module.scss';
 
@@ -21,6 +24,7 @@ const Index: NextPage = () => {
                 <p className={styles.description}>
                     Get started by editing <code className={styles.code}>pages/index.tsx</code>
                 </p>
+                <Button />
             </main>
 
             <footer className={styles.footer}>

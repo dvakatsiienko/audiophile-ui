@@ -3,9 +3,9 @@
   "version": "0.0.5",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "start": "next dev",
     "build": "next build",
-    "start": "next start",
+    "serve": "next start",
     "lint": "next lint",
     "release": "release-it --ci"
   },
