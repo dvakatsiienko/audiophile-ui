@@ -20,6 +20,7 @@
     "@types/react-dom": "18.0.6",
     "auto-changelog": "2.4.0",
     "eslint": "8.23.0",
+    "eslint-config-dva": "0.0.16",
     "eslint-config-next": "12.2.5",
     "release-it": "15.4.1",
     "sass": "1.54.7",
