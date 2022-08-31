@@ -1,10 +1,12 @@
 /* Core */
-import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
+import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
 import type { AppProps } from 'next/app';
 
 /* Instruments */
 import { theme } from '@/theme';
+import { store } from '@/lib/redux';
 import '@/theme/index.scss';
 
 const MyApp = (props: AppProps) => {
@@ -12,11 +14,13 @@ const MyApp = (props: AppProps) => {
 
     return (
         <ThemeProvider theme = { theme }>
-            <Head>
-                <title>Audiophile</title>
-                <link href = '/favicon.ico' rel = 'icon' />
-            </Head>
-            <Component { ...pageProps } />
+            <Provider store = { store }>
+                <Head>
+                    <title>Audiophile</title>
+                    <link href = '/favicon.ico' rel = 'icon' />
+                </Head>
+                <Component { ...pageProps } />
+            </Provider>
         </ThemeProvider>
     );
 };
