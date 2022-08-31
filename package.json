@@ -1,6 +1,6 @@
 {
   "name": "audiophile-ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "start": "next dev",
@@ -10,9 +10,12 @@
     "release": "release-it --ci"
   },
   "dependencies": {
+    "github": "14.0.0",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "reset-css": "5.0.1",
+    "reset.css": "2.0.2"
   },
   "devDependencies": {
     "@types/node": "18.7.14",
