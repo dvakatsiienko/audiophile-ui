@@ -1,5 +1,6 @@
 /* Core */
 import { ThemeProvider } from 'styled-components';
+import Head from 'next/head';
 import type { AppProps } from 'next/app';
 
 /* Instruments */
@@ -11,6 +12,10 @@ const MyApp = (props: AppProps) => {
 
     return (
         <ThemeProvider theme = { theme }>
+            <Head>
+                <title>Audiophile</title>
+                <link href = '/favicon.ico' rel = 'icon' />
+            </Head>
             <Component { ...pageProps } />
         </ThemeProvider>
     );

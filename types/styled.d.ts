@@ -6,6 +6,7 @@ declare module 'styled-components' {
             'color-1': string;
             'color-2': string;
             'color-3': string;
+            'color-4': string;
         };
     }
 }
