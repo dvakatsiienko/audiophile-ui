@@ -1,11 +1,14 @@
 /* Core */
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 /* Instruments */
 import { center } from '@/theme';
 
 export const Header = () => {
+    const router = useRouter();
+
     return (
         <StyledHeader>
             <h1>Audiophile</h1>
@@ -35,7 +38,7 @@ export const Header = () => {
                 </ul>
             </nav>
 
-            <Cart />
+            <Cart onClick = { () => router.push('/checkout') } />
         </StyledHeader>
     );
 };
