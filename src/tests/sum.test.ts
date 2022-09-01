@@ -1,4 +1,4 @@
-import { describe, expect, test } from '@jest/globals';
+/* Instruments */
 import { sum } from './sum';
 
 describe('sum module', () => {
