@@ -15,9 +15,7 @@ const Index: NextPage = () => {
     const count = useSelector(state => state.counter.count);
     const dispatch = useDispatch();
 
-    const {
-        isLoading, error, data: userList, isFetching,
-    } = useQuery([ 'users' ], fetchUsers);
+    const { isLoading, data: userList, isFetching } = useQuery([ 'users' ], fetchUsers);
 
     const post1Query = useQuery([ 'post-1' ], fetchPost1);
     const { data: post1 } = post1Query;
