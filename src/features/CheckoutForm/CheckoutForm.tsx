@@ -22,6 +22,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
 
     const submit: SubmitHandler<FormShape> = data => {
         console.log(data);
+        props.onSubmit();
     };
 
     return (
