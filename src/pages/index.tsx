@@ -56,6 +56,8 @@ const Index: NextPage = () => {
                     <br />
 
                     <ul>{userListJSX}</ul>
+
+                    <br />
                 </div>
             </Content>
 

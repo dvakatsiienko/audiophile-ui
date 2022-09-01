@@ -28,7 +28,7 @@ const MyApp = (props: AppProps) => {
                         </Head>
                         <Component { ...pageProps } />
 
-                        <ReactQueryDevtools initialIsOpen />
+                        <ReactQueryDevtools />
                     </Provider>
                 </Hydrate>
             </QueryClientProvider>

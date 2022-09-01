@@ -2,10 +2,9 @@
 export default {
     reactStrictMode: true,
     swcMinify:       true,
-    compiler:        {
-        styledComponents: true,
-    },
-    eslint: {
-        ignoreDuringBuilds: true,
+    compiler:        { styledComponents: true },
+    experimental:    { images: { allowFutureImage: true } },
+    images:          {
+        domains: [ 'localhost:3000' ],
     },
 };
