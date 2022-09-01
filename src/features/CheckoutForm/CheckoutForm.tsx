@@ -1,4 +1,5 @@
 /* Core */
+import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
 
@@ -27,20 +28,20 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
 
     return (
         <Form onSubmit = { handleSubmit(submit) }>
-            <h6>Billing Details</h6>
+            <h6 data-testid = 'form-title'>Billing Details</h6>
 
             <div>
-                <input { ...register('name') } />
+                <input data-testid = 'input-name' { ...register('name') } />
                 <span>{errors.name?.message}</span>
             </div>
 
             <div>
-                <input { ...register('email') } />
+                <input data-testid = 'input-email' { ...register('email') } />
                 <span>{errors.email?.message}</span>
             </div>
 
             <div>
-                <input { ...register('phone') } />
+                <input data-testid = 'input-phone' { ...register('phone') } />
                 <span>{errors.phone?.message}</span>
             </div>
 
