@@ -15,8 +15,6 @@ import img from '@/pages/api/images/headphones/x99-mark-II-hero.png';
 const HeadphonesPage: NextPage = () => {
     const { data: headphoneList } = useQuery([ 'headphone-list' ], fetchHeadphones);
 
-    console.log(headphoneList);
-
     const headephoneListJSX = headphoneList?.map(headphone => {
         return (
             <li key = { headphone.id }>
