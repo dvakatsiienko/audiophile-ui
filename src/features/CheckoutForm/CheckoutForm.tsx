@@ -1,7 +1,8 @@
 /* Core */
-import React from 'react';
+import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 /* Instruments */
 import { resolver, type FormShape } from './resolver';
@@ -21,9 +22,23 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
         },
     });
 
-    const submit: SubmitHandler<FormShape> = data => {
+    const router = useRouter();
+    const [ checkoutState, setcheCkoutState ] = useState('waiting');
+
+    const submit: SubmitHandler<FormShape> = async data => {
         console.log(data);
         props.onSubmit();
+
+        const response = await fetch('/api/checkout', {
+            method: 'POST',
+            body:   JSON.stringify('test'),
+        });
+
+        const result = await response.json();
+
+        setcheCkoutState(result.message);
+
+        router.push('/');
     };
 
     return (
@@ -32,7 +47,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
 
             <div>
                 <input data-testid = 'input-name' { ...register('name') } />
-                <span>{errors.name?.message}</span>
+                <span data-testid = 'input-name-error'>{errors.name?.message}</span>
             </div>
 
             <div>
@@ -45,7 +60,10 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
                 <span>{errors.phone?.message}</span>
             </div>
 
-            <button type = 'submit'>Continue & pay</button>
+            <h1 data-testid = 'checkout-state'>{checkoutState}</h1>
+            <button data-testid = 'button-submit' type = 'submit'>
+                Continue & pay
+            </button>
         </Form>
     );
 };

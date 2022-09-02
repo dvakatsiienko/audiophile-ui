@@ -1,5 +1,5 @@
 /* Core */
-import uuid, { v4 } from 'uuid';
+import { v4 } from 'uuid';
 import { resolve } from 'path';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
