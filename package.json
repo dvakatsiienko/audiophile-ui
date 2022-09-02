@@ -8,7 +8,8 @@
     "serve": "next start",
     "lint": "next lint",
     "test": "jest",
-    "release": "release-it --ci"
+    "release": "release-it --ci",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@hookform/resolvers": "2.9.7",
@@ -42,7 +43,7 @@
     "auto-changelog": "2.4.0",
     "eslint": "8.23.0",
     "eslint-config-dva": "0.0.16",
-    "husky": "8.0.1",
+    "husky": "^8.0.0",
     "jest": "29.0.1",
     "jest-environment-jsdom": "29.0.1",
     "msw": "0.46.1",
