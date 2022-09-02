@@ -13,7 +13,7 @@ const CheckoutPage: NextPage = () => {
             <Header />
             <Content>
                 <h1>Checkout</h1>
-                <CheckoutForm onSubmit = { () => null } />
+                <CheckoutForm onSubmit = { () => alert('+') } />
             </Content>
             <Footer />
         </Layout>
