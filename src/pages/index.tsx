@@ -4,28 +4,18 @@ import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer, Button
+    Layout, Header, Content, Footer
 } from '@/components';
+import { Counter } from '@/features';
 
 /* Instruments */
 import { fetchUsers, fetchPost1 } from '@/api';
-import { useDispatch, useSelector, counterSlice } from '@/lib/redux';
 
 const Index: NextPage = () => {
-    const count = useSelector(state => state.counter.count);
-    const dispatch = useDispatch();
-
     const { isLoading, data: userList, isFetching } = useQuery([ 'users' ], fetchUsers);
 
     const post1Query = useQuery([ 'post-1' ], fetchPost1);
     const { data: post1 } = post1Query;
-
-    const increment = () => {
-        dispatch(counterSlice.actions.increment());
-    };
-    const decrement = () => {
-        dispatch(counterSlice.actions.decrement());
-    };
 
     let userListJSX = null;
 
@@ -41,12 +31,9 @@ const Index: NextPage = () => {
             <Header />
 
             <Content>
-                <h1>Audiophile {count}</h1>
+                <h1>Audiophile</h1>
 
-                <div>
-                    <Button onClick = { increment }>+</Button>
-                    <Button onClick = { decrement }>-</Button>
-                </div>
+                <Counter />
 
                 <div>
                     <p>Post 1: {post1?.title}</p>

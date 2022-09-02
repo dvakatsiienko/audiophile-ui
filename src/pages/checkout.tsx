@@ -12,8 +12,8 @@ const CheckoutPage: NextPage = () => {
         <Layout>
             <Header />
             <Content>
-                <h1>Checkout</h1>
-                <CheckoutForm onSubmit = { () => null } />
+                <h1 data-testid = 'heading'>Checkout</h1>
+                <CheckoutForm onSubmit = { () => alert('+') } />
             </Content>
             <Footer />
         </Layout>
