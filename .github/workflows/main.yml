@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress CI Test Run
 
 on: [push]
 
@@ -8,13 +8,12 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v2
-            # Install NPM dependencies, cache them correctly
-            # and run all Cypress tests
-            - name: Cypress run
+            - name: Cypress Run
               uses: cypress-io/github-action@v4
               with:
                   build: npm run build
                   start: npm run serve
+                  parallel: true
                   record: true
               env:
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
