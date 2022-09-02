@@ -1,7 +1,6 @@
 /* Core */
 import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { useRouter } from 'next/router';
+import user from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
@@ -47,7 +46,7 @@ test('Loads renders correct markup', async () => {
     const checkoutState = screen.getByTestId('checkout-state');
     const nameInput = screen.getByTestId('input-name');
 
-    await userEvent.type(nameInput, '{backspace}{backspace}');
+    await user.type(nameInput, '{backspace}{backspace}');
 
     expect(checkoutState).toHaveTextContent('waiting');
     expect(screen.getByTestId('input-name-error')).toHaveTextContent('Minimum 4 characters.');
@@ -57,9 +56,9 @@ test('Loads renders correct markup', async () => {
     expect(screen.getByTestId('input-email')).toHaveAttribute('name', 'email');
     expect(screen.getByTestId('input-phone')).toHaveAttribute('name', 'phone');
 
-    await userEvent.type(nameInput, 'dima');
+    await user.type(nameInput, 'dima');
     await waitFor(async () => {
-        await userEvent.click(screen.getByTestId('button-submit'));
+        await user.click(screen.getByTestId('button-submit'));
 
         expect(alert).toBeCalledWith('+');
         expect(checkoutState).toHaveTextContent(checkoutResponseMsg);
