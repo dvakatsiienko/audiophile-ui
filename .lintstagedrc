@@ -1,5 +1,5 @@
 {
   "**/*.+(ts|tsx)": [
-    "jest --findRelatedTests && test:e2e"
+    "jest --findRelatedTests"
   ]
 }

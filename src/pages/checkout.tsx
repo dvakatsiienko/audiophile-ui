@@ -12,7 +12,7 @@ const CheckoutPage: NextPage = () => {
         <Layout>
             <Header />
             <Content>
-                <h1 className = 'heading'>Checkout</h1>
+                <h1 data-testid = 'heading'>Checkout</h1>
                 <CheckoutForm onSubmit = { () => alert('+') } />
             </Content>
             <Footer />

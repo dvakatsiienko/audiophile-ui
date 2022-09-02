@@ -31,7 +31,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
 
         const response = await fetch('/api/checkout', {
             method: 'POST',
-            body:   JSON.stringify('test'),
+            body:   JSON.stringify({ user: 'test' }),
         });
 
         const result = await response.json();
@@ -61,6 +61,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
             </div>
 
             <h1 data-testid = 'checkout-state'>{checkoutState}</h1>
+
             <button data-testid = 'button-submit' type = 'submit'>
                 Continue & pay
             </button>

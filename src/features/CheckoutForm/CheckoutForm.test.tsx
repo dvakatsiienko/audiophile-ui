@@ -41,7 +41,7 @@ afterAll(() => server.close());
 afterEach(() => server.resetHandlers());
 
 test('Loads renders correct markup', async () => {
-    render(<CheckoutForm onSubmit = { () => alert('+') } />);
+    render(<CheckoutForm onSubmit = { () => alert('+++') } />);
 
     const checkoutState = screen.getByTestId('checkout-state');
     const nameInput = screen.getByTestId('input-name');
@@ -60,7 +60,7 @@ test('Loads renders correct markup', async () => {
     await waitFor(async () => {
         await user.click(screen.getByTestId('button-submit'));
 
-        expect(alert).toBeCalledWith('+');
+        expect(alert).toBeCalledWith('+++');
         expect(checkoutState).toHaveTextContent(checkoutResponseMsg);
 
         expect(push).toHaveBeenNthCalledWith(1, '/');

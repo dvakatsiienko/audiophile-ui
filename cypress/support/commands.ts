@@ -13,8 +13,20 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
+
+Cypress.Commands.add('interceptCheckout', () => {
+    cy.intercept('POST', '/api/checkout', (req) => {
+        expect(req.body).to.eql(JSON.stringify({ user: 'test' }));
+
+        console.log('TEST');
+
+        req.continue((res) => {
+            expect(res.statusCode).to.eq(200);
+            expect(res.body).to.eql({ message: 'SUCCESS' });
+        });
+    });
+});
+
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
@@ -25,16 +37,5 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-//
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
 
 export {};
