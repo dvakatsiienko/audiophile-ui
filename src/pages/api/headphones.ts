@@ -1,5 +1,5 @@
 /* Core */
-import { v4 } from 'uuid';
+import uuid, { v4 } from 'uuid';
 import { resolve } from 'path';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -12,7 +12,7 @@ const img1 = resolve('.', './images/headphones/x99-mark-II-gallery-1.png');
 const img2 = resolve('.', './images/headphones/x99-mark-II-gallery-2.png');
 const img3 = resolve('.', './images/headphones/x99-mark-II-gallery-3.png');
 
-const headphonesData: Headphone[] = [
+export const headphonesData: Headphone[] = [
     {
         id:          v4(),
         name:        'XX99 Mark II',
