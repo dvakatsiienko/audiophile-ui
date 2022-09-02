@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { center } from '@/theme';
 
 export const Footer = () => {
-    return <StyledFooter>Footer3</StyledFooter>;
+    return <StyledFooter>Footer</StyledFooter>;
 };
 
 /* Styles */
