@@ -11,7 +11,7 @@ const config: Config = {
     transform:          {
         '^.+\\.(t|j)sx?$': '@swc/jest',
     },
-    // TODO connect Codecov.io
+    // TODO connect codecov.io test cov
     collectCoverageFrom: [ '**/src/components/**/**', '**/src/features/**/**', '**/src/api/**/**' ],
     watchPlugins:        [ 'jest-watch-typeahead/filename', 'jest-watch-typeahead/testname' ],
 };

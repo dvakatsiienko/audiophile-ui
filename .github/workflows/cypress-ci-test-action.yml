@@ -1,4 +1,4 @@
-name: Cypress CI Test Run
+name: Cypress CI E2E Test Run
 
 on: [push]
 
@@ -8,7 +8,7 @@ jobs:
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v3
-            - name: Run Cypress
+            - name: Run Cypress E2E in Chrome
               uses: cypress-io/github-action@v4
               with:
                   build: npm run build
