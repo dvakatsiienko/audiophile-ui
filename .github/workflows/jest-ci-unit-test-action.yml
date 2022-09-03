@@ -3,7 +3,7 @@ name: Jest CI Unit Test Run
 on: [push]
 
 jobs:
-    build:
+    jest-unit-ci-run:
         runs-on: ubuntu-latest
 
         strategy:
