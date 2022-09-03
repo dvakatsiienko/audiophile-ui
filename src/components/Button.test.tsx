@@ -9,6 +9,7 @@ import { Button } from './Button';
 import { styledRender } from '@/utils';
 
 const handler = jest.fn();
+jest.spyOn(Button.defaultProps, 'onClick');
 
 describe('<Button />:', () => {
     test('renders correct markup', async () => {
@@ -32,5 +33,14 @@ describe('<Button />:', () => {
         await user.click(button);
 
         expect(handler).toBeCalledTimes(1);
+    });
+
+    test('provides default stub function via default props', async () => {
+        styledRender(<Button />);
+        const button = screen.getByRole('button');
+
+        await user.click(button);
+
+        expect(Button.defaultProps.onClick).toBeCalledTimes(1);
     });
 });
