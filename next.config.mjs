@@ -4,7 +4,4 @@ export default {
     swcMinify:       true,
     compiler:        { styledComponents: true },
     experimental:    { images: { allowFutureImage: true } },
-    images:          {
-        domains: [ 'localhost:3000' ],
-    },
 };

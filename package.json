@@ -6,7 +6,7 @@
     "start": "next dev",
     "build": "next build",
     "serve": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "jest",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test:coverage": "jest --coverage",
