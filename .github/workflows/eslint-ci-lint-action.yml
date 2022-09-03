@@ -23,15 +23,16 @@ jobs:
               env:
                   DEFAULT_BRANCH: 'main'
                   VALIDATE_ALL_CODEBASE: true
-                  ACTIONS_RUNNER_DEBUG: true
+                  ACTIONS_RUNNER_DEBUG: false
                   JAVASCRIPT_DEFAULT_STYLE: 'standard/prettier'
                   JAVASCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
                   TYPESCRIPT_DEFAULT_STYLE: 'ts-standard/prettier'
                   TYPESCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
 
                   VALIDATE_JAVASCRIPT_ES: true
-                  VALIDATE_TYPESCRIPT_ES: true
                   VALIDATE_JSX: true
+                  VALIDATE_TYPESCRIPT_ES: true
+                  VALIDATE_TSX: true
                   VALIDATE_GITHUB_ACTIONS: true
                   VALIDATE_YAML: true
                   VALIDATE_ENV: true
