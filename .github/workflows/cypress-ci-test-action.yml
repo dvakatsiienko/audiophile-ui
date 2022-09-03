@@ -7,7 +7,7 @@ on:
             - '*'
 
 jobs:
-    cypress-e2e-ci-run:
+    run-cypress-e2e-ci:
         runs-on: ubuntu-latest
         strategy:
             matrix:

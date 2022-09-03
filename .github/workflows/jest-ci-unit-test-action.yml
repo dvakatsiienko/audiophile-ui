@@ -1,9 +1,13 @@
 name: Jest CI Unit Test Run
 
-on: [push]
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - '*'
 
 jobs:
-    jest-unit-ci-run:
+    run-jest-unit-ci:
         runs-on: ubuntu-latest
 
         strategy:
