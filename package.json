@@ -1,12 +1,12 @@
 {
   "name": "audiophile-ui",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "start": "next dev",
     "build": "next build",
     "serve": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "jest",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test:coverage": "jest --coverage",

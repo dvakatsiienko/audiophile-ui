@@ -1,3 +1,4 @@
+---
 name: Lint Codebase
 
 on:
@@ -16,11 +17,26 @@ jobs:
               with:
                   fetch-depth: 0 # Full git history is needed to get a proper list of changed files within `super-linter`
 
+            - run: yarn install --frozen-lockfile --immutable --immutable-cache --check-cache
+
             - name: Run ESLint
               uses: github/super-linter@v4
               env:
                   DEFAULT_BRANCH: 'main'
                   VALIDATE_ALL_CODEBASE: false
-                  VALIDATE_MARKDOWN: false
-                  VALIDATE_NATURAL_LANGUAGE: false
+                  ACTIONS_RUNNER_DEBUG: false # for debuging purposes
+
+                  JAVASCRIPT_DEFAULT_STYLE: 'standard/prettier'
+                  JAVASCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
+                  TYPESCRIPT_DEFAULT_STYLE: 'ts-standard/prettier'
+                  TYPESCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
+
+                  VALIDATE_JAVASCRIPT_ES: true
+                  VALIDATE_JSX: true
+                  VALIDATE_TYPESCRIPT_ES: true
+                  VALIDATE_TSX: true
+                  VALIDATE_GITHUB_ACTIONS: true
+                  VALIDATE_YAML: true
+                  VALIDATE_ENV: true
+
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
