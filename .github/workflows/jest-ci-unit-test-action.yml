@@ -20,4 +20,12 @@ jobs:
                   node-version: ${{ matrix.node-version }}
                   cache: 'yarn'
             - run: yarn install --frozen-lockfile --immutable --immutable-cache --check-cache
-            - run: yarn test
+            - run: yarn test --coverage
+
+            - name: Upload test coverage to codecov.io
+              uses: codecov/codecov-action@v3
+              with:
+                  name: codecov-audiophile-ui-umbrella
+                  verbose: true
+                  # files: './coverage/clover.xml'
+                  token: ${{ secrets.CODECOV_TOKEN }}
