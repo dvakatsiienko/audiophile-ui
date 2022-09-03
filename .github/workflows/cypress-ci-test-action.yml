@@ -1,13 +1,17 @@
 name: Cypress CI E2E Test Run
 
-on: [push]
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
 
 jobs:
     cypress-run:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node: [16]
+                node: '16'
 
         steps:
             - name: Checkout Repository
