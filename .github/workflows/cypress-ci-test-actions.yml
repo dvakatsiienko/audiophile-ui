@@ -22,6 +22,7 @@ jobs:
               with:
                   install-command: yarn install --frozen-lockfile --immutable --immutable-cache --check-cache
                   runTests: false
+
             - name: Run Cypress E2E in Chrome
               uses: cypress-io/github-action@v4
               with:
