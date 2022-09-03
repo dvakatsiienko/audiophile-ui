@@ -27,5 +27,5 @@ jobs:
               with:
                   name: codecov-audiophile-ui-umbrella
                   verbose: true
-                  files: './coverage/clover.xml'
+                  # files: './coverage/clover.xml'
                   token: ${{ secrets.CODECOV_TOKEN }}
