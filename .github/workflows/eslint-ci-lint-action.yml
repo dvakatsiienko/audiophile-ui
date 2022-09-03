@@ -21,6 +21,17 @@ jobs:
               env:
                   DEFAULT_BRANCH: 'main'
                   VALIDATE_ALL_CODEBASE: false
-                  VALIDATE_MARKDOWN: false
-                  VALIDATE_NATURAL_LANGUAGE: false
+                  ACTIONS_RUNNER_DEBUG: true
+                  JAVASCRIPT_DEFAULT_STYLE: 'standard/prettier'
+                  JAVASCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
+                  TYPESCRIPT_DEFAULT_STYLE: 'ts-standard/prettier'
+                  TYPESCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
+
+                  VALIDATE_JAVASCRIPT_ES: true
+                  VALIDATE_TYPESCRIPT_ES: true
+                  VALIDATE_JSX: true
+                  VALIDATE_GITHUB_ACTIONS: true
+                  VALIDATE_YAML: true
+                  VALIDATE_ENV: true
+
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

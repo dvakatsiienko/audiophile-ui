@@ -4,8 +4,6 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/de01d38cbc0341ee925a1943b130eb72)](https://www.codacy.com/gh/dvakatsiienko/audiophile-ui/dashboard?utm_source=github.com&utm_medium=referral&utm_content=dvakatsiienko/audiophile-ui&utm_campaign=Badge_Grade) [![codecov](https://codecov.io/gh/dvakatsiienko/audiophile-ui/branch/main/graph/badge.svg?token=KPJR4DB3LS)](https://codecov.io/gh/dvakatsiienko/audiophile-ui)
 
-[![GitHub Super-Linter](https://github.com/dvakatsiienko/audiophile-ui/workflows/Lint%20Codebase/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
 #### Tech Stack:
 
 -   Next.js
