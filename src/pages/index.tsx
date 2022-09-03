@@ -12,7 +12,7 @@ import { Counter } from '@/features';
 import { fetchUsers, fetchPost1 } from '@/api';
 
 const Index: NextPage = () => {
-            const { isLoading, data: userList, isFetching } = useQuery([ 'users' ], fetchUsers);
+        const { isLoading, data: userList, isFetching } = useQuery([ 'users' ], fetchUsers);
 
     const post1Query = useQuery([ 'post-1' ], fetchPost1);
     const { data: post1 } = post1Query;
