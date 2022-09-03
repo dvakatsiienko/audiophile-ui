@@ -1,4 +1,5 @@
-/// <reference types="cypress" />
+/* Core */
+import { Cypress, cy } from 'local-cypress';
 
 // ***********************************************
 // This example commands.ts shows you how to
