@@ -1,4 +1,5 @@
-/// <reference types="cypress" />
+/* Core */
+import { cy, describe, it, beforeEach } from 'local-cypress';
 
 describe('Checkout page:', () => {
     beforeEach(() => {

@@ -1,6 +1,6 @@
 {
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules", "src/*.test.ts"],
     "compilerOptions": {
         /* Module resolution */
         "baseUrl": ".",
@@ -8,7 +8,7 @@
             "@/*": ["src/*"]
         },
         "target": "ESNext",
-        "lib": ["dom", "dom.iterable", "ESNExt"],
+        "lib": ["DOM", "DOM.Iterable", "ESNExt"],
         "allowJs": true,
         "skipLibCheck": true,
         "strict": true,
