@@ -16,6 +16,8 @@ jobs:
               with:
                   fetch-depth: 0 # Full git history is needed to get a proper list of changed files within `super-linter`
 
+            - run: yarn install --frozen-lockfile --immutable --immutable-cache --check-cache
+
             - name: Run ESLint
               uses: github/super-linter@v4
               env:
