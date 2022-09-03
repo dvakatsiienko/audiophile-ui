@@ -1,6 +1,5 @@
 {
   "**/*.+(ts|tsx)": [
-    "yarn run lint",
     "jest --findRelatedTests --passWithNoTests"
   ]
 }
