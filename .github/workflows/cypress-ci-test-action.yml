@@ -1,4 +1,4 @@
-name: Cypress CI E2E Test Run
+name: Cypress E2E Test Run
 
 on:
     workflow_dispatch:
@@ -7,7 +7,7 @@ on:
             - '*'
 
 jobs:
-    cypress-e2e-ci-run:
+    run-cypress-e2e-ci:
         runs-on: ubuntu-latest
         strategy:
             matrix:

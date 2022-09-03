@@ -1,0 +1,26 @@
+name: Lint Codebase
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - '*'
+
+jobs:
+    run-eslint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0 # Full git history is needed to get a proper list of changed files within `super-linter`
+
+            - name: Run ESLint
+              uses: github/super-linter@v4
+              env:
+                  DEFAULT_BRANCH: 'main'
+                  VALIDATE_ALL_CODEBASE: false
+                  VALIDATE_MARKDOWN: false
+                  VALIDATE_NATURAL_LANGUAGE: false
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

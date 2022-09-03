@@ -1,9 +1,13 @@
-name: Jest CI Unit Test Run
+name: Jest Unit Test Run
 
-on: [push]
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - '*'
 
 jobs:
-    jest-unit-ci-run:
+    run-jest-unit-ci:
         runs-on: ubuntu-latest
 
         strategy:
@@ -27,5 +31,4 @@ jobs:
               with:
                   name: codecov-audiophile-ui-umbrella
                   verbose: true
-                  # files: './coverage/clover.xml'
                   token: ${{ secrets.CODECOV_TOKEN }}
