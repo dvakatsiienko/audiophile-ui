@@ -1,4 +1,4 @@
-name: Jest CI Unit Test Run
+name: Jest Unit Test Run
 
 on:
     workflow_dispatch:
