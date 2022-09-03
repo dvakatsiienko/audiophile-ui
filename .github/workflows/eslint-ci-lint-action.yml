@@ -23,9 +23,9 @@ jobs:
                   VALIDATE_ALL_CODEBASE: false
                   ACTIONS_RUNNER_DEBUG: true
                   JAVASCRIPT_DEFAULT_STYLE: 'standard/prettier'
-                  JAVASCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
+                  # JAVASCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
                   TYPESCRIPT_DEFAULT_STYLE: 'ts-standard/prettier'
-                  TYPESCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
+                  # TYPESCRIPT_ES_CONFIG_FILE: '.eslintrc.js'
 
                   VALIDATE_JAVASCRIPT_ES: true
                   VALIDATE_TYPESCRIPT_ES: true
