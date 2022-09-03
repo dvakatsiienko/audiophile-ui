@@ -5,9 +5,11 @@ on: [push]
 jobs:
     cypress-run:
         runs-on: ubuntu-latest
+
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v3
+
             - name: Run Cypress E2E in Chrome
               uses: cypress-io/github-action@v4
               with:
