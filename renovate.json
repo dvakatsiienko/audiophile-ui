@@ -8,12 +8,10 @@
   "packageRules": [
       {
           "matchUpdateTypes": ["major"],
-          "dependencyDashboardApproval": true,
-          "automerge": false
+          "dependencyDashboardApproval": true
       },
       {
-          "matchUpdateTypes": ["minor", "patch"],
-          "automerge": true
+          "matchUpdateTypes": ["minor", "patch"]
       },
 
       {
