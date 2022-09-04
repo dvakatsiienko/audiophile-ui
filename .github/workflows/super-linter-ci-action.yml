@@ -1,5 +1,5 @@
 ---
-name: Lint Codebase
+name: Super-Lint Codebase
 
 on:
     workflow_dispatch:
@@ -8,7 +8,7 @@ on:
             - '*'
 
 jobs:
-    run-eslint:
+    run-super-linter:
         runs-on: ubuntu-latest
 
         steps:
