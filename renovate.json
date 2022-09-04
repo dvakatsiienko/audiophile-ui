@@ -1,6 +1,28 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "prHourlyLimit": 3,
+  "automergeStrategy": "rebase",
+  "branchPrefix": "update-",
+  "assignees": ["dvakatsiienko"],
+  "packageRules": [
+      {
+          "matchUpdateTypes": ["major"],
+          "dependencyDashboardApproval": true,
+          "automerge": false
+      },
+      {
+          "matchUpdateTypes": ["minor", "patch"],
+          "automerge": true
+      },
+
+      {
+        "matchPackagePatterns": ["eslint"],
+        "labels": ["linting"]
+      },
+      {
+        "matchPackagePatterns": ["next"],
+        "labels": ["core"]
+      }
   ]
 }
