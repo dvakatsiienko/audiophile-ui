@@ -4,6 +4,7 @@
   "prHourlyLimit": 3,
   "automergeStrategy": "rebase",
   "branchPrefix": "update-",
+  "assignees": ["dvakatsiienko"],
   "packageRules": [
       {
           "matchUpdateTypes": ["major"],
