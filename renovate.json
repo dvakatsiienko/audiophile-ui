@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "prHourlyLimit": 3,
+  "prHourlyLimit": 4,
   "automergeStrategy": "rebase",
   "branchPrefix": "renovate-",
   "assignees": ["dvakatsiienko"],
