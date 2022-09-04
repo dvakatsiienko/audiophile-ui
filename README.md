@@ -13,3 +13,5 @@
 -   Cypress for e2e tests
 -   Vercel as a deployment platform
 -   Github actions as a CI platform
+
+<object data="https://codecov.io/gh/docker/notary/branch/master/graphs/sunburst.svg" type="image/svg+xml"></object>
