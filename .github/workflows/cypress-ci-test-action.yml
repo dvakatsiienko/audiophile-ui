@@ -31,7 +31,7 @@ jobs:
                   build: yarn build
                   start: yarn serve
                   browser: chrome
-                  parallel: true
+                  #   parallel: true
                   record: true
               env:
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -45,7 +45,7 @@ jobs:
                   #   start: yarn serve
 
                   browser: electron
-                  parallel: true
+                  #   parallel: true
                   record: true
               env:
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
