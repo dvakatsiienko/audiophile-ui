@@ -1,0 +1,8 @@
+addReviewers: true
+addAssignees: true
+
+reviewers:
+    - dvakatsiienko
+
+assignees:
+    - dvakatsiienko

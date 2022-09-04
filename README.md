@@ -6,10 +6,10 @@
 
 #### Tech Stack:
 
--   Next.js
+-   **`Next.js`**
 -   react-query as a data fetching solution
 -   styled-components as a styling solution
 -   Jest for unit tests
 -   Cypress for e2e tests
 -   Vercel as a deployment platform
--   Github actions as a CI platform
+-   Github Actions as a CI platform

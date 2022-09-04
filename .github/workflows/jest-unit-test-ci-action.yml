@@ -8,7 +8,7 @@ on:
             - '*'
 
 jobs:
-    run-jest-unit-ci:
+    run-jest-unit-tests:
         runs-on: ubuntu-latest
 
         strategy:
