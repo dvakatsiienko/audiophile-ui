@@ -7,13 +7,13 @@ on:
             - '*'
 
 jobs:
-    codacy-code-quality-scan:
+    run-codacy-code-quality-scan:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
 
-            - name: Run Codacy Analysis CLI
+            - name: Run Codacy Code Quality Scan
               uses: codacy/codacy-analysis-cli-action@v4
               # with:
 
