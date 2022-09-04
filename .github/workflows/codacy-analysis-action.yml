@@ -13,6 +13,9 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v3
 
+            - name: Install Packages
+            - run: yarn install --frozen-lockfile --immutable --immutable-cache --check-cache
+
             - name: Run Codacy Code Quality Scan
               uses: codacy/codacy-analysis-cli-action@v4
               # with:
