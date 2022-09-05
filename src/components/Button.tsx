@@ -16,8 +16,8 @@ Button.defaultProps = {
 
 /* Styles */
 const StyledButton = styled.button`
-    color: ${p => p.theme.colors[ 'color-2' ]};
-    background-color: ${p => p.theme.colors[ 'color-3' ]};
+    color: ${p => p.theme.palette[ 'color-2' ]};
+    background-color: ${p => p.theme.palette[ 'color-3' ]};
 `;
 
 /* Types */

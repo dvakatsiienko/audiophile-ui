@@ -14,7 +14,7 @@ const StyledLayout = styled.main`
         'footer';
     grid-template-rows: 97px auto 365px;
     min-height: 100vh;
-    background-color: ${p => p.theme.colors[ 'color-4' ]};
+    background-color: ${p => p.theme.palette[ 'color-3' ]};
 `;
 
 /* Types */

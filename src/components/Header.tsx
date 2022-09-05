@@ -49,7 +49,7 @@ const StyledHeader = styled.header`
     align-items: center;
     width: 100%;
     padding: 0 50px;
-    background-color: ${p => p.theme.colors[ 'color-3' ]};
+    background-color: ${p => p.theme.palette[ 'color-2' ]};
     color: white;
 
     & h1 {

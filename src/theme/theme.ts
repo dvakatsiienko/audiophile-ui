@@ -1,11 +1,16 @@
 /* Core */
 import type { Theme } from 'styled-components';
 
+const palette = {
+    'color-1': '#000000',
+    'color-2': '#101010',
+    'color-3': '#FFFFFF',
+    'color-4': '#FAFAFA',
+    'color-5': '#F1F1F1',
+    'color-6': '#D87D4A',
+    'color-7': '#FBAF85',
+};
+
 export const theme: Theme = {
-    colors: {
-        'color-1': '#000',
-        'color-2': '#fff',
-        'color-3': '#101010',
-        'color-4': '#F2F2F2',
-    },
+    palette,
 };
