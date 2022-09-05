@@ -15,3 +15,5 @@
 -   **[cypress](https://www.cypress.io/)** for e2e tests
 -   **[Vercel](https://vercel.com/)** as a deployment platform
 -   **[Github Actions](https://github.com/features/actions)** for executing key operations in CI environment
+
+<img src = './test_results/lighthouse_accessibility.svg' />
