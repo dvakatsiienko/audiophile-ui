@@ -2,11 +2,14 @@ import 'styled-components';
 
 declare module 'styled-components' {
     export interface Theme {
-        colors: {
+        palette: {
             'color-1': string;
             'color-2': string;
             'color-3': string;
             'color-4': string;
+            'color-5': string;
+            'color-6': string;
+            'color-7': string;
         };
     }
 }

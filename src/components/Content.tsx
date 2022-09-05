@@ -11,7 +11,7 @@ export const Content = (props: ContentTypes) => {
 /* Styles */
 const StyledContent = styled.section`
     grid-area: content;
-    background-color: ${p => p.theme.colors[ 'color-4' ]};
+    background-color: ${p => p.theme.palette[ 'color-4' ]};
 
     ${center}
 `;
