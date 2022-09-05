@@ -1,5 +1,5 @@
 ---
-name: Jest Unit Test Run
+name: Jest Unit Tests
 
 on:
     workflow_dispatch:
@@ -8,7 +8,7 @@ on:
             - '*'
 
 jobs:
-    run-jest-unit-tests:
+    jest-unit-tests:
         runs-on: ubuntu-latest
 
         strategy:
