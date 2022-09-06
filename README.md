@@ -1,4 +1,4 @@
-# Audiophile UI
+# 🖥 Audiophile UI
 
 [![Cypress E2E Test Run](https://github.com/dvakatsiienko/audiophile-ui/actions/workflows/cypress-e2e-test-ci-action.yml/badge.svg)](https://github.com/dvakatsiienko/audiophile-ui/actions/workflows/cypress-e2e-test-ci-action.yml) [![Jest Unit Test Run](https://github.com/dvakatsiienko/audiophile-ui/actions/workflows/jest-unit-test-ci-action.yml/badge.svg)](https://github.com/dvakatsiienko/audiophile-ui/actions/workflows/jest-unit-test-ci-action.yml) [![Super-Lint Codebase](https://github.com/dvakatsiienko/audiophile-ui/actions/workflows/super-linter-ci-action.yml/badge.svg)](https://github.com/dvakatsiienko/audiophile-ui/actions/workflows/super-linter-ci-action.yml)
 
