@@ -1,53 +1,22 @@
 /* Core */
-import { useQuery, dehydrate, QueryClient } from '@tanstack/react-query';
+import { dehydrate, QueryClient } from '@tanstack/react-query';
 import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer, H6, Body, Overline
+    Layout, Header, Content, Footer, H1
 } from '@/components';
-import { Counter } from '@/features';
 
 /* Instruments */
-import { fetchUsers, fetchPost1 } from '@/api';
+import { fetchPost1 } from '@/api';
 
 const Index: NextPage = () => {
-    const { isLoading, data: userList, isFetching } = useQuery([ 'users' ], fetchUsers);
-
-    const post1Query = useQuery([ 'post-1' ], fetchPost1);
-    const { data: post1 } = post1Query;
-
-    let userListJSX = null;
-
-    userListJSX = userList?.map(user => {
-        return (
-            <li key = { user.id }>
-                <Overline>{user.name}</Overline>
-            </li>
-        );
-    });
-
-    if (!userList && isLoading) userListJSX = 'Loading...';
-    if (!userList && isFetching) userListJSX = 'Fetching...';
-
     return (
         <Layout>
             <Header />
 
             <Content>
-                <H6>Audiophile</H6>
-
-                <Counter />
-
-                <div>
-                    <Body>Post 1: {post1?.title}</Body>
-
-                    <br />
-
-                    <ul>{userListJSX}</ul>
-
-                    <br />
-                </div>
+                <H1>Audiophile</H1>
             </Content>
 
             <Footer />

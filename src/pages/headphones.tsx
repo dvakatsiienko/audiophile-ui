@@ -1,11 +1,10 @@
 /* Core */
 import { useQuery, dehydrate, QueryClient } from '@tanstack/react-query';
-import NextImage from 'next/future/image';
 import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer
+    Layout, Header, Content, Footer, H1, Headphone
 } from '@/components';
 
 /* Instruments */
@@ -16,18 +15,14 @@ const HeadphonesPage: NextPage = () => {
     const { data: headphoneList } = useQuery([ 'headphone-list' ], fetchHeadphones);
 
     const headephoneListJSX = headphoneList?.map(headphone => {
-        return (
-            <li key = { headphone.id }>
-                {headphone.name} <NextImage src = { img } />
-            </li>
-        );
+        return <Headphone img = { img } key = { headphone.id } name = { headphone.name } />;
     });
 
     return (
         <Layout>
             <Header />
             <Content>
-                <h1>Headphones</h1>
+                <H1>Headphones</H1>
 
                 <br />
 
