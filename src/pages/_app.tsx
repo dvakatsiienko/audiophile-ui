@@ -25,7 +25,17 @@ const MyApp = (props: AppProps) => {
                         <Head>
                             <title>Audiophile</title>
                             <link href = '/favicon.ico' rel = 'icon' />
+                            <link
+                                crossOrigin = ''
+                                href = 'https://fonts.gstatic.com'
+                                rel = 'preconnect'
+                            />
+                            <link
+                                href = 'https://fonts.googleapis.com/css?family=Manrope&display=swap'
+                                rel = 'stylesheet'
+                            />
                         </Head>
+
                         <Component { ...pageProps } />
 
                         <ReactQueryDevtools />
