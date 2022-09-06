@@ -7,12 +7,15 @@ import {
 } from '@/components';
 import { CheckoutForm } from '@/features';
 
+/* Instruments */
+import { H1 } from '@/theme';
+
 const CheckoutPage: NextPage = () => {
     return (
         <Layout>
             <Header />
             <Content>
-                <h1 data-testid = 'heading'>Checkout</h1>
+                <H1 data-testid = 'heading'>Checkout</H1>
                 <CheckoutForm onSubmit = { () => alert('+') } />
             </Content>
             <Footer />

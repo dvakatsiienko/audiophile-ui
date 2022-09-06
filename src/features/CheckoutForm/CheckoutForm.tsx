@@ -1,10 +1,11 @@
 /* Core */
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
 
 /* Instruments */
+import { H6 } from '@/theme';
 import { resolver, type FormShape } from './resolver';
 
 export const CheckoutForm = (props: CheckoutFormProps) => {
@@ -43,7 +44,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
 
     return (
         <Form onSubmit = { handleSubmit(submit) }>
-            <h6 data-testid = 'form-title'>Billing Details</h6>
+            <H6 data-testid = 'form-title'>Billing Details</H6>
 
             <div>
                 <input data-testid = 'input-name' { ...register('name') } />
