@@ -4,7 +4,7 @@ import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer
+    Layout, Header, Content, Footer, H6, Body, Overline
 } from '@/components';
 import { Counter } from '@/features';
 
@@ -20,7 +20,11 @@ const Index: NextPage = () => {
     let userListJSX = null;
 
     userListJSX = userList?.map(user => {
-        return <li key = { user.id }>{user.name}</li>;
+        return (
+            <li key = { user.id }>
+                <Overline>{user.name}</Overline>
+            </li>
+        );
     });
 
     if (!userList && isLoading) userListJSX = 'Loading...';
@@ -31,12 +35,12 @@ const Index: NextPage = () => {
             <Header />
 
             <Content>
-                <h1>Audiophile</h1>
+                <H6>Audiophile</H6>
 
                 <Counter />
 
                 <div>
-                    <p>Post 1: {post1?.title}</p>
+                    <Body>Post 1: {post1?.title}</Body>
 
                     <br />
 

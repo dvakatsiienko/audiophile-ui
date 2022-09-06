@@ -1,14 +1,18 @@
 /* Core */
 import Link from 'next/link';
+import Image from 'next/future/image';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+
+/* Instruments */
+import logo from './img/audiophile-logo.svg';
 
 export const Header = () => {
     const router = useRouter();
 
     return (
         <StyledHeader>
-            <h1>Audiophile</h1>
+            <Image src = { logo } />
 
             <nav>
                 <ul>
@@ -60,6 +64,15 @@ const StyledHeader = styled.header`
         & ul {
             display: flex;
             gap: 34px;
+
+            & li {
+                & a {
+                    font-size: 13px;
+                    font-weight: 700;
+                    line-height: 25px;
+                    letter-spacing: 2px;
+                }
+            }
         }
     }
 `;

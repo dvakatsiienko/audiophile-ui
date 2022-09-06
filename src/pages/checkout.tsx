@@ -3,12 +3,9 @@ import type { NextPage } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer
+    Layout, Header, Content, Footer, H1
 } from '@/components';
 import { CheckoutForm } from '@/features';
-
-/* Instruments */
-import { H1 } from '@/theme';
 
 const CheckoutPage: NextPage = () => {
     return (

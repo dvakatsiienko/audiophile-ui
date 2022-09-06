@@ -4,8 +4,10 @@ import { useRouter } from 'next/router';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
 
+/* Components */
+import { H6 } from '@/components';
+
 /* Instruments */
-import { H6 } from '@/theme';
 import { resolver, type FormShape } from './resolver';
 
 export const CheckoutForm = (props: CheckoutFormProps) => {
