@@ -57,7 +57,7 @@
     "@types/uuid": "8.3.4",
     "auto-changelog": "2.4.0",
     "cypress": "10.7.0",
-    "eslint": "8.22.0",
+    "eslint": "8.23.0",
     "eslint-config-dva": "0.0.16",
     "eslint-plugin-cypress": "2.12.1",
     "husky": "8.0.1",
