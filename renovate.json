@@ -4,15 +4,11 @@
   "prHourlyLimit": 5,
   "automergeStrategy": "rebase",
   "assignees": ["dvakatsiienko"],
+  "rangeStrategy": "pin",
   "packageRules": [
       {
           "matchUpdateTypes": ["major"],
-          "dependencyDashboardApproval": true,
-          "automerge": false
-      },
-      {
-          "matchUpdateTypes": ["minor", "patch"],
-          "automerge": true
+          "dependencyDashboardApproval": true
       },
 
       {
