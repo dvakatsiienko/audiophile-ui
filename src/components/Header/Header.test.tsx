@@ -10,11 +10,18 @@ test('<Header />: Loads renders correct markup', async () => {
     expect(root.container).toMatchInlineSnapshot(`
 <div>
   <header
-    class="sc-bczRLJ gmezrs"
+    class="sc-bczRLJ xdoCl"
   >
-    <h1>
-      Audiophile
-    </h1>
+    <img
+      data-nimg="future"
+      decoding="async"
+      height="100"
+      loading="lazy"
+      src="/mock-path.svg"
+      srcset="/mock-path.svg 1x, /mock-path.svg 2x"
+      style="color: transparent;"
+      width="100"
+    />
     <nav>
       <ul>
         <li>
