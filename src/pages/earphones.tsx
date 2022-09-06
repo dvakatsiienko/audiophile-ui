@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import {
     Layout, Header, Content, Footer
 } from '@/components';
+import { Testing } from '@/features';
 
 const EarphonesPage: NextPage = () => {
     return (
@@ -12,6 +13,7 @@ const EarphonesPage: NextPage = () => {
             <Header />
             <Content>
                 <h1>Earphones</h1>
+                <Testing />
             </Content>
             <Footer />
         </Layout>

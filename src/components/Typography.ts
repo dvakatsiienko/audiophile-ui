@@ -6,6 +6,7 @@ export const H1 = styled.h1`
     font-weight: 700;
     line-height: 58px;
     letter-spacing: 2px;
+    text-transform: uppercase;
 `;
 
 export const H2 = styled.h2`
@@ -13,6 +14,7 @@ export const H2 = styled.h2`
     font-weight: 700;
     line-height: 44px;
     letter-spacing: 1.5px;
+    text-transform: uppercase;
 `;
 
 export const H3 = styled.h3`
@@ -20,6 +22,7 @@ export const H3 = styled.h3`
     font-weight: 700;
     line-height: 36px;
     letter-spacing: 1.15px;
+    text-transform: uppercase;
 `;
 
 export const H4 = styled.h4`
@@ -27,6 +30,7 @@ export const H4 = styled.h4`
     font-weight: 700;
     line-height: 38px;
     letter-spacing: 2px;
+    text-transform: uppercase;
 `;
 
 export const H5 = styled.h5`
@@ -34,6 +38,7 @@ export const H5 = styled.h5`
     font-weight: 700;
     line-height: 33px;
     letter-spacing: 1.7px;
+    text-transform: uppercase;
 `;
 
 export const H6 = styled.h6`
@@ -41,6 +46,7 @@ export const H6 = styled.h6`
     font-weight: 700;
     line-height: 24px;
     letter-spacing: 1.3px;
+    text-transform: uppercase;
 `;
 
 export const Overline = styled.p`
@@ -49,6 +55,7 @@ export const Overline = styled.p`
     line-height: 19px;
     letter-spacing: 10px;
     color: ${p => p.theme.palette[ 'color-6' ]};
+    text-transform: uppercase;
 `;
 
 export const SubTitle = styled.p`
@@ -57,6 +64,7 @@ export const SubTitle = styled.p`
     line-height: 25px;
     letter-spacing: 1px;
     color: ${p => p.theme.palette[ 'color-6' ]};
+    text-transform: uppercase;
 `;
 
 export const Body = styled.p`

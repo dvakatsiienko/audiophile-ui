@@ -10,7 +10,7 @@ test('<Header />: Loads renders correct markup', async () => {
     expect(root.container).toMatchInlineSnapshot(`
 <div>
   <header
-    class="sc-bczRLJ cOmPrx"
+    class="sc-bczRLJ xdoCl"
   >
     <img
       alt="logo"
