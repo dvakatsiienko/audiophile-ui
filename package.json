@@ -39,7 +39,7 @@
     "reset-css": "5.0.1",
     "sass": "1.54.8",
     "styled-components": "5.3.5",
-    "uuid": "8.3.2",
+    "uuid": "9.0.0",
     "waait": "1.0.5",
     "yup": "0.32.11"
   },
