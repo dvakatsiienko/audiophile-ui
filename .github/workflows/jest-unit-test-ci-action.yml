@@ -19,9 +19,10 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v3
               with:
-                  fetch-depth: 2
+                  #   fetch-depth: 1
+                  ref: ${{ github.event.pull_request.head.sha }}
 
-            - run: git checkout HEAD^
+            # - run: git checkout HEAD^
 
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
