@@ -13,9 +13,17 @@
 
         {
             "matchPackagePatterns": ["*"],
+            "matchUpdateTypes": ["major"],
+            "matchDepTypes": ["dependencies"],
+            "groupName": "all major devDependencies",
+            "groupSlug": "all-major-dependencies"
+        },
+        {
+            "matchPackagePatterns": ["*"],
             "matchUpdateTypes": ["minor", "patch"],
-            "groupName": "non-major dependencies",
-            "groupSlug": "all-non-major"
+            "matchDepTypes": ["devDependencies"],
+            "groupName": "all non-major devDependencies",
+            "groupSlug": "all-non-devDependencies"
         },
 
         {
