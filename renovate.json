@@ -16,11 +16,6 @@
       },
 
       {
-        "matchDepTypes": [ "devDependencies" ],
-        "enabled": true
-      },
-
-      {
         "matchPackagePatterns": ["eslint"],
         "labels": ["linting"]
       },
