@@ -3,7 +3,6 @@
   "extends": ["config:base"],
   "prHourlyLimit": 4,
   "automergeStrategy": "rebase",
-  "branchPrefix": "renovate-",
   "assignees": ["dvakatsiienko"],
   "packageRules": [
       {
