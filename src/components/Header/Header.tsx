@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 /* Instruments */
+import { media } from '@/theme';
 import logo from './img/audiophile-logo.svg';
 
 export const Header = () => {
@@ -12,7 +13,7 @@ export const Header = () => {
 
     return (
         <StyledHeader>
-            <Image src = { logo } />
+            <Image alt = 'logo' src = { logo } />
 
             <nav>
                 <ul>
@@ -75,6 +76,22 @@ const StyledHeader = styled.header`
             }
         }
     }
+
+    ${media.lessThan('mobile')`
+        background: deepskyblue;
+    `}
+
+    ${media.between('mobile', 'tablet')`
+        background: deepskyblue;
+    `}
+
+    ${media.between('tablet', 'desktop')`
+        background: rebeccapurple;
+    `}
+
+     ${media.greaterThan('desktop')`
+        background: orange;
+    `}
 `;
 
 const Cart = styled.div`

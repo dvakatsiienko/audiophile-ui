@@ -11,5 +11,11 @@ declare module 'styled-components' {
             'color-6': string;
             'color-7': string;
         };
+
+        viewports: {
+            mobile: string;
+            tablet: string;
+            desktop: string;
+        };
     }
 }
