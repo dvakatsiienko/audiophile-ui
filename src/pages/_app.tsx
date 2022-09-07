@@ -1,6 +1,7 @@
 /* Core */
 import { useState } from 'react';
 import Head from 'next/head';
+
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -24,16 +25,13 @@ const MyApp = (props: AppProps) => {
                     <Provider store = { store }>
                         <Head>
                             <title>Audiophile</title>
+
+                            <meta content = 'Audiophile app' name = 'description' />
+                            <meta charSet = 'utf-8' />
+                            <meta content = '#000000' name = 'theme-color' />
+                            <meta content = 'width=device-width, initial-scale=1' name = 'viewport' />
+
                             <link href = '/favicon.ico' rel = 'icon' />
-                            <link
-                                crossOrigin = ''
-                                href = 'https://fonts.gstatic.com'
-                                rel = 'preconnect'
-                            />
-                            <link
-                                href = 'https://fonts.googleapis.com/css?family=Manrope&display=swap'
-                                rel = 'stylesheet'
-                            />
                         </Head>
 
                         <Component { ...pageProps } />

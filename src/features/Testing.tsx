@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 /* Components */
-import { H6, Body, Overline } from '@/components';
+import { H6, Body, Overline } from '@/ui';
 import { Counter } from './Counter';
 
 /* Instruments */

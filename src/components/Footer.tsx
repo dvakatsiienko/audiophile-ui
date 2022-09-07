@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /* Components */
-import { H1 } from '@/components';
+import { H1 } from '@/ui';
 
 /* Instruments */
 import { center } from '@/theme';

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /* Components */
-import { Button, H1 } from '@/components';
+import { ActionButton, H1 } from '@/ui';
 
 /* Instruments */
 import { useDispatch, useSelector, counterSlice } from '@/lib/redux';
@@ -23,8 +23,13 @@ export const Counter = () => {
         <Section>
             <Heading data-testid = 'count-value'>{count}</Heading>
             <div>
-                <Button onClick = { increment }>+</Button>
-                <Button onClick = { decrement }>-</Button>
+                <ActionButton onClick = { increment }>+</ActionButton>
+                <ActionButton variant = 'secondary' onClick = { decrement }>
+                    -
+                </ActionButton>
+                <ActionButton variant = 'action' onClick = { decrement }>
+                    TEST
+                </ActionButton>
             </div>
         </Section>
     );
@@ -43,21 +48,15 @@ const Section = styled.section`
 `;
 
 const Heading = styled(H1)`
+    // ? Mobile
     text-align: center;
+    color: red;
 
-    ${media.lessThan('mobile')`
-        color: deepskyblue;
-    `}
-
-    ${media.between('mobile', 'tablet')`
-        color: deepskyblue;
-    `}
-
-    ${media.between('tablet', 'desktop')`
+    ${media.greaterThan('tablet')`
         color: rebeccapurple;
     `}
 
-     ${media.greaterThan('desktop')`
+    ${media.greaterThan('desktop')`
         color: orange;
     `}
 `;

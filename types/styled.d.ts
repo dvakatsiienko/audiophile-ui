@@ -10,6 +10,7 @@ declare module 'styled-components' {
             'color-5': string;
             'color-6': string;
             'color-7': string;
+            'color-8': string;
         };
 
         viewports: {

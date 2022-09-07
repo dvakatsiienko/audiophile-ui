@@ -3,7 +3,7 @@ import NextImage, { type StaticImageData } from 'next/future/image';
 import styled from 'styled-components';
 
 /* Components */
-import { H2 } from '@/components';
+import { H2 } from '@/ui';
 
 export const Headphone = (props: HeadphoneProps) => {
     return (
