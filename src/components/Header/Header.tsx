@@ -11,7 +11,7 @@ export const Header = () => {
     const router = useRouter();
 
     return (
-        <StyledHeader>
+        <SHeader>
             <Image alt = 'logo' src = { logo } />
 
             <nav>
@@ -40,12 +40,12 @@ export const Header = () => {
             </nav>
 
             <Cart onClick = { () => router.push('/checkout') } />
-        </StyledHeader>
+        </SHeader>
     );
 };
 
 /* Styles */
-const StyledHeader = styled.header`
+const SHeader = styled.header`
     grid-area: header;
     display: flex;
     flex-direction: row;

@@ -18,7 +18,7 @@ describe('<Button />:', () => {
 
         expect(button).toMatchInlineSnapshot(`
 <button
-  class="sc-bczRLJ cMkEwa"
+  class="sc-bczRLJ gzHulI"
   type="button"
 >
   Click
