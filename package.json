@@ -10,7 +10,7 @@
     "test": "jest",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test:coverage": "jest --coverage",
-    "open:coverage": "open ./coverage/lcov-report/api/index.html",
+    "open:coverage": "open ./coverage/lcov-report/index.html",
     "test:coverage:open": "run-s test:coverage open:coverage",
     "cy:run": "cypress run --headless --browser chrome",
     "cy:open": "cypress open --browser chrome",
