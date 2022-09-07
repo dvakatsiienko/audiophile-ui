@@ -4,8 +4,9 @@ import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer, H1, Headphone
+    Layout, Header, Content, Footer, Headphone
 } from '@/components';
+import { H1 } from '@/ui';
 
 /* Instruments */
 import { fetchHeadphones } from '@/api';

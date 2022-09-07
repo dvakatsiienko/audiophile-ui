@@ -27,7 +27,7 @@ export const Counter = () => {
                 <ActionButton variant = 'secondary' onClick = { decrement }>
                     -
                 </ActionButton>
-                <ActionButton variant = 'action' onClick = { decrement }>
+                <ActionButton variant = 'inline' onClick = { decrement }>
                     TEST
                 </ActionButton>
             </div>
@@ -48,7 +48,7 @@ const Section = styled.section`
 `;
 
 const Heading = styled(H1)`
-    // ? Mobile
+    /* Start from applying mobile styles */
     text-align: center;
     color: red;
 

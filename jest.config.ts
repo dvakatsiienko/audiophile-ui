@@ -15,8 +15,13 @@ const config: Config = {
     transform:          {
         '^.+\\.(t|j)sx?$': '@swc/jest',
     },
-    collectCoverageFrom: [ '**/src/components/**/**', '**/src/features/**/**', '**/src/api/**/**' ],
-    watchPlugins:        [ 'jest-watch-typeahead/filename', 'jest-watch-typeahead/testname' ],
+    collectCoverageFrom: [
+        '<rootDir>/src/components/**/**',
+        '<rootDir>/src/features/**/**',
+        '<rootDir>/src/api/**/**',
+        '<rootDir>/src/ui/**/**',
+    ],
+    watchPlugins: [ 'jest-watch-typeahead/filename', 'jest-watch-typeahead/testname' ],
 };
 
 export default config;
