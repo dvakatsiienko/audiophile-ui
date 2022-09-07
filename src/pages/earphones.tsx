@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer
+    Layout, Header, Content, Footer, H1
 } from '@/components';
 import { Testing } from '@/features';
 
@@ -12,7 +12,7 @@ const EarphonesPage: NextPage = () => {
         <Layout>
             <Header />
             <Content>
-                <h1>Earphones</h1>
+                <H1>Earphones</H1>
                 <Testing />
             </Content>
             <Footer />

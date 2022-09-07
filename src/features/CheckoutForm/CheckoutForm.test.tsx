@@ -1,8 +1,6 @@
 /* Core */
 import { render, screen, waitFor } from '@testing-library/react';
 import user from '@testing-library/user-event';
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
 
 /* Components */
 import { CheckoutForm } from './CheckoutForm';
@@ -11,6 +9,7 @@ jest.spyOn(window, 'alert').mockImplementation();
 jest.spyOn(console, 'log').mockImplementation();
 
 const push = jest.fn(() => Promise.resolve(true));
+
 jest.mock('next/router', () => ({
     __esModule: true,
     useRouter:  () => ({
@@ -27,18 +26,6 @@ jest.mock('next/router', () => ({
         replace:  jest.fn(() => Promise.resolve(true)),
     }),
 }));
-
-const checkoutResponseMsg = 'Success...';
-
-const server = setupServer(
-    rest.post('/api/checkout', (req, res, ctx) => {
-        return res(ctx.json({ message: checkoutResponseMsg }));
-    }),
-);
-
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
-afterAll(() => server.close());
-afterEach(() => server.resetHandlers());
 
 test('Loads renders correct markup', async () => {
     render(<CheckoutForm onSubmit = { () => alert('+++') } />);
@@ -61,7 +48,7 @@ test('Loads renders correct markup', async () => {
         await user.click(screen.getByTestId('button-submit'));
 
         expect(alert).toBeCalledWith('+++');
-        expect(checkoutState).toHaveTextContent(checkoutResponseMsg);
+        expect(checkoutState).toHaveTextContent('Success...');
 
         expect(push).toHaveBeenNthCalledWith(1, '/');
     });

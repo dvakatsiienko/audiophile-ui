@@ -20,16 +20,31 @@ export const Counter = () => {
     };
 
     return (
-        <section>
+        <Section>
             <Heading data-testid = 'count-value'>{count}</Heading>
-            <Button onClick = { increment }>+</Button>
-            <Button onClick = { decrement }>-</Button>
-        </section>
+            <div>
+                <Button onClick = { increment }>+</Button>
+                <Button onClick = { decrement }>-</Button>
+            </div>
+        </Section>
     );
 };
 
 /* Styles */
+const Section = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & div {
+        display: flex;
+        gap: 10px;
+    }
+`;
+
 const Heading = styled(H1)`
+    text-align: center;
+
     ${media.lessThan('mobile')`
         color: deepskyblue;
     `}
