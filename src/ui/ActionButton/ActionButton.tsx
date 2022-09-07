@@ -17,6 +17,7 @@ export const ActionButton = (props: ActionButtonProps) => {
             { ...dynamicProps }
             $variant = { props.variant as Variant }
             as = { props.as }
+            data-testid = { props[ 'data-testid' ] }
             onClick = { props.onClick }
         >
             <span>{props.children}</span>
@@ -25,12 +26,13 @@ export const ActionButton = (props: ActionButtonProps) => {
     );
 };
 ActionButton.defaultProps = {
-    onClick:  () => void 0,
-    children: 'Click',
-    variant:  'primary',
-    type:     'button',
-    as:       'button',
-    href:     '',
+    onClick:       () => void 0,
+    children:      'Click',
+    variant:       'primary',
+    type:          'button',
+    as:            'button',
+    href:          '',
+    'data-testid': null,
 };
 
 /* Styles */
@@ -72,6 +74,8 @@ const Button = styled.button<SButtonProps>`
     height: 40px;
     outline: none;
     transition: color 0.3s ease, background-color 0.3s ease;
+    border: none;
+    user-select: none;
 
     ${p => variants[ p.$variant as Variant ]}
 `;
@@ -84,6 +88,7 @@ interface ActionButtonProps {
     type?: 'button' | 'submit' | 'reset';
     as?: As;
     href?: string;
+    ['data-testid']?: string;
 }
 
 type Variant = 'primary' | 'secondary' | 'inline';

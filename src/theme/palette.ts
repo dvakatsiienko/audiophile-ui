@@ -7,4 +7,5 @@ export const palette = {
     'color-6': '#D87D4A',
     'color-7': '#FBAF85',
     'color-8': '#808080',
+    'color-9': '#cfcfcf',
 };

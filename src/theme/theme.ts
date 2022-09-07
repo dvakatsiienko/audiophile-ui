@@ -1,11 +1,11 @@
 /* Core */
-import type { Theme } from 'styled-components';
+import type { DefaultTheme } from 'styled-components';
 
 /* Instruments */
 import { palette } from './palette';
 import { viewports } from './viewports';
 
-export const theme: Theme = {
+export const theme: DefaultTheme = {
     palette,
     viewports,
 };

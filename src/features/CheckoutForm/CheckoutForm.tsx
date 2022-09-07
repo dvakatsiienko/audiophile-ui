@@ -5,7 +5,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
 
 /* Components */
-import { H6 } from '@/ui';
+import { H6, ActionButton, Subtitle } from '@/ui';
+import { Input, Radio, Number } from './inputs';
 
 /* Instruments */
 import { resolver, type FormShape } from './resolver';
@@ -15,15 +16,20 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
         register,
         handleSubmit,
         formState: { errors },
+        getValues,
+        watch,
     } = useForm<FormShape>({
         resolver,
         mode:          'all',
         defaultValues: {
-            name:  'dima',
-            email: 'test@email.com',
-            phone: '111-11-11',
+            name:          'dima',
+            email:         'test@email.com',
+            phone:         '111-11-11',
+            paymentMethod: 'e-money',
         },
     });
+
+    const [ count, setCount ] = useState(0);
 
     const router = useRouter();
     const [ checkoutState, setcheCkoutState ] = useState('waiting');
@@ -44,30 +50,63 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
         router.push('/');
     };
 
+    watch('paymentMethod');
+    const paymentMethod = getValues('paymentMethod');
+
     return (
         <Form onSubmit = { handleSubmit(submit) }>
-            <H6 data-testid = 'form-title'>Billing Details</H6>
+            <Subtitle>Billing Details</Subtitle>
 
-            <div>
-                <input data-testid = 'input-name' { ...register('name') } />
-                <span data-testid = 'input-name-error'>{errors.name?.message}</span>
-            </div>
+            <Input
+                data-testid = 'input-name'
+                error = { errors.name }
+                placeholder = 'Insert your name'
+                register = { register('name') }
+            />
 
-            <div>
-                <input data-testid = 'input-email' { ...register('email') } />
-                <span>{errors.email?.message}</span>
-            </div>
+            <Input
+                data-testid = 'input-email'
+                error = { errors.email }
+                placeholder = 'Insert your email'
+                register = { register('email') }
+            />
 
-            <div>
-                <input data-testid = 'input-phone' { ...register('phone') } />
-                <span>{errors.phone?.message}</span>
-            </div>
+            <Input
+                data-testid = 'input-phone'
+                error = { errors.phone }
+                placeholder = 'Insert your phone'
+                register = { register('phone') }
+            />
 
-            <h1 data-testid = 'checkout-state'>{checkoutState}</h1>
+            <H6 data-testid = 'checkout-state'>{checkoutState}</H6>
 
-            <button data-testid = 'button-submit' type = 'submit'>
+            <Subtitle data-testid = 'form-title'>Payment Details</Subtitle>
+
+            <Radio
+                id = '1'
+                isChecked = { paymentMethod === 'e-money' }
+                label = 'e-Money'
+                register = { register('paymentMethod') }
+                value = 'e-money'
+            />
+
+            <Radio
+                id = '2'
+                isChecked = { paymentMethod === 'cash' }
+                label = 'Cash on Delivery'
+                register = { register('paymentMethod') }
+                value = 'cash'
+            />
+
+            <Number
+                decrement = { () => setCount(count - 1) }
+                increment = { () => setCount(count + 1) }
+                value = { count }
+            />
+
+            <ActionButton data-testid = 'button-submit' type = 'submit'>
                 Continue & pay
-            </button>
+            </ActionButton>
         </Form>
     );
 };
@@ -77,15 +116,6 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 10px;
-
-    & div {
-        display: flex;
-        flex-direction: column;
-
-        & span {
-            min-height: 20px;
-        }
-    }
 `;
 
 /* Types */
