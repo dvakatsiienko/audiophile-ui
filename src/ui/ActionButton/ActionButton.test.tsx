@@ -3,31 +3,33 @@ import { screen } from '@testing-library/react';
 import user from '@testing-library/user-event';
 
 /* Components */
-import { Button } from './Button';
+import { ActionButton } from './ActionButton';
 
 /* Instruments */
 import { styledRender } from '@/utils';
 
 const handler = jest.fn();
-jest.spyOn(Button.defaultProps, 'onClick');
+jest.spyOn(ActionButton.defaultProps, 'onClick');
 
-describe('<Button />:', () => {
+describe('<ActionButton />:', () => {
     test('renders correct markup', async () => {
-        styledRender(<Button onClick = { handler } />);
+        styledRender(<ActionButton onClick = { handler } />);
         const button = screen.getByRole('button');
 
         expect(button).toMatchInlineSnapshot(`
 <button
-  class="sc-bczRLJ gzHulI"
+  class="sc-bczRLJ bTIZAn"
   type="button"
 >
-  Click
+  <span>
+    Click
+  </span>
 </button>
 `);
     });
 
     test('handles click handler passed via props', async () => {
-        styledRender(<Button onClick = { handler } />);
+        styledRender(<ActionButton onClick = { handler } />);
         const button = screen.getByRole('button');
 
         await user.click(button);
@@ -36,11 +38,11 @@ describe('<Button />:', () => {
     });
 
     test('provides default stub function via default props', async () => {
-        styledRender(<Button />);
+        styledRender(<ActionButton />);
         const button = screen.getByRole('button');
 
         await user.click(button);
 
-        expect(Button.defaultProps.onClick).toBeCalledTimes(1);
+        expect(ActionButton.defaultProps.onClick).toBeCalledTimes(1);
     });
 });

@@ -10,10 +10,10 @@ test('<Footer />: Loads renders correct markup', async () => {
     expect(root.container).toMatchInlineSnapshot(`
 <div>
   <footer
-    class="sc-breuTD eiUStr"
+    class="sc-jqUVSM jBqgeR"
   >
     <h1
-      class="sc-eCYdqJ jWqziO"
+      class="sc-bczRLJ cTBEXJ"
     >
       Footer
     </h1>

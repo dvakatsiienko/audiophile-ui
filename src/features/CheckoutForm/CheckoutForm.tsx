@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
 
 /* Components */
-import { H6 } from '@/components';
+import { H6 } from '@/ui';
 
 /* Instruments */
 import { resolver, type FormShape } from './resolver';
