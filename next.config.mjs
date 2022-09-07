@@ -4,4 +4,7 @@ export default {
     swcMinify:       true,
     compiler:        { styledComponents: true },
     experimental:    { images: { allowFutureImage: true } },
+    eslint:          {
+        ignoreDuringBuilds: true,
+    },
 };
