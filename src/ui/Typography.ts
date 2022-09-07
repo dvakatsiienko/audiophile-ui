@@ -58,7 +58,7 @@ export const Overline = styled.p`
     text-transform: uppercase;
 `;
 
-export const SubTitle = styled.p`
+export const Subtitle = styled.p`
     font-size: 13px;
     font-weight: 700;
     line-height: 25px;

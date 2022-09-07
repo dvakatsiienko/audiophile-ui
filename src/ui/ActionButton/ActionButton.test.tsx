@@ -21,7 +21,7 @@ describe.only('<ActionButton />:', () => {
 
         expect(button).toMatchInlineSnapshot(`
 <button
-  class="sc-bczRLJ fhqDUI"
+  class="sc-bczRLJ fUkEVM"
   type="button"
 >
   <span>
@@ -37,7 +37,7 @@ describe.only('<ActionButton />:', () => {
 
         expect(button).toMatchInlineSnapshot(`
 <button
-  class="sc-bczRLJ ieMKtt"
+  class="sc-bczRLJ hzCsWx"
   type="button"
 >
   <span>
@@ -53,7 +53,7 @@ describe.only('<ActionButton />:', () => {
 
         expect(button).toMatchInlineSnapshot(`
 <button
-  class="sc-bczRLJ jQbkKT"
+  class="sc-bczRLJ kJrbVP"
   type="button"
 >
   <span>

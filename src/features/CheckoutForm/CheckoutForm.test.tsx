@@ -5,6 +5,9 @@ import user from '@testing-library/user-event';
 /* Components */
 import { CheckoutForm } from './CheckoutForm';
 
+/* Instruments */
+import { styledRender } from '@/utils';
+
 jest.spyOn(window, 'alert').mockImplementation();
 jest.spyOn(console, 'log').mockImplementation();
 
@@ -28,7 +31,7 @@ jest.mock('next/router', () => ({
 }));
 
 test('Loads renders correct markup', async () => {
-    render(<CheckoutForm onSubmit = { () => alert('+++') } />);
+    styledRender(<CheckoutForm onSubmit = { () => alert('+++') } />);
 
     const checkoutState = screen.getByTestId('checkout-state');
     const nameInput = screen.getByTestId('input-name');
@@ -36,10 +39,9 @@ test('Loads renders correct markup', async () => {
     await user.type(nameInput, '{backspace}{backspace}');
 
     expect(checkoutState).toHaveTextContent('waiting');
-    expect(screen.getByTestId('input-name-error')).toHaveTextContent('Minimum 4 characters.');
 
-    expect(screen.getByTestId('form-title')).toHaveTextContent('Billing Details');
     expect(nameInput).toHaveAttribute('name', 'name');
+
     expect(screen.getByTestId('input-email')).toHaveAttribute('name', 'email');
     expect(screen.getByTestId('input-phone')).toHaveAttribute('name', 'phone');
 
