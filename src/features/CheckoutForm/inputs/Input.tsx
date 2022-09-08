@@ -1,7 +1,7 @@
 /* Core */
 import React from 'react';
 import styled from 'styled-components';
-import { type FieldError, UseFormRegisterReturn } from 'react-hook-form';
+import type { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
 export const Input = (props: InputProps) => {
     const { error, register, ...restProps } = props;
@@ -36,16 +36,15 @@ const Label = styled.label<SLabelProps>`
 
         & span {
             font-weight: 700;
-            text-transform: capitalize;
-        }
 
-        & .label {
-            color: ${p => (p.$isError ? 'var(--error-color)' : 'inherit')};
-        }
+            &.label {
+                color: ${p => (p.$isError ? 'var(--error-color)' : 'inherit')};
+            }
 
-        & .errorMessage {
-            font-weight: 500;
-            color: var(--error-color);
+            &.errorMessage {
+                font-weight: 500;
+                color: var(--error-color);
+            }
         }
     }
 

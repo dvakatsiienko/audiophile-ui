@@ -7,7 +7,7 @@ export const Radio = (props: RadioProps) => {
 
     return (
         <Label $isChecked = { props.isChecked } htmlFor = { props.id }>
-            <input id = { props.id } type = 'radio' { ...props.register } value = { props.value } />
+            <Input id = { props.id } type = 'radio' { ...props.register } value = { props.value } />
             {props.label}
         </Label>
     );
@@ -27,41 +27,43 @@ const Label = styled.label<SLabelProps>`
     font-weight: 700;
     line-height: 19px;
     cursor: pointer;
-
     border: ${p => `1px solid ${p.$isChecked ? p.theme.palette[ 'color-6' ] : p.theme.palette[ 'color-9' ]}`};
 
     &:hover {
         border: ${p => `1px solid ${p.theme.palette[ 'color-6' ]}`};
     }
 
-    & input[type='radio'] {
-        appearance: none;
-        display: grid;
-        place-content: center;
-        margin: 0;
-        width: 20px;
-        height: 20px;
+    /* & input[type='radio'] {
+    } */
+`;
+
+const Input = styled.input`
+    appearance: none;
+    display: grid;
+    place-content: center;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font: inherit;
+    cursor: pointer;
+    /* Center dot element */
+    outline: 1px solid ${p => p.theme.palette[ 'color-9' ]};
+    outline-offset: max(2px, 0.15em);
+
+    &::before {
+        content: '';
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
-        font: inherit;
-        cursor: pointer;
-        /* Center dot element */
-        outline: 1px solid ${p => p.theme.palette[ 'color-9' ]};
-        outline-offset: max(2px, 0.15em);
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 10px 10px ${p => p.theme.palette[ 'color-6' ]};
+    }
 
+    &:checked {
         &::before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            transform: scale(0);
-            transition: 120ms transform ease-in-out;
-            box-shadow: inset 10px 10px ${p => p.theme.palette[ 'color-6' ]};
-        }
-
-        &:checked {
-            &::before {
-                transform: scale(1);
-            }
+            transform: scale(1);
         }
     }
 `;
