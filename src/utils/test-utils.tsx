@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 /* Instruments */
-import { theme as defaultTheme } from '@/theme';
+import { theme as defaultTheme } from '@/ui';
 
 const styledRender = (ui: React.ReactElement, { theme = defaultTheme, ...options } = {}) => {
     const Wrapper = (props: WrapperProps) => {

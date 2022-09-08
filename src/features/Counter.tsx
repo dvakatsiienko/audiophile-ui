@@ -2,11 +2,10 @@
 import styled from 'styled-components';
 
 /* Components */
-import { ActionButton, H1 } from '@/ui';
+import { ActionButton, H1, media } from '@/ui';
 
 /* Instruments */
 import { useDispatch, useSelector, counterSlice } from '@/lib/redux';
-import { media } from '@/theme';
 
 export const Counter = () => {
     const count = useSelector(state => state.counter.count);

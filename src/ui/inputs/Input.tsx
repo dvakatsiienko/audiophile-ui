@@ -20,6 +20,7 @@ export const Input = (props: InputProps) => {
 Input.defaultProps = {
     'data-testid': null,
     error:         null,
+    placeholder:   null,
 };
 
 /* Styles */
@@ -71,10 +72,11 @@ const Label = styled.label<SLabelProps>`
 `;
 
 /* Types */
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps {
     ['data-testid']?: string;
-    error?: FieldError | undefined;
+    error?: FieldError | void;
     register: UseFormRegisterReturn;
+    placeholder?: string;
 }
 
 interface SLabelProps {

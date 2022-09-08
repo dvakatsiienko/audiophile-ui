@@ -1,5 +1,5 @@
 /* Core */
-import NextImage, { type StaticImageData } from 'next/future/image';
+import Image, { type StaticImageData } from 'next/future/image';
 import styled from 'styled-components';
 
 /* Components */
@@ -9,7 +9,7 @@ export const Headphone = (props: HeadphoneProps) => {
     return (
         <Section>
             <H2>{props.name} headphones</H2>
-            <NextImage src = { props.img } />
+            <Image alt = 'headphone' src = { props.img } />
         </Section>
     );
 };
