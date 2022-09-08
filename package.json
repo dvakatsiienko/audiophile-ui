@@ -47,7 +47,7 @@
     "yup": "0.32.11"
   },
   "devDependencies": {
-    "@swc/core": "1.2.248",
+    "@swc/core": "1.2.249",
     "@swc/jest": "0.2.22",
     "@tanstack/react-query-devtools": "4.2.3",
     "@testing-library/jest-dom": "5.16.5",
