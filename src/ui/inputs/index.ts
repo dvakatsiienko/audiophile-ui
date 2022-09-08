@@ -1,3 +1,3 @@
-export * from './Input';
-export * from './Radio';
-export * from './Number';
+export * from './TextInput';
+export * from './RadioInput';
+export * from './NumberInput';

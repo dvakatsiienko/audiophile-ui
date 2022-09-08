@@ -4,7 +4,7 @@ import styled from 'styled-components';
 /* Instruments */
 import { center } from '@/theme';
 
-export const Number = (props: NumberProps) => {
+export const NumberInput = (props: NumberInputProps) => {
     return (
         <Container>
             <span onPointerDown = { props.decrement }>-</span>
@@ -44,7 +44,7 @@ const Container = styled.div`
 `;
 
 /* Types */
-interface NumberProps {
+interface NumberInputProps {
     value: number;
     increment: () => void;
     decrement: () => void;

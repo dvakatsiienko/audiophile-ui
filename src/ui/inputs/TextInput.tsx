@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import type { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
-export const Input = (props: InputProps) => {
+export const TextInput = (props: TextInputProps) => {
     const { error, register, ...restProps } = props;
 
     return (
@@ -17,7 +17,7 @@ export const Input = (props: InputProps) => {
         </Label>
     );
 };
-Input.defaultProps = {
+TextInput.defaultProps = {
     'data-testid': null,
     error:         null,
     placeholder:   null,
@@ -72,7 +72,7 @@ const Label = styled.label<SLabelProps>`
 `;
 
 /* Types */
-interface InputProps {
+interface TextInputProps {
     ['data-testid']?: string;
     error?: FieldError | void;
     register: UseFormRegisterReturn;
