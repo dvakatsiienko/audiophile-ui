@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import type { UseFormRegisterReturn } from 'react-hook-form';
 
-export const Radio = (props: RadioProps) => {
+export const RadioInput = (props: RadioInputProps) => {
     return (
         <Label $isChecked = { props.isChecked } htmlFor = { props.id }>
             <Input id = { props.id } type = 'radio' { ...props.register } value = { props.value } />
@@ -64,7 +64,7 @@ const Input = styled.input`
 `;
 
 /* Types */
-interface RadioProps {
+interface RadioInputProps {
     label: string;
     id: string;
     value: string;

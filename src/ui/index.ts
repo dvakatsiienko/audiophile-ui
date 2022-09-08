@@ -3,6 +3,6 @@ export { media } from './viewports';
 
 export * from './Typography';
 export { ActionButton } from './ActionButton';
-export { Input } from './inputs/Input';
-export { Radio } from './inputs/Radio';
-export { Number } from './inputs/Number';
+export { TextInput as Input } from './inputs/TextInput';
+export { RadioInput as Radio } from './inputs/RadioInput';
+export { NumberInput as Number } from './inputs/NumberInput';
