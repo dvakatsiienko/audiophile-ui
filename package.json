@@ -47,6 +47,7 @@
     "yup": "0.32.11"
   },
   "devDependencies": {
+    "@swc-node/register": "1.5.1",
     "@swc/core": "1.2.249",
     "@swc/jest": "0.2.22",
     "@tanstack/react-query-devtools": "4.2.3",
