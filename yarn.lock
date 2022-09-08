@@ -1052,6 +1052,32 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@swc-node/core@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@swc-node/core/-/core-1.9.0.tgz#f5208d575c1aed5a2cab7e4c04e46aca34d8c240"
+  integrity sha512-vRnvsMtL9OxybA/Wun1ZhlDvB6MNs4Zujnina0VKdGk+yI6s87KUhdTcbAY6dQMZhQTLFiC1Lnv/BuwCKcCEug==
+  dependencies:
+    "@swc/core" "^1.2.172"
+
+"@swc-node/register@1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@swc-node/register/-/register-1.5.1.tgz#8927783c1a53207ded076d8700270f7941aa0305"
+  integrity sha512-6IL5s4QShKGs08qAeNou3rDA3gbp2WHk6fo0XnJXQn/aC9k6FnVBbj/thGOIEDtgNhC/DKpZT8tCY1LpQnOZFg==
+  dependencies:
+    "@swc-node/core" "^1.9.0"
+    "@swc-node/sourcemap-support" "^0.2.0"
+    colorette "^2.0.16"
+    debug "^4.3.4"
+    pirates "^4.0.5"
+    tslib "^2.4.0"
+
+"@swc-node/sourcemap-support@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@swc-node/sourcemap-support/-/sourcemap-support-0.2.0.tgz#e9079f739921fbe5c49d85791703fcb1540c356b"
+  integrity sha512-FNrxdI6XMYfoNt81L8eFKEm1d8P82I1nPwS3MrnBGzZoMWB+seQhQK+iN6M5RreJxXbfZw5lF86LRjHEQeGMqg==
+  dependencies:
+    source-map-support "^0.5.21"
+
 "@swc/core-android-arm-eabi@1.2.249":
   version "1.2.249"
   resolved "https://registry.yarnpkg.com/@swc/core-android-arm-eabi/-/core-android-arm-eabi-1.2.249.tgz#3aa864f15f47e5f66886a2a6cf838a93813cbb38"
@@ -1129,7 +1155,7 @@
   resolved "https://registry.yarnpkg.com/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.2.249.tgz#0b3eb647a285ec94d17230f13c3bf0299ef41913"
   integrity sha512-IxRvePerNYVJXr6lk0P09y1XAqPncMHWWvWm7p3CvTAfxEuiM5DqD5wtIbFMXfPSi1TTSkzAqBoH6Nushvgb3Q==
 
-"@swc/core@1.2.249":
+"@swc/core@1.2.249", "@swc/core@^1.2.172":
   version "1.2.249"
   resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.2.249.tgz#5fb1e2654fadadb7bc1b846f77627a92f36d174b"
   integrity sha512-aXAoNQLfba/3YcR6wdBM21Gp3q+G6Ay9Ey+BZHOBGW5amewzd84WYKIMoIc4fZhFj9dv6UaUu3B9qD+4oP/zhg==
@@ -6029,7 +6055,7 @@ pify@^3.0.0:
   resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
   integrity sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==
 
-pirates@^4.0.4:
+pirates@^4.0.4, pirates@^4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.5.tgz#feec352ea5c3268fb23a37c702ab1699f35a5f3b"
   integrity sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==
@@ -6762,6 +6788,14 @@ source-map-support@0.5.13:
   version "0.5.13"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.13.tgz#31b24a9c2e73c2de85066c0feb7d44767ed52932"
   integrity sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUBdSLvlEKyIP3GCf89fltvcZiP9MMFA1w==
+  dependencies:
+    buffer-from "^1.0.0"
+    source-map "^0.6.0"
+
+source-map-support@^0.5.21:
+  version "0.5.21"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.21.tgz#04fe7c7f9e1ed2d662233c28cb2b35b9f63f6e4f"
+  integrity sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==
   dependencies:
     buffer-from "^1.0.0"
     source-map "^0.6.0"

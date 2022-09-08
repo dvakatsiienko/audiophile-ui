@@ -38,30 +38,30 @@ ActionButton.defaultProps = {
 /* Styles */
 const variants = {
     primary: css`
-        background-color: ${p => p.theme.palette[ 'color-6' ]};
-        color: ${p => p.theme.palette[ 'color-3' ]};
+        background-color: var(--color-6);
+        color: var(--color-3);
 
         &:hover {
-            background-color: ${p => p.theme.palette[ 'color-7' ]};
+            background-color: var(--color-7);
         }
     `,
     secondary: css`
-        background-color: ${p => p.theme.palette[ 'color-5' ]};
-        color: ${p => p.theme.palette[ 'color-1' ]};
+        background-color: var(--color-5);
+        color: var(--color-1);
         border: 1px solid black;
 
         &:hover {
-            background-color: ${p => p.theme.palette[ 'color-1' ]};
-            color: ${p => p.theme.palette[ 'color-5' ]};
+            background-color: var(--color-1);
+            color: var(--color-5);
         }
     `,
     inline: css`
         gap: 13px;
         background-color: transparent;
-        color: ${p => p.theme.palette[ 'color-8' ]};
+        color: var(--color-8);
 
         &:hover {
-            color: ${p => p.theme.palette[ 'color-6' ]};
+            color: var(--color-6);
         }
     `,
 };

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 /* Components */
 import {
-    H6, ActionButton, Subtitle, Input, Radio, Number
+    H6, ActionButton, Subtitle, TextInput, RadioInput, NumberInput
 } from '@/ui';
 
 /* Instruments */
@@ -58,21 +58,21 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
         <Form onSubmit = { handleSubmit(submit) }>
             <Subtitle>Billing Details</Subtitle>
 
-            <Input
+            <TextInput
                 data-testid = 'input-name'
                 error = { errors.name }
                 placeholder = 'Insert your name'
                 register = { register('name') }
             />
 
-            <Input
+            <TextInput
                 data-testid = 'input-email'
                 error = { errors.email }
                 placeholder = 'Insert your email'
                 register = { register('email') }
             />
 
-            <Input
+            <TextInput
                 data-testid = 'input-phone'
                 error = { errors.phone }
                 placeholder = 'Insert your phone'
@@ -83,7 +83,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
 
             <Subtitle data-testid = 'form-title'>Payment Details</Subtitle>
 
-            <Radio
+            <RadioInput
                 id = '1'
                 isChecked = { paymentMethod === 'e-money' }
                 label = 'e-Money'
@@ -91,7 +91,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
                 value = 'e-money'
             />
 
-            <Radio
+            <RadioInput
                 id = '2'
                 isChecked = { paymentMethod === 'cash' }
                 label = 'Cash on Delivery'
@@ -99,7 +99,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
                 value = 'cash'
             />
 
-            <Number
+            <NumberInput
                 decrement = { () => setCount(count - 1) }
                 increment = { () => setCount(count + 1) }
                 value = { count }
