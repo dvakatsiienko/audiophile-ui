@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 /* Instruments */
-import { LogoSvg, ShoppingCartSvg } from './img';
+import { LogoSvg, ShoppingCartSvg } from './svg';
 
 export const Header = () => {
     return (
