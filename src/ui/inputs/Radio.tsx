@@ -1,10 +1,8 @@
 /* Core */
 import styled from 'styled-components';
-import { UseFormRegisterReturn } from 'react-hook-form';
+import type { UseFormRegisterReturn } from 'react-hook-form';
 
 export const Radio = (props: RadioProps) => {
-    console.log(props.register.name, props.value, props.isChecked);
-
     return (
         <Label $isChecked = { props.isChecked } htmlFor = { props.id }>
             <Input id = { props.id } type = 'radio' { ...props.register } value = { props.value } />
@@ -32,9 +30,6 @@ const Label = styled.label<SLabelProps>`
     &:hover {
         border: ${p => `1px solid ${p.theme.palette[ 'color-6' ]}`};
     }
-
-    /* & input[type='radio'] {
-    } */
 `;
 
 const Input = styled.input`

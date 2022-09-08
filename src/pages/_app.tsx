@@ -1,19 +1,23 @@
 /* Core */
 import { useState } from 'react';
 import Head from 'next/head';
-
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
-import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+    Hydrate,
+    QueryClient,
+    QueryClientProvider,
+    type DehydratedState
+} from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
 
 /* Instruments */
-import { theme } from '@/theme';
+import { theme } from '@/ui';
 import { store } from '@/lib/redux';
 import '@/theme/index.scss';
 
-const MyApp = (props: AppProps) => {
+const MyApp = (props: Props) => {
     const { Component, pageProps } = props;
 
     const [ queryClient ] = useState(() => new QueryClient());
@@ -43,5 +47,8 @@ const MyApp = (props: AppProps) => {
         </ThemeProvider>
     );
 };
+
+/* Types */
+type Props = AppProps<{ dehydratedState: DehydratedState }>;
 
 export default MyApp;

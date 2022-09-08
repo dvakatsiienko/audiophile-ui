@@ -36,7 +36,7 @@ const Container = styled.div`
         opacity: 25%;
         cursor: pointer;
 
-        :hover {
+        &:hover {
             opacity: 100%;
             color: ${p => p.theme.palette[ 'color-6' ]};
         }

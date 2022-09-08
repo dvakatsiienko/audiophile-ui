@@ -19,8 +19,6 @@ Cypress.Commands.add('interceptCheckout', () => {
     cy.intercept('POST', '/api/checkout', (req) => {
         expect(req.body).to.eql(JSON.stringify({ user: 'test' }));
 
-        console.log('TEST');
-
         req.continue((res) => {
             expect(res.statusCode).to.eq(200);
             expect(res.body).to.eql({ message: 'SUCCESS' });
