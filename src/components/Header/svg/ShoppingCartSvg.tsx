@@ -1,4 +1,4 @@
-export const ShoppingCartSvg = () => {
+export const ShoppingCartSvg = (props: ShoppingCartSvgProps) => {
     return (
         <svg
             fill = 'none'
@@ -6,6 +6,7 @@ export const ShoppingCartSvg = () => {
             viewBox = '0 0 24 20'
             width = '24'
             xmlns = 'http://www.w3.org/2000/svg'
+            { ...props }
         >
             <path
                 clipRule = 'evenodd'
@@ -16,3 +17,6 @@ export const ShoppingCartSvg = () => {
         </svg>
     );
 };
+
+/* Types */
+export type ShoppingCartSvgProps = React.SVGProps<SVGSVGElement>;

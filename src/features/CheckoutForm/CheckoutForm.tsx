@@ -35,6 +35,9 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
     const router = useRouter();
     const [ checkoutState, setcheCkoutState ] = useState('waiting');
 
+    watch();
+    console.log(errors, getValues());
+
     const submit: SubmitHandler<FormShape> = async data => {
         console.log(data);
         props.onSubmit();
@@ -108,6 +111,8 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
             <ActionButton data-testid = 'button-submit' type = 'submit'>
                 Continue & pay
             </ActionButton>
+
+            <input type = 'submit' value = 'submit' />
         </Form>
     );
 };
