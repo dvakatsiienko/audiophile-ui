@@ -23,6 +23,7 @@ export const ActionButton = (props: ActionButtonProps) => {
     return (
         <Button
             { ...dynamicProps }
+            $size = { props.size }
             $variant = { props.variant as Variant }
             as = { props.as }
             data-testid = { props[ 'data-testid' ] }
@@ -40,6 +41,7 @@ ActionButton.defaultProps = {
     type:          'button',
     as:            'button',
     href:          '/',
+    size:          'medium',
     'data-testid': null,
 };
 
@@ -79,7 +81,7 @@ const Button = styled.button<SButtonProps>`
     justify-content: center;
     align-items: center;
     width: 160px;
-    height: 40px;
+    height: ${p => (p.$size === 'small' ? '20px' : '40px')};
     outline: none;
     transition: color 0.3s ease, background-color 0.3s ease;
     border: none;
@@ -96,12 +98,15 @@ interface ActionButtonProps {
     type?: 'button' | 'submit' | 'reset';
     as?: As;
     href?: Route;
+    size?: Size;
     ['data-testid']?: string;
 }
 
 type Variant = 'primary' | 'secondary' | 'inline';
 type As = 'button' | 'a';
+type Size = 'small' | 'medium' | 'large';
 
 interface SButtonProps {
     $variant: Variant;
+    $size: Size | void;
 }

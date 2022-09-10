@@ -1,6 +1,6 @@
 /* Core */
 import { screen, waitFor } from '@testing-library/react';
-import user from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 /* Components */
 import { CheckoutForm } from './CheckoutForm';
@@ -11,26 +11,8 @@ import { styledRender } from '@/utils';
 jest.spyOn(window, 'alert').mockImplementation();
 jest.spyOn(console, 'log').mockImplementation();
 
-const push = jest.fn(() => Promise.resolve(true));
-
-jest.mock('next/router', () => ({
-    __esModule: true,
-    useRouter:  () => ({
-        query:    {},
-        pathname: '/',
-        asPath:   '/',
-        events:   {
-            emit: jest.fn(),
-            on:   jest.fn(),
-            off:  jest.fn(),
-        },
-        push,
-        prefetch: jest.fn(() => Promise.resolve(true)),
-        replace:  jest.fn(() => Promise.resolve(true)),
-    }),
-}));
-
 test('Loads renders correct markup', async () => {
+    const user = userEvent.setup();
     styledRender(<CheckoutForm onSubmit = { () => alert('+++') } />);
 
     const checkoutState = screen.getByTestId('checkout-state');
@@ -52,6 +34,6 @@ test('Loads renders correct markup', async () => {
         expect(alert).toBeCalledWith('+++');
         expect(checkoutState).toHaveTextContent('Success...');
 
-        expect(push).toHaveBeenNthCalledWith(1, '/');
+        expect(global.mocks.push).toHaveBeenNthCalledWith(1, '/');
     });
 });
