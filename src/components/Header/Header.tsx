@@ -11,7 +11,7 @@ import { media, Tablet, Desktop } from '@/ui';
 import { LogoSvg, ShoppingCartSvg, BurgerMenuSvg } from './svg';
 
 export const Header = () => {
-    const [ isOpened, setIsOpened ] = useState(true);
+    const [ isOpened, setIsOpened ] = useState(false);
 
     return (
         <SHeader $isOpened = { isOpened }>
