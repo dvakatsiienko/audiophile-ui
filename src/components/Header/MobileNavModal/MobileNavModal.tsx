@@ -4,13 +4,13 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 /* Components */
-import { ActionButton, H6 } from '@/ui';
+import { ActionButton, H6, media } from '@/ui';
 
 /* Instruments */
 import { center } from '@/theme';
 import type { Route } from '@/types';
 
-export const MobileNav = (props: MobileNavProps) => {
+export const MobileNavModal = (props: MobileNavModalProps) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -23,7 +23,6 @@ export const MobileNav = (props: MobileNavProps) => {
     }, []);
 
     const navigate = (route: Route) => {
-        console.log(route);
         router.push(route);
         props.setIsOpened(false);
     };
@@ -31,22 +30,28 @@ export const MobileNav = (props: MobileNavProps) => {
     return (
         <Section>
             <ul>
-                <li onClick = { () => navigate('/headphones') }>
+                <li onPointerDown = { () => navigate('/headphones') }>
                     <Img />
                     <H6>Headphones</H6>
-                    <ActionButton variant = 'inline'>Shop</ActionButton>
+                    <ActionButton size = 'small' variant = 'inline'>
+                        Shop
+                    </ActionButton>
                 </li>
 
-                <li onClick = { () => navigate('/speakers') }>
+                <li onPointerDown = { () => navigate('/speakers') }>
                     <Img />
                     <H6>Speakers</H6>
-                    <ActionButton variant = 'inline'>Shop</ActionButton>
+                    <ActionButton size = 'small' variant = 'inline'>
+                        Shop
+                    </ActionButton>
                 </li>
 
-                <li onClick = { () => navigate('/earphones') }>
+                <li onPointerDown = { () => navigate('/earphones') }>
                     <Img />
                     <H6>Earphones</H6>
-                    <ActionButton variant = 'inline'>Shop</ActionButton>
+                    <ActionButton size = 'small' variant = 'inline'>
+                        Shop
+                    </ActionButton>
                 </li>
             </ul>
         </Section>
@@ -68,10 +73,18 @@ const Section = styled.section`
 
     & ul {
         display: flex;
+        gap: 10px;
 
         & li {
             ${center};
 
+            position: relative;
+            justify-content: end;
+            gap: 10px;
+            width: 225px;
+            height: 185px;
+            padding-bottom: 20px;
+            background-color: var(--color-5);
             cursor: pointer;
 
             &:hover {
@@ -85,15 +98,36 @@ const Section = styled.section`
             }
         }
     }
+
+    ${media.lessThan('tablet')`
+        height: auto;
+        min-height: 740px;
+        padding: 60px 0 35px;
+
+        & ul {
+            flex-direction: column;
+            gap: 68px;
+
+            & li {
+                width: 330px;
+            }
+        }
+    `}
 `;
 
 const Img = styled.div`
+    position: absolute;
+    top: -50px;
     width: 100px;
     height: 100px;
     background-color: #000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
 `;
 
+export type SetIsOpened = React.Dispatch<React.SetStateAction<boolean>>;
+
 /* Types */
-interface MobileNavProps {
-    setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
+interface MobileNavModalProps {
+    setIsOpened: SetIsOpened;
 }

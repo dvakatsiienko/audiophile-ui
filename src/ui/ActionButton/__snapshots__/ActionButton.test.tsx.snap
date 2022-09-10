@@ -46,8 +46,8 @@ exports[`<ActionButton />: renders correctly inline variant 1`] = `
     decoding="async"
     height="100"
     loading="lazy"
-    src="/mock-path.svg"
-    srcset="/mock-path.svg 1x, /mock-path.svg 2x"
+    src="http://localhost/_next/static/media/mocked-path.svg"
+    srcset="http://localhost/_next/static/media/mocked-path.svg 1x, http://localhost/_next/static/media/mocked-path.svg 2x"
     style="color: transparent;"
     width="100"
   />

@@ -4,28 +4,28 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 /* Components */
-import { MobileNav } from './MobileNav';
+import { MobileNavModal } from './MobileNavModal';
 
 /* Instruments */
 import { media, Tablet, Desktop } from '@/ui';
 import { LogoSvg, ShoppingCartSvg, BurgerMenuSvg } from './svg';
 
 export const Header = () => {
-    const [ isMobileNavOpened, setIsMobileNavOpened ] = useState(false);
+    const [ isOpened, setIsOpened ] = useState(true);
 
     return (
-        <SHeader $isOpened = { isMobileNavOpened }>
+        <SHeader $isOpened = { isOpened }>
             <section className = 'header-section'>
                 <Tablet>
                     <BurgerMenuSvg
-                        className = 'bureger-menu-svg'
-                        onClick = { () => setIsMobileNavOpened(prev => !prev) }
+                        data-testid = 'burger-menu-svg'
+                        onPointerDown = { () => setIsOpened(prev => !prev) }
                     />
                 </Tablet>
 
                 <Link href = '/'>
                     <a>
-                        <LogoSvg className = 'logo-svg' />
+                        <LogoSvg />
                     </a>
                 </Link>
 
@@ -58,12 +58,12 @@ export const Header = () => {
 
                 <Link href = '/checkout'>
                     <a>
-                        <ShoppingCartSvg className = 'shopping-cart-svg' />
+                        <ShoppingCartSvg />
                     </a>
                 </Link>
             </section>
 
-            {isMobileNavOpened && <MobileNav setIsOpened = { setIsMobileNavOpened } />}
+            {isOpened && <MobileNavModal setIsOpened = { setIsOpened } />}
         </SHeader>
     );
 };
@@ -95,9 +95,8 @@ const SHeader = styled.header<SSectionProps>`
     & .header-section {
         display: grid;
         grid-auto-flow: row;
-        grid-template-areas: 'burger logo cart';
+        grid-template-columns: auto auto auto;
         padding: 0 40px;
-
         justify-content: space-between;
         align-items: center;
         margin: auto;
@@ -105,27 +104,20 @@ const SHeader = styled.header<SSectionProps>`
         border-bottom: 1px solid #333333;
         max-width: 100%;
 
+        ${media.lessThan('tablet')`
+            padding: 0 24px;
+        `}
+
         ${media.greaterThan('mobile')`
             max-width: 689px;
         `}
 
         ${media.greaterThan('tablet')`
-            grid-template-areas: 'logo nav cart';
             max-width: 1110px;
         `}
 
         & svg {
             cursor: pointer;
-
-            &.burger-menu-svg {
-                grid-area: burger;
-            }
-            &.logo-svg {
-                grid-area: logo;
-            }
-            &.shopping-cart-svg {
-                grid-area: cart;
-            }
 
             &:hover {
                 & path,
@@ -161,6 +153,7 @@ const SHeader = styled.header<SSectionProps>`
     }
 `;
 
+/* Types */
 interface SSectionProps {
     $isOpened: boolean;
 }

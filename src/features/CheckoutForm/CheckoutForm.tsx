@@ -42,7 +42,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
         console.log(data);
         props.onSubmit();
 
-        const response = await fetch('/api/checkout', {
+        const response = await fetch('http://localhost:3000/api/checkout', {
             method: 'POST',
             body:   JSON.stringify({ user: 'test' }),
         });

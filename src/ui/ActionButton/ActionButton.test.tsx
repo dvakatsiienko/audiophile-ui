@@ -1,6 +1,6 @@
 /* Core */
 import { screen } from '@testing-library/react';
-import user from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 /* Components */
 import { ActionButton } from './ActionButton';
@@ -47,6 +47,7 @@ describe.only('<ActionButton />:', () => {
     });
 
     test('handles click handler passed via props', async () => {
+        const user = userEvent.setup();
         styledRender(<ActionButton onClick = { handler } />);
         const button = screen.getByRole('button');
 
@@ -56,6 +57,7 @@ describe.only('<ActionButton />:', () => {
     });
 
     test('provides default stub function via default props', async () => {
+        const user = userEvent.setup();
         styledRender(<ActionButton />);
         const button = screen.getByRole('button');
 

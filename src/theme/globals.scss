@@ -6,17 +6,6 @@
     font-size: 10px;
 }
 
-body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar,
-    &::scrollbar {
-        display: none;
-    }
-}
-
 *,
 *:before,
 *:after {
