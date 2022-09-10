@@ -28,7 +28,7 @@ export const MobileNavModal = (props: MobileNavModalProps) => {
     };
 
     return (
-        <Section>
+        <Section data-testid = 'mobile-nav-modal'>
             <ul>
                 <li onPointerDown = { () => navigate('/headphones') }>
                     <Img />

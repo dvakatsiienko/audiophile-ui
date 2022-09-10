@@ -3,6 +3,7 @@ import React from 'react';
 export const BurgerMenuSvg = (props: BurgerMenuSvgProps) => {
     return (
         <svg
+            className = { props.className }
             fill = 'none'
             height = '15'
             viewBox = '0 0 16 15'

@@ -18,6 +18,7 @@ export const Header = () => {
             <section className = 'header-section'>
                 <Tablet>
                     <BurgerMenuSvg
+                        className = 'burger-menu-svg'
                         data-testid = 'burger-menu-svg'
                         onPointerDown = { () => setIsOpened(prev => !prev) }
                     />
@@ -25,12 +26,12 @@ export const Header = () => {
 
                 <Link href = '/'>
                     <a>
-                        <LogoSvg />
+                        <LogoSvg className = 'logo-svg' data-testid = 'logo-svg' />
                     </a>
                 </Link>
 
                 <Desktop>
-                    <nav>
+                    <nav className = 'nav'>
                         <ul>
                             <li>
                                 <Link href = '/'>
@@ -58,7 +59,10 @@ export const Header = () => {
 
                 <Link href = '/checkout'>
                     <a>
-                        <ShoppingCartSvg />
+                        <ShoppingCartSvg
+                            className = 'shopping-cart-svg'
+                            data-testid = 'shopping-cart-svg'
+                        />
                     </a>
                 </Link>
             </section>
@@ -95,7 +99,7 @@ const SHeader = styled.header<SSectionProps>`
     & .header-section {
         display: grid;
         grid-auto-flow: row;
-        grid-template-columns: auto auto auto;
+        grid-template-areas: 'logo nav cart';
         padding: 0 40px;
         justify-content: space-between;
         align-items: center;
@@ -105,6 +109,7 @@ const SHeader = styled.header<SSectionProps>`
         max-width: 100%;
 
         ${media.lessThan('tablet')`
+            grid-template-areas: 'burger logo cart';
             padding: 0 24px;
         `}
 
@@ -118,6 +123,16 @@ const SHeader = styled.header<SSectionProps>`
 
         & svg {
             cursor: pointer;
+
+            &.burger-menu-svg {
+                grid-area: burger;
+            }
+            &.logo-svg {
+                grid-area: logo;
+            }
+            &.shopping-cart-svg {
+                grid-area: cart;
+            }
 
             &:hover {
                 & path,

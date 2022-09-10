@@ -56,5 +56,15 @@ interface Props {
 }
 
 export {
-    viewports, media, useMobileMQ, useTabletMQ, useDesktopMQ, Desktop, Tablet, Mobile
+    mobile,
+    tablet,
+    desktop,
+    viewports,
+    media,
+    useMobileMQ,
+    useTabletMQ,
+    useDesktopMQ,
+    Desktop,
+    Tablet,
+    Mobile
 };
