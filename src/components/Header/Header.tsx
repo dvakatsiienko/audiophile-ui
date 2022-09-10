@@ -1,77 +1,135 @@
 /* Core */
+import { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+/* Components */
+import { MobileNav } from './MobileNav';
+
 /* Instruments */
-import { LogoSvg, ShoppingCartSvg } from './svg';
+import { media, Tablet, Desktop } from '@/ui';
+import { LogoSvg, ShoppingCartSvg, BurgerMenuSvg } from './svg';
 
 export const Header = () => {
+    const [ isMobileNavOpened, setIsMobileNavOpened ] = useState(false);
+
     return (
-        <SHeader>
-            <section>
+        <SHeader $isOpened = { isMobileNavOpened }>
+            <section className = 'header-section'>
+                <Tablet>
+                    <BurgerMenuSvg
+                        className = 'bureger-menu-svg'
+                        onClick = { () => setIsMobileNavOpened(prev => !prev) }
+                    />
+                </Tablet>
+
                 <Link href = '/'>
                     <a>
-                        <LogoSvg />
+                        <LogoSvg className = 'logo-svg' />
                     </a>
                 </Link>
 
-                <nav>
-                    <ul>
-                        <li>
-                            <Link href = '/'>
-                                <a>Home</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href = '/headphones'>
-                                <a>Headphones</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href = '/speakers'>
-                                <a>Speakres</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href = '/earphones'>
-                                <a>Earphones</a>
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
+                <Desktop>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link href = '/'>
+                                    <a>Home</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href = '/headphones'>
+                                    <a>Headphones</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href = '/speakers'>
+                                    <a>Speakres</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href = '/earphones'>
+                                    <a>Earphones</a>
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </Desktop>
 
                 <Link href = '/checkout'>
                     <a>
-                        <ShoppingCartSvg />
+                        <ShoppingCartSvg className = 'shopping-cart-svg' />
                     </a>
                 </Link>
             </section>
+
+            {isMobileNavOpened && <MobileNav setIsOpened = { setIsMobileNavOpened } />}
         </SHeader>
     );
 };
 
 /* Styles */
-const SHeader = styled.header`
+const SHeader = styled.header<SSectionProps>`
+    --header-height: 90px;
+
+    position: sticky;
+    top: 0;
     grid-area: header;
+    height: var(--header-height);
     background-color: var(--color-2);
     color: white;
-    height: 96px;
 
-    & section {
-        display: flex;
-        flex-direction: row;
+    /* Overlay */
+    &:before {
+        position: fixed;
+        display: ${p => (p.$isOpened ? 'block' : 'none')};
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: ${p => (p.$isOpened ? 'rgba(0, 0, 0, 0.6)' : 'transparent')};
+        z-index: -1;
+    }
+
+    & .header-section {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-areas: 'burger logo cart';
+        padding: 0 40px;
+
         justify-content: space-between;
         align-items: center;
         margin: auto;
         height: 100%;
         border-bottom: 1px solid #333333;
-        width: ${p => p.theme.viewports.desktop};
+        max-width: 100%;
+
+        ${media.greaterThan('mobile')`
+            max-width: 689px;
+        `}
+
+        ${media.greaterThan('tablet')`
+            grid-template-areas: 'logo nav cart';
+            max-width: 1110px;
+        `}
 
         & svg {
             cursor: pointer;
 
+            &.burger-menu-svg {
+                grid-area: burger;
+            }
+            &.logo-svg {
+                grid-area: logo;
+            }
+            &.shopping-cart-svg {
+                grid-area: cart;
+            }
+
             &:hover {
-                & path {
+                & path,
+                & rect {
                     transition: fill 300ms ease;
                     fill: var(--color-6);
                 }
@@ -79,6 +137,8 @@ const SHeader = styled.header`
         }
 
         & nav {
+            grid-area: nav;
+
             & ul {
                 display: flex;
                 gap: 34px;
@@ -100,3 +160,7 @@ const SHeader = styled.header`
         }
     }
 `;
+
+interface SSectionProps {
+    $isOpened: boolean;
+}

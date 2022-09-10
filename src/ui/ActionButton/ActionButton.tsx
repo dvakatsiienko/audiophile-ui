@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 
 /* Instruments */
 import chevronRight from './img/chevron-right.svg';
+import type { Route } from '@/types';
 
 export const ActionButton = (props: ActionButtonProps) => {
     const dynamicProps: { type?: string; href?: string } = {};
@@ -12,13 +13,20 @@ export const ActionButton = (props: ActionButtonProps) => {
     if (props.as === 'button') dynamicProps.type = props.type;
     if (props.as === 'a') dynamicProps.href = props.href;
 
+    const handleClick = () => {
+        if (props.onClick) {
+            props.onClick();
+            return null;
+        }
+    };
+
     return (
         <Button
             { ...dynamicProps }
             $variant = { props.variant as Variant }
             as = { props.as }
             data-testid = { props[ 'data-testid' ] }
-            onClick = { props.onClick }
+            onClick = { handleClick }
         >
             <span>{props.children}</span>
             {props.variant === 'inline' ? <Image alt = 'chevron' src = { chevronRight } /> : null}
@@ -31,7 +39,7 @@ ActionButton.defaultProps = {
     variant:       'primary',
     type:          'button',
     as:            'button',
-    href:          '',
+    href:          '/',
     'data-testid': null,
 };
 
@@ -87,7 +95,7 @@ interface ActionButtonProps {
     variant?: Variant;
     type?: 'button' | 'submit' | 'reset';
     as?: As;
-    href?: string;
+    href?: Route;
     ['data-testid']?: string;
 }
 

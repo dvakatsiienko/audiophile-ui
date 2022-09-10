@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ActionButton />: renders correctly inline variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 160px;
+  height: 40px;
+  outline: none;
+  -webkit-transition: color 0.3s ease,background-color 0.3s ease;
+  transition: color 0.3s ease,background-color 0.3s ease;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  gap: 13px;
+  background-color: transparent;
+  color: var(--color-8);
+}
+
+.c0:hover {
+  color: var(--color-6);
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  <span>
+    Click
+  </span>
+  <img
+    alt="chevron"
+    data-nimg="future"
+    decoding="async"
+    height="100"
+    loading="lazy"
+    src="/mock-path.svg"
+    srcset="/mock-path.svg 1x, /mock-path.svg 2x"
+    style="color: transparent;"
+    width="100"
+  />
+</button>
+`;
+
+exports[`<ActionButton />: renders correctly primary variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 160px;
+  height: 40px;
+  outline: none;
+  -webkit-transition: color 0.3s ease,background-color 0.3s ease;
+  transition: color 0.3s ease,background-color 0.3s ease;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: var(--color-6);
+  color: var(--color-3);
+}
+
+.c0:hover {
+  background-color: var(--color-7);
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  <span>
+    Click
+  </span>
+</button>
+`;
+
+exports[`<ActionButton />: renders correctly secondary variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 160px;
+  height: 40px;
+  outline: none;
+  -webkit-transition: color 0.3s ease,background-color 0.3s ease;
+  transition: color 0.3s ease,background-color 0.3s ease;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: var(--color-5);
+  color: var(--color-1);
+  border: 1px solid black;
+}
+
+.c0:hover {
+  background-color: var(--color-1);
+  color: var(--color-5);
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  <span>
+    Click
+  </span>
+</button>
+`;

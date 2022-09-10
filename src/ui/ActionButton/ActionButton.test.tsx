@@ -19,63 +19,25 @@ describe.only('<ActionButton />:', () => {
         styledRender(<ActionButton />);
         const button = screen.getByRole('button');
 
-        expect(button).toMatchInlineSnapshot(`
-<button
-  class="sc-bczRLJ joQdJx"
-  type="button"
->
-  <span>
-    Click
-  </span>
-</button>
-`);
+        expect(button).toMatchSnapshot();
     });
 
     test('renders correctly secondary variant', async () => {
         styledRender(<ActionButton variant = 'secondary' />);
         const button = screen.getByRole('button');
 
-        expect(button).toMatchInlineSnapshot(`
-<button
-  class="sc-bczRLJ dAWzUV"
-  type="button"
->
-  <span>
-    Click
-  </span>
-</button>
-`);
+        expect(button).toMatchSnapshot();
     });
 
     test('renders correctly inline variant', async () => {
         styledRender(<ActionButton variant = 'inline' />);
         const button = screen.getByRole('button');
 
-        expect(button).toMatchInlineSnapshot(`
-<button
-  class="sc-bczRLJ ffLUPL"
-  type="button"
->
-  <span>
-    Click
-  </span>
-  <img
-    alt="chevron"
-    data-nimg="future"
-    decoding="async"
-    height="100"
-    loading="lazy"
-    src="/mock-path.svg"
-    srcset="/mock-path.svg 1x, /mock-path.svg 2x"
-    style="color: transparent;"
-    width="100"
-  />
-</button>
-`);
+        expect(button).toMatchSnapshot();
     });
 
     test('renders as <a />', async () => {
-        const href = 'https://www.example.com';
+        const href = '/speakers';
 
         styledRender(<ActionButton as = 'a' href = { href } />);
         const button = screen.getByRole('link');

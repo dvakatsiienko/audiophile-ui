@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography module: <styled.h1 /> renders in a right way: 1`] = `
+.c0 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 58px;
+  -webkit-letter-spacing: 2px;
+  -moz-letter-spacing: 2px;
+  -ms-letter-spacing: 2px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+<div>
+  <h1
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Typography module: <styled.h2 /> renders in a right way: 1`] = `
+.c0 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 44px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+<div>
+  <h2
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Typography module: <styled.h3 /> renders in a right way: 1`] = `
+.c0 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  -webkit-letter-spacing: 1.15px;
+  -moz-letter-spacing: 1.15px;
+  -ms-letter-spacing: 1.15px;
+  letter-spacing: 1.15px;
+  text-transform: uppercase;
+}
+
+<div>
+  <h3
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Typography module: <styled.h4 /> renders in a right way: 1`] = `
+.c0 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 38px;
+  -webkit-letter-spacing: 2px;
+  -moz-letter-spacing: 2px;
+  -ms-letter-spacing: 2px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+<div>
+  <h4
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Typography module: <styled.h5 /> renders in a right way: 1`] = `
+.c0 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  -webkit-letter-spacing: 1.7px;
+  -moz-letter-spacing: 1.7px;
+  -ms-letter-spacing: 1.7px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+<div>
+  <h5
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Typography module: <styled.h6 /> renders in a right way: 1`] = `
+.c0 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  -webkit-letter-spacing: 1.3px;
+  -moz-letter-spacing: 1.3px;
+  -ms-letter-spacing: 1.3px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+<div>
+  <h6
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Typography module: <styled.p /> renders in a right way: 1`] = `
+.c0 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  -webkit-letter-spacing: 10px;
+  -moz-letter-spacing: 10px;
+  -ms-letter-spacing: 10px;
+  letter-spacing: 10px;
+  color: #D87D4A;
+  text-transform: uppercase;
+}
+
+<div>
+  <p
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Typography module: <styled.p /> renders in a right way: 2`] = `
+.c0 {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 25px;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  color: #D87D4A;
+  text-transform: uppercase;
+}
+
+<div>
+  <p
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Typography module: <styled.p /> renders in a right way: 3`] = `
+.c0 {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+<div>
+  <p
+    class="c0"
+  />
+</div>
+`;

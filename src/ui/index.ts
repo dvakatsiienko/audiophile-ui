@@ -1,5 +1,5 @@
 export { theme } from './theme';
-export { media } from './viewports';
+export * from './viewports';
 
 export * from './Typography';
 export { ActionButton } from './ActionButton';

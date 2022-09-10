@@ -2,6 +2,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import 'whatwg-fetch';
+import 'jest-styled-components';
 
 /* Instruments */
 import { server } from './mock-server';

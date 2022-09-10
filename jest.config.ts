@@ -21,7 +21,8 @@ const config: Config = {
         '<rootDir>/src/api/**/**',
         '<rootDir>/src/ui/**/**',
     ],
-    watchPlugins: [ 'jest-watch-typeahead/filename', 'jest-watch-typeahead/testname' ],
+    coveragePathIgnorePatterns: [ '<rootDir>/node_modules', '<rootDir>/.*__snapshots__/.*' ],
+    watchPlugins:               [ 'jest-watch-typeahead/filename', 'jest-watch-typeahead/testname' ],
 };
 
 export default config;
