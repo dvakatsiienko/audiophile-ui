@@ -22,11 +22,11 @@ export const Counter = () => {
         <Section>
             <Heading data-testid = 'count-value'>{count}</Heading>
             <div>
-                <ActionButton onClick = { increment }>+</ActionButton>
-                <ActionButton variant = 'secondary' onClick = { decrement }>
+                <ActionButton onPointerUp = { increment }>+</ActionButton>
+                <ActionButton variant = 'secondary' onPointerUp = { decrement }>
                     -
                 </ActionButton>
-                <ActionButton variant = 'inline' onClick = { decrement }>
+                <ActionButton variant = 'inline' onPointerUp = { decrement }>
                     TEST
                 </ActionButton>
             </div>

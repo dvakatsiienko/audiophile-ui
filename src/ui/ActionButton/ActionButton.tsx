@@ -13,9 +13,9 @@ export const ActionButton = (props: ActionButtonProps) => {
     if (props.as === 'button') dynamicProps.type = props.type;
     if (props.as === 'a') dynamicProps.href = props.href;
 
-    const handleClick = () => {
-        if (props.onClick) {
-            props.onClick();
+    const handlePointerUp = () => {
+        if (props.onPointerUp) {
+            props.onPointerUp();
             return null;
         }
     };
@@ -27,7 +27,7 @@ export const ActionButton = (props: ActionButtonProps) => {
             $variant = { props.variant as Variant }
             as = { props.as }
             data-testid = { props[ 'data-testid' ] }
-            onClick = { handleClick }
+            onPointerUp = { handlePointerUp }
         >
             <span>{props.children}</span>
             {props.variant === 'inline' ? <Image alt = 'chevron' src = { chevronRight } /> : null}
@@ -35,7 +35,7 @@ export const ActionButton = (props: ActionButtonProps) => {
     );
 };
 ActionButton.defaultProps = {
-    onClick:       () => void 0,
+    onPointerUp:   () => void 0,
     children:      'Click',
     variant:       'primary',
     type:          'button',
@@ -98,7 +98,7 @@ const Button = styled.button<SButtonProps>`
 
 /* Types */
 interface ActionButtonProps {
-    onClick?: () => void;
+    onPointerUp?: () => void;
     children?: React.ReactNode;
     variant?: Variant;
     type?: 'button' | 'submit' | 'reset';

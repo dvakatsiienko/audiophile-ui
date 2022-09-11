@@ -55,25 +55,30 @@ const Article = styled.article<SArticleProps>`
         align-items: center;
         justify-content: ${p => (p.$page === 'home' ? 'space-between' : 'center')};
         margin: auto;
-        z-index: 0;
 
-        ${media.greaterThan('tablet')`
-            width: 1110px;
-        `}
+        ${media.greaterThan('mobile')`width: 689px;`}
+        ${media.lessThan('tablet')`justify-content: center;`}
+        ${media.greaterThan('tablet')`width: 1110px;`}
 
         ${Body} {
             max-width: 350px;
+
+            ${media.lessThan('tablet')`text-align: center;`}
         }
+
         ${Overline} {
             color: var(--color-3);
             font-weight: 100;
         }
 
         & .description {
-            display: flex;
-            flex-direction: column;
+            ${center}
+            align-items: flex-start;
             gap: 24px;
             max-width: 400px;
+            z-index: 2;
+
+            ${media.lessThan('tablet')`align-items: center;`}
         }
 
         & .hero-img {
@@ -93,7 +98,7 @@ const Article = styled.article<SArticleProps>`
 /* Types */
 interface HeroProps {
     page: Page;
-    categoryName?: string;
+    categoryName?: CategoryName;
 }
 
 interface SArticleProps {
@@ -101,3 +106,4 @@ interface SArticleProps {
 }
 
 type Page = 'home' | 'category';
+type CategoryName = 'headphones' | 'speakers' | 'earphones';
