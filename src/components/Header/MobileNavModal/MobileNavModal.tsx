@@ -17,9 +17,9 @@ export const MobileNavModal = (props: MobileNavModalProps) => {
         const handleKeypress = (e: KeyboardEvent) => {
             if (e.key === 'Escape') props.setIsOpened(false);
         };
-        window.addEventListener('keydown', handleKeypress);
+        window.addEventListener('keyup', handleKeypress);
 
-        return () => window.removeEventListener('keydown', handleKeypress);
+        return () => window.removeEventListener('keyup', handleKeypress);
     }, []);
 
     const navigate = (route: Route) => {
@@ -30,7 +30,7 @@ export const MobileNavModal = (props: MobileNavModalProps) => {
     return (
         <Section data-testid = 'mobile-nav-modal'>
             <ul>
-                <li onPointerDown = { () => navigate('/headphones') }>
+                <li onPointerUp = { () => navigate('/headphones') }>
                     <Img />
                     <H6>Headphones</H6>
                     <ActionButton size = 'small' variant = 'inline'>
@@ -38,7 +38,7 @@ export const MobileNavModal = (props: MobileNavModalProps) => {
                     </ActionButton>
                 </li>
 
-                <li onPointerDown = { () => navigate('/speakers') }>
+                <li onPointerUp = { () => navigate('/speakers') }>
                     <Img />
                     <H6>Speakers</H6>
                     <ActionButton size = 'small' variant = 'inline'>
@@ -46,7 +46,7 @@ export const MobileNavModal = (props: MobileNavModalProps) => {
                     </ActionButton>
                 </li>
 
-                <li onPointerDown = { () => navigate('/earphones') }>
+                <li onPointerUp = { () => navigate('/earphones') }>
                     <Img />
                     <H6>Earphones</H6>
                     <ActionButton size = 'small' variant = 'inline'>

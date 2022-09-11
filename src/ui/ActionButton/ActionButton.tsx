@@ -23,7 +23,7 @@ export const ActionButton = (props: ActionButtonProps) => {
     return (
         <Button
             { ...dynamicProps }
-            $size = { props.size }
+            $size = { props.size as Size }
             $variant = { props.variant as Variant }
             as = { props.as }
             data-testid = { props[ 'data-testid' ] }
@@ -76,12 +76,18 @@ const variants = {
     `,
 };
 
+const heights: Record<Size, string> = {
+    small:  '20px',
+    medium: '40px',
+    large:  '48px',
+};
+
 const Button = styled.button<SButtonProps>`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 160px;
-    height: ${p => (p.$size === 'small' ? '20px' : '40px')};
+    height: ${p => heights[ p.$size ]};
     outline: none;
     transition: color 0.3s ease, background-color 0.3s ease;
     border: none;
@@ -108,5 +114,5 @@ type Size = 'small' | 'medium' | 'large';
 
 interface SButtonProps {
     $variant: Variant;
-    $size: Size | void;
+    $size: Size;
 }

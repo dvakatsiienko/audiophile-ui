@@ -10,9 +10,10 @@ const StyledLayout = styled.main`
     display: grid;
     grid-template-areas:
         'header'
+        'hero'
         'content'
         'footer';
-    grid-template-rows: 97px auto 365px;
+    grid-template-rows: 90px auto auto 365px;
     min-height: 100vh;
     background-color: ${p => p.theme.palette[ 'color-3' ]};
 `;
