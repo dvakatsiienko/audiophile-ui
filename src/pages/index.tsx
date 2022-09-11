@@ -15,10 +15,11 @@ const Index: NextPage = () => {
     return (
         <Layout>
             <Header />
+
             <Hero page = 'home' />
 
             <Content>
-                <H1>{process.env.NODE_ENV}</H1>
+                <H1>{process.env.NODE_ENV?.slice(0, 3)}</H1>
             </Content>
 
             <Footer />

@@ -15,56 +15,58 @@ export const Header = () => {
 
     return (
         <SHeader $isOpened = { isOpened }>
-            <section className = 'header-section'>
-                <Tablet>
-                    <BurgerMenuSvg
-                        className = 'burger-menu-svg'
-                        data-testid = 'burger-menu-svg'
-                        onPointerDown = { () => setIsOpened(prev => !prev) }
-                    />
-                </Tablet>
-
-                <Link href = '/'>
-                    <a>
-                        <LogoSvg className = 'logo-svg' data-testid = 'logo-svg' />
-                    </a>
-                </Link>
-
-                <Desktop>
-                    <nav className = 'nav'>
-                        <ul>
-                            <li>
-                                <Link href = '/'>
-                                    <a>Home</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href = '/headphones'>
-                                    <a>Headphones</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href = '/speakers'>
-                                    <a>Speakres</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href = '/earphones'>
-                                    <a>Earphones</a>
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </Desktop>
-
-                <Link href = '/checkout'>
-                    <a>
-                        <ShoppingCartSvg
-                            className = 'shopping-cart-svg'
-                            data-testid = 'shopping-cart-svg'
+            <section className = 'header-container'>
+                <div className = 'header-content'>
+                    <Tablet>
+                        <BurgerMenuSvg
+                            className = 'burger-menu-svg'
+                            data-testid = 'burger-menu-svg'
+                            onPointerDown = { () => setIsOpened(prev => !prev) }
                         />
-                    </a>
-                </Link>
+                    </Tablet>
+
+                    <Link href = '/'>
+                        <a>
+                            <LogoSvg className = 'logo-svg' data-testid = 'logo-svg' />
+                        </a>
+                    </Link>
+
+                    <Desktop>
+                        <nav className = 'nav'>
+                            <ul>
+                                <li>
+                                    <Link href = '/'>
+                                        <a>Home</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href = '/headphones'>
+                                        <a>Headphones</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href = '/speakers'>
+                                        <a>Speakres</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href = '/earphones'>
+                                        <a>Earphones</a>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </Desktop>
+
+                    <Link href = '/checkout'>
+                        <a>
+                            <ShoppingCartSvg
+                                className = 'shopping-cart-svg'
+                                data-testid = 'shopping-cart-svg'
+                            />
+                        </a>
+                    </Link>
+                </div>
             </section>
 
             {isOpened && <MobileNavModal setIsOpened = { setIsOpened } />}
@@ -97,64 +99,69 @@ const SHeader = styled.header<SSectionProps>`
         z-index: -1;
     }
 
-    & .header-section {
-        display: grid;
-        grid-auto-flow: row;
-        grid-template-areas: 'logo nav cart';
-        padding: 0 40px;
-        justify-content: space-between;
-        align-items: center;
-        margin: auto;
+    & .header-container {
         height: 100%;
         border-bottom: 1px solid #333333;
+        max-width: ${p => p.theme.viewports.desktopContent};
+        margin: 0 auto;
 
-        ${media.lessThan('tablet')`
-            grid-template-areas: 'burger logo cart';
-            padding: 0 24px;
-        `}
+        ${media.lessThan('desktopContent')`max-width: ${p => p.theme.viewports.tabletContent};`}
 
-        ${media.greaterThan('mobile')`width: 689px;`}
-        ${media.greaterThan('tablet')`width: 1110px;`}
+        & .header-content {
+            display: grid;
+            grid-auto-flow: row;
+            grid-template-areas: 'logo nav cart';
+            justify-self: center;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            height: 100%;
+            width: 100%;
 
-        & svg {
-            cursor: pointer;
+            ${media.lessThan('desktopContent')`padding: 0 40px;`}
+            ${media.lessThan('tablet')`grid-template-areas: 'burger logo cart';`}
+            ${media.lessThan('tabletContent')`padding: 0 24px;`}
 
-            &.burger-menu-svg {
-                grid-area: burger;
-            }
-            &.logo-svg {
-                grid-area: logo;
-            }
-            &.shopping-cart-svg {
-                grid-area: cart;
-            }
+            & svg {
+                cursor: pointer;
 
-            &:hover {
-                & path,
-                & rect {
-                    transition: fill 300ms ease;
-                    fill: var(--color-6);
+                &.burger-menu-svg {
+                    grid-area: burger;
+                }
+                &.logo-svg {
+                    grid-area: logo;
+                }
+                &.shopping-cart-svg {
+                    grid-area: cart;
+                }
+
+                &:hover {
+                    & path,
+                    & rect {
+                        transition: fill 300ms ease;
+                        fill: var(--color-6);
+                    }
                 }
             }
-        }
 
-        & nav {
-            grid-area: nav;
+            & nav {
+                grid-area: nav;
 
-            & ul {
-                display: flex;
-                gap: 34px;
+                & ul {
+                    display: flex;
+                    gap: 34px;
 
-                & li {
-                    & a {
-                        font-size: 13px;
-                        font-weight: 700;
-                        line-height: 25px;
-                        letter-spacing: 2px;
-                        transition: color 300ms ease;
+                    & li {
+                        & a {
+                            font-size: 13px;
+                            font-weight: 700;
+                            line-height: 25px;
+                            letter-spacing: 2px;
+                            transition: color 300ms ease;
 
-                        &:hover {
-                            color: var(--color-6);
+                            &:hover {
+                                color: var(--color-6);
+                            }
                         }
                     }
                 }

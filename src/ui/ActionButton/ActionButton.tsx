@@ -35,7 +35,7 @@ export const ActionButton = (props: ActionButtonProps) => {
     );
 };
 ActionButton.defaultProps = {
-    onPointerUp:   () => void 0,
+    onPointerUp:   () => null,
     children:      'Click',
     variant:       'primary',
     type:          'button',

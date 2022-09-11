@@ -19,7 +19,9 @@ declare module 'styled-components' {
         viewports: {
             mobile: string;
             tablet: string;
+            tabletContent: string;
             desktop: string;
+            desktopContent: string;
         };
     }
 }
