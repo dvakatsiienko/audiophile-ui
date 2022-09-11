@@ -102,7 +102,7 @@ const Section = styled.section`
     ${media.lessThan('tablet')`
         height: auto;
         min-height: 740px;
-        padding: 60px 0 35px;
+        padding: 85px 0 35px;
 
         & ul {
             flex-direction: column;

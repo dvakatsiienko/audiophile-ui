@@ -42,7 +42,7 @@ describe('<Header />:', () => {
         const mobileViewModal = cy.get('[data-testid=mobile-nav-modal]');
         mobileViewModal.should('exist');
         cy.type('{esc}');
-        cy.get('.header-section').should('not.have.descendants', '[data-testid=mobile-nav-modal]');
+        cy.get('.header-container').should('not.have.descendants', '[data-testid=mobile-nav-modal]');
     });
 });
 
