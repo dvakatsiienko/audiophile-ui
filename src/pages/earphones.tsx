@@ -6,7 +6,6 @@ import {
     Layout, Header, Hero, Content, Footer
 } from '@/components';
 import { Testing } from '@/features';
-import { H1 } from '@/ui';
 
 const EarphonesPage: NextPage = () => {
     return (

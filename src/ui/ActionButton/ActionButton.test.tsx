@@ -9,7 +9,7 @@ import { ActionButton } from './ActionButton';
 import { styledRender } from '@/utils';
 
 const handler = jest.fn();
-jest.spyOn(ActionButton.defaultProps, 'onClick');
+jest.spyOn(ActionButton.defaultProps, 'onPointerUp');
 jest.spyOn(console, 'error');
 
 beforeEach(jest.clearAllMocks);
@@ -48,10 +48,10 @@ describe.only('<ActionButton />:', () => {
 
     test('handles click handler passed via props', async () => {
         const user = userEvent.setup();
-        styledRender(<ActionButton onClick = { handler } />);
+        styledRender(<ActionButton onPointerUp = { handler } />);
         const button = screen.getByRole('button');
 
-        await user.click(button);
+        await user.pointer({ target: button, keys: '[MouseLeft]' });
 
         expect(handler).toBeCalledTimes(1);
     });
@@ -61,8 +61,8 @@ describe.only('<ActionButton />:', () => {
         styledRender(<ActionButton />);
         const button = screen.getByRole('button');
 
-        await user.click(button);
+        await user.pointer({ target: button, keys: '[MouseLeft]' });
 
-        expect(ActionButton.defaultProps.onClick).toBeCalledTimes(1);
+        expect(ActionButton.defaultProps.onPointerUp).toBeCalledTimes(1);
     });
 });

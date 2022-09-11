@@ -18,7 +18,7 @@ const Index: NextPage = () => {
             <Hero page = 'home' />
 
             <Content>
-                <H1>Audiophile</H1>
+                <H1>{process.env.NODE_ENV}</H1>
             </Content>
 
             <Footer />

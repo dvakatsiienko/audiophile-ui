@@ -82,7 +82,7 @@ const SHeader = styled.header<SSectionProps>`
     height: var(--header-height);
     background-color: var(--color-2);
     color: white;
-    z-index: 1;
+    z-index: 3;
 
     /* Overlay */
     &:before {
@@ -107,20 +107,14 @@ const SHeader = styled.header<SSectionProps>`
         margin: auto;
         height: 100%;
         border-bottom: 1px solid #333333;
-        max-width: 100%;
 
         ${media.lessThan('tablet')`
             grid-template-areas: 'burger logo cart';
             padding: 0 24px;
         `}
 
-        ${media.greaterThan('mobile')`
-            max-width: 689px;
-        `}
-
-        ${media.greaterThan('tablet')`
-            max-width: 1110px;
-        `}
+        ${media.greaterThan('mobile')`width: 689px;`}
+        ${media.greaterThan('tablet')`width: 1110px;`}
 
         & svg {
             cursor: pointer;
