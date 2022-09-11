@@ -82,6 +82,7 @@ const SHeader = styled.header<SSectionProps>`
     height: var(--header-height);
     background-color: var(--color-2);
     color: white;
+    z-index: 1;
 
     /* Overlay */
     &:before {

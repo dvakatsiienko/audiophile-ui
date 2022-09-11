@@ -4,7 +4,7 @@ import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer
+    Layout, Header, Hero, Content, Footer
 } from '@/components';
 import { H1 } from '@/ui';
 
@@ -15,6 +15,7 @@ const Index: NextPage = () => {
     return (
         <Layout>
             <Header />
+            <Hero page = 'home' />
 
             <Content>
                 <H1>Audiophile</H1>

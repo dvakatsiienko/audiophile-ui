@@ -4,7 +4,7 @@ import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
 import {
-    Layout, Header, Content, Footer, Headphone
+    Layout, Header, Hero, Content, Footer, Headphone
 } from '@/components';
 import { H1 } from '@/ui';
 
@@ -22,13 +22,13 @@ const HeadphonesPage: NextPage = () => {
     return (
         <Layout>
             <Header />
+
+            <Hero categoryName = 'headphones' page = 'category' />
+
             <Content>
-                <H1>Headphones</H1>
-
-                <br />
-
                 <ul>{headephoneListJSX}</ul>
             </Content>
+
             <Footer />
         </Layout>
     );
