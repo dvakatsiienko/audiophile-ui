@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 /* Components */
+import { Nav } from '@/components';
 import { MobileNavModal } from './MobileNavModal';
 
 /* Instruments */
@@ -32,30 +33,7 @@ export const Header = () => {
                     </Link>
 
                     <Desktop>
-                        <nav className = 'nav'>
-                            <ul>
-                                <li>
-                                    <Link href = '/'>
-                                        <a>Home</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href = '/headphones'>
-                                        <a>Headphones</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href = '/speakers'>
-                                        <a>Speakres</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href = '/earphones'>
-                                        <a>Earphones</a>
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
+                        <Nav />
                     </Desktop>
 
                     <Link href = '/checkout'>
@@ -123,8 +101,6 @@ const SHeader = styled.header<SSectionProps>`
             ${media.lessThan('tabletContent')`padding: 0 24px;`}
 
             & svg {
-                cursor: pointer;
-
                 &.burger-menu-svg {
                     grid-area: burger;
                 }
@@ -133,37 +109,6 @@ const SHeader = styled.header<SSectionProps>`
                 }
                 &.shopping-cart-svg {
                     grid-area: cart;
-                }
-
-                &:hover {
-                    & path,
-                    & rect {
-                        transition: fill 300ms ease;
-                        fill: var(--color-6);
-                    }
-                }
-            }
-
-            & nav {
-                grid-area: nav;
-
-                & ul {
-                    display: flex;
-                    gap: 34px;
-
-                    & li {
-                        & a {
-                            font-size: 13px;
-                            font-weight: 700;
-                            line-height: 25px;
-                            letter-spacing: 2px;
-                            transition: color 300ms ease;
-
-                            &:hover {
-                                color: var(--color-6);
-                            }
-                        }
-                    }
                 }
             }
         }

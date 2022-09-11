@@ -65,11 +65,11 @@ const Article = styled.article<SArticleProps>`
             ${center}
 
             position: relative;
-            align-items: start;
+            align-items: ${p => (p.$page === 'home' ? 'start' : 'center')};
 
             ${media.lessThan('desktopContent')`
-                    align-items: center;
-                    max-width: ${p => p.theme.viewports.tabletContent};
+                align-items: center;
+                max-width: ${p => p.theme.viewports.tabletContent};
             `}
 
             ${H1} {
@@ -99,9 +99,7 @@ const Article = styled.article<SArticleProps>`
                 max-width: 400px;
                 z-index: 2;
 
-                ${media.lessThan('desktopContent')`
-                    align-items: center;
-                `}
+                ${media.lessThan('desktopContent')`align-items: center;`}
             }
 
             & .hero-img {
@@ -111,17 +109,11 @@ const Article = styled.article<SArticleProps>`
                 background-image: url(${heroImg.src});
                 background-size: cover;
                 box-shadow: 0 0 50px 50px var(--color-2) inset;
-                /* right: 0; */
+                right: 0;
                 top: -200px;
                 z-index: 1;
 
-                ${media.lessThan('tabletContent')`
-                /* left: 0 */
-                    /* top: 0; */
-                    /* right: 50%; */
-                    /* bottom: 0; */
-                    /* left: 50%; */
-                `}
+                ${media.lessThan('tabletContent')`right: auto;`}
             }
         }
     }
