@@ -2,10 +2,10 @@
 import { NextPage } from 'next';
 
 /* Components */
+import { Layout, HomepageContent } from '@/layout';
 import {
-    Layout, Header, Hero, Content, Footer
+    Header, Hero, CardNav, Footer
 } from '@/components';
-import { H1 } from '@/ui-kit';
 
 const SpeakersPage: NextPage = () => {
     return (
@@ -14,9 +14,9 @@ const SpeakersPage: NextPage = () => {
 
             <Hero categoryName = 'speakers' page = 'category' />
 
-            <Content>
-                <H1>Speakers</H1>
-            </Content>
+            <HomepageContent>
+                <CardNav />
+            </HomepageContent>
 
             <Footer />
         </Layout>

@@ -12,9 +12,9 @@ import heroImg from './img/hero-img.png';
 
 export const Hero = (props: HeroProps) => {
     return (
-        <Article $page = { props.page }>
-            <section className = 'hero-container'>
-                <div className = 'hero-content'>
+        <Layout $page = { props.page }>
+            <section className = 'container'>
+                <div className = 'content'>
                     {props.page === 'home' && (
                         <>
                             <div className = 'description'>
@@ -34,7 +34,7 @@ export const Hero = (props: HeroProps) => {
                     {props.page === 'category' && <H2>{props.categoryName}</H2>}
                 </div>
             </section>
-        </Article>
+        </Layout>
     );
 };
 Hero.defaultProps = {
@@ -42,7 +42,7 @@ Hero.defaultProps = {
 };
 
 /* Styles */
-const Article = styled.article<SArticleProps>`
+const Layout = styled.article<SLayoutProps>`
     ${center};
 
     grid-area: hero;
@@ -52,12 +52,12 @@ const Article = styled.article<SArticleProps>`
     color: var(--color-3);
     overflow: hidden;
 
-    & .hero-container {
+    & .container {
         width: 100%;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
 
-        & .hero-content {
+        & .content {
             ${center}
 
             position: relative;
@@ -100,10 +100,10 @@ const Article = styled.article<SArticleProps>`
             text-align: center;
         }
 
-        & .hero-container {
+        & .container {
             max-width: ${p => p.theme.viewports.tabletContent};
 
-            & .hero-content {
+            & .content {
                 align-items: center;
                 max-width: ${p => p.theme.viewports.tabletContent};
 
@@ -118,7 +118,7 @@ const Article = styled.article<SArticleProps>`
         }
     `}
 
-    ${media.lessThan<SArticleProps>('tablet')`
+    ${media.lessThan<SLayoutProps>('tablet')`
         ${p => p.$page === 'category' && 'height: 100px;'}
 
         ${H1} {
@@ -135,7 +135,7 @@ interface HeroProps {
     categoryName?: CategoryName;
 }
 
-interface SArticleProps {
+interface SLayoutProps {
     $page: Page;
 }
 

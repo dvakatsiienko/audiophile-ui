@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import { center } from '@/ui-kit';
 
 export const Content = (props: React.PropsWithChildren) => {
-    return <StyledContent>{props.children}</StyledContent>;
+    return <Section>{props.children}</Section>;
 };
 
 /* Styles */
-const StyledContent = styled.section`
+const Section = styled.section`
     ${center}
 
     grid-area: content;

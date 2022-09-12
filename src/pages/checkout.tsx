@@ -2,9 +2,8 @@
 import type { NextPage } from 'next';
 
 /* Components */
-import {
-    Layout, Header, Content, Footer
-} from '@/components';
+import { Layout } from '@/layout';
+import { Header, Content, Footer } from '@/components';
 import { CheckoutForm } from '@/features';
 import { H1 } from '@/ui-kit';
 

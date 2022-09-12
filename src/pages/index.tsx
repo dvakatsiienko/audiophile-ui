@@ -3,10 +3,10 @@ import { dehydrate, QueryClient } from '@tanstack/react-query';
 import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
+import { Layout, HomepageContent } from '@/layout';
 import {
-    Layout, Header, Hero, Content, Footer
+    Header, Hero, CardNav, Footer
 } from '@/components';
-import { H1 } from '@/ui-kit';
 
 /* Instruments */
 import { fetchPost1 } from '@/api';
@@ -18,9 +18,9 @@ const Index: NextPage = () => {
 
             <Hero page = 'home' />
 
-            <Content>
-                <H1>{process.env.NODE_ENV?.slice(0, 3)}</H1>
-            </Content>
+            <HomepageContent>
+                <CardNav />
+            </HomepageContent>
 
             <Footer />
         </Layout>

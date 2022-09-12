@@ -2,8 +2,9 @@
 import { NextPage } from 'next';
 
 /* Components */
+import { Layout, HomepageContent } from '@/layout';
 import {
-    Layout, Header, Hero, Content, Footer
+    Header, Hero, CardNav, Footer
 } from '@/components';
 import { Testing } from '@/features';
 
@@ -14,9 +15,15 @@ const EarphonesPage: NextPage = () => {
 
             <Hero categoryName = 'earphones' page = 'category' />
 
-            <Content>
-                <Testing />
-            </Content>
+            <HomepageContent>
+                <Testing
+                    css = { `
+                        margin-bottom: 150px;
+                    ` }
+                />
+
+                <CardNav />
+            </HomepageContent>
 
             <Footer />
         </Layout>

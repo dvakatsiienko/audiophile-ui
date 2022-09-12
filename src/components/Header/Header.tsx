@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 /* Components */
 import { Nav, LogoSvg } from '@/components';
-import { MobileNavModal } from './MobileNavModal';
+import { CardNavModal } from './CardNavModal';
 
 /* Instruments */
 import { media, Tablet, FromTo } from '@/ui-kit';
@@ -15,7 +15,7 @@ export const Header = () => {
     const [ isOpened, setIsOpened ] = useState(false);
 
     return (
-        <SHeader $isOpened = { isOpened }>
+        <Layout $isOpened = { isOpened }>
             <section className = 'container'>
                 <div className = 'content'>
                     <FromTo from = 'zero' to = 'tablet'>
@@ -47,13 +47,13 @@ export const Header = () => {
                 </div>
             </section>
 
-            {isOpened && <MobileNavModal setIsOpened = { setIsOpened } />}
-        </SHeader>
+            {isOpened && <CardNavModal setIsOpened = { setIsOpened } />}
+        </Layout>
     );
 };
 
 /* Styles */
-const SHeader = styled.header<SSectionProps>`
+const Layout = styled.header<SLayoutProps>`
     --header-height: 90px;
 
     position: sticky;
@@ -139,6 +139,6 @@ const SHeader = styled.header<SSectionProps>`
 `;
 
 /* Types */
-interface SSectionProps {
+interface SLayoutProps {
     $isOpened: boolean;
 }

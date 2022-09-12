@@ -3,7 +3,7 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 /* Components */
-import { MobileNavModal, type SetIsOpened } from './MobileNavModal';
+import { CardNavModal, type SetIsOpened } from './CardNavModal';
 
 /* Instruments */
 import { styledRender } from '@/utils';
@@ -12,16 +12,17 @@ import type { Route } from '@/types';
 let isOpened = false;
 const setIsOpened = jest.fn((bool: boolean) => {
     isOpened = bool;
+
     return null;
 });
 
 const routes: Route[] = [ '/headphones', '/speakers', '/earphones' ];
 
-describe('<MobileNav />:', () => {
+describe('<CardNav />:', () => {
     routes.forEach((route, index) => {
         test(`routes to ${route}`, async () => {
             const user = userEvent.setup();
-            styledRender(<MobileNavModal setIsOpened = { setIsOpened as unknown as SetIsOpened } />);
+            styledRender(<CardNavModal setIsOpened = { setIsOpened as unknown as SetIsOpened } />);
             const listItems = screen.getAllByRole('listitem');
             const li = listItems[ index ];
 
@@ -34,10 +35,12 @@ describe('<MobileNav />:', () => {
             expect(isOpened).toBe(false);
         });
     });
+});
 
+describe('<CardNavModal />:', () => {
     test('closes modal on Escape key press', async () => {
         const user = userEvent.setup();
-        styledRender(<MobileNavModal setIsOpened = { setIsOpened as unknown as SetIsOpened } />);
+        styledRender(<CardNavModal setIsOpened = { setIsOpened as unknown as SetIsOpened } />);
 
         await user.keyboard('[Escape]');
         expect(setIsOpened).toBeCalledTimes(1);
