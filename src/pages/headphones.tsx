@@ -3,8 +3,9 @@ import { useQuery, dehydrate, QueryClient } from '@tanstack/react-query';
 import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
+import { Layout, HomepageContent } from '@/layout';
 import {
-    Layout, Header, Hero, Content, Footer, Headphone
+    Header, Hero, CardNav, Footer, Headphone
 } from '@/components';
 
 /* Instruments */
@@ -24,9 +25,17 @@ const HeadphonesPage: NextPage = () => {
 
             <Hero categoryName = 'headphones' page = 'category' />
 
-            <Content>
-                <ul>{headephoneListJSX}</ul>
-            </Content>
+            <HomepageContent>
+                <ul
+                    css = { `
+                        margin-bottom: 150px;
+                    ` }
+                >
+                    {headephoneListJSX}
+                </ul>
+
+                <CardNav />
+            </HomepageContent>
 
             <Footer />
         </Layout>

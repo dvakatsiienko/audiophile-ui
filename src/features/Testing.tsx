@@ -2,13 +2,13 @@
 import { useQuery } from '@tanstack/react-query';
 
 /* Components */
-import { H6, Body, Overline } from '@/ui-kit';
+import { Body, Overline } from '@/ui-kit';
 import { Counter } from './Counter';
 
 /* Instruments */
 import { fetchUsers, fetchPost1 } from '@/api';
 
-export const Testing = () => {
+export const Testing = (props: TestingProps) => {
     const { isLoading, data: userList, isFetching } = useQuery([ 'users' ], fetchUsers);
 
     const post1Query = useQuery([ 'post-1' ], fetchPost1);
@@ -28,9 +28,7 @@ export const Testing = () => {
     if (!userList && isFetching) userListJSX = 'Fetching...';
 
     return (
-        <>
-            <H6>Earphones</H6>
-
+        <section className = { props.className }>
             <Counter />
 
             <div>
@@ -42,6 +40,14 @@ export const Testing = () => {
 
                 <br />
             </div>
-        </>
+        </section>
     );
 };
+Testing.defaultProps = {
+    className: null,
+};
+
+/* Types */
+interface TestingProps {
+    className?: string;
+}

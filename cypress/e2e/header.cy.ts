@@ -21,7 +21,7 @@ describe('<Header />:', () => {
         burger.should('exist');
         burger.click();
 
-        const mobileViewModal = cy.get('[data-testid=mobile-nav-modal');
+        const mobileViewModal = cy.get('[data-testid=card-nav-modal');
         mobileViewModal.should('exist');
     });
 
@@ -35,12 +35,12 @@ describe('<Header />:', () => {
         cy.viewport(375, 750);
         const burger = cy.get('[data-testid=burger-menu-svg]');
         burger.click();
-        const mobileViewModal = cy.get('[data-testid=mobile-nav-modal]');
+        const mobileViewModal = cy.get('[data-testid=card-nav-modal]');
         mobileViewModal.should('exist');
         cy.type('{esc}');
         cy.get('.header-container').should(
             'not.have.descendants',
-            '[data-testid=mobile-nav-modal]',
+            '[data-testid=card-nav-modal]',
         );
     });
 });
