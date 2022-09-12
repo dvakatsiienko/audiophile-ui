@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /* Instruments */
-import { center } from '@/theme';
+import { center } from '@/ui-kit';
 
 export const NumberInput = (props: NumberInputProps) => {
     return (

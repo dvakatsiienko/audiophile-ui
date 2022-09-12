@@ -53,20 +53,16 @@ const Label = styled.label<SLabelProps>`
         width: 310px;
         height: 56px;
         padding: 18px 24px;
-        border: ${p => (p.$isError
-        ? '2px solid var(--error-color)'
-        : `1px solid ${p.theme.palette[ 'color-9' ]}`)};
+        border: ${p => (p.$isError ? '2px solid var(--error-color)' : '1px solid var(--color-9)')};
         border-radius: 8px;
         font-size: 14px;
         line-height: 19px;
         font-weight: 700;
-        caret-color: ${p => p.theme.palette[ 'color-6' ]};
+        caret-color: var(--color-6);
         outline: none;
 
         &:focus {
-            border: ${p => (p.$isError
-        ? '2px solid var(--error-color)'
-        : `1px solid ${p.theme.palette[ 'color-6' ]}`)};
+            border: ${p => (p.$isError ? '2px solid var(--error-color)' : '1px solid var(--color-6)')};
         }
     }
 `;

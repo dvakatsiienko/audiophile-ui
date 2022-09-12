@@ -5,7 +5,7 @@ import { NextPage } from 'next';
 import {
     Layout, Header, Hero, Content, Footer
 } from '@/components';
-import { H1 } from '@/ui';
+import { H1 } from '@/ui-kit';
 
 const SpeakersPage: NextPage = () => {
     return (

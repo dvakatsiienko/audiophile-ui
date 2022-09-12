@@ -1,4 +1,4 @@
-export const FooterLogoSvg = (props: FooterLogoSvgProps) => {
+export const LogoSvg = (props: LogoSvgProps) => {
     return (
         <svg
             fill = 'none'
@@ -19,4 +19,4 @@ export const FooterLogoSvg = (props: FooterLogoSvgProps) => {
 };
 
 /* Types */
-export type FooterLogoSvgProps = React.SVGProps<SVGSVGElement>;
+type LogoSvgProps = React.SVGProps<SVGSVGElement>;

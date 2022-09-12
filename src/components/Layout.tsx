@@ -1,7 +1,7 @@
 /* Core */
 import styled from 'styled-components';
 
-export const Layout = (props: LayoutProps) => {
+export const Layout = (props: React.PropsWithChildren) => {
     return <StyledLayout>{props.children}</StyledLayout>;
 };
 
@@ -13,12 +13,7 @@ const StyledLayout = styled.main`
         'hero'
         'content'
         'footer';
-    grid-template-rows: 90px auto auto 365px;
+    grid-template-rows: auto auto auto auto;
     min-height: 100vh;
-    background-color: ${p => p.theme.palette[ 'color-2' ]};
+    background-color: var(--color-2);
 `;
-
-/* Types */
-interface LayoutProps {
-    children: React.ReactNode;
-}

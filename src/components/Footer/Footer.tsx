@@ -3,14 +3,9 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 /* Components */
-import { Nav } from '@/components';
-import { Body, media } from '@/ui';
-import {
-    FooterLogoSvg, FacebookSvg, TwitterSvg, InstagramSvg
-} from './svg';
-
-/* Instruments */
-import { center } from '@/theme';
+import { Nav, LogoSvg } from '@/components';
+import { Body, media } from '@/ui-kit';
+import { FacebookSvg, TwitterSvg, InstagramSvg } from './svg';
 
 export const Footer = () => {
     return (
@@ -19,7 +14,7 @@ export const Footer = () => {
                 <section className = 'footer-logo-nav'>
                     <Link href = '/'>
                         <a>
-                            <FooterLogoSvg className = 'footer-logo' />
+                            <LogoSvg className = 'footer-logo' />
                         </a>
                     </Link>
                     <Nav className = 'footer-nav' />
@@ -68,22 +63,16 @@ export const Footer = () => {
 
 /* Styles */
 const StyledFooter = styled.footer`
+    --padding-sides: 0px;
+
     grid-area: footer;
     height: 400px;
     background-color: ${p => p.theme.palette[ 'color-2' ]};
     color: white;
 
-    ${media.lessThan('tabletContent')`
-        height: 650px;
-    `}
-
     ${Body} {
         max-width: 540px;
         color: #878787;
-
-        ${media.lessThan('tabletContent')`
-            text-align: center;
-        `}
     }
 
     & .footer-container {
@@ -97,49 +86,14 @@ const StyledFooter = styled.footer`
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
 
-        ${media.lessThan('desktopContent')`
-            max-width: ${p => p.theme.viewports.tabletContent};
-            padding-left: 40px;
-            padding-right: 40px;
-        `}
-
-        ${media.lessThan('tabletContent')`
-            align-items: center;
-            gap: 48px;
-            padding: 50px 24px 40px;
-        `}
-
         & .footer-logo-nav {
             display: flex;
             justify-content: space-between;
-
-            ${media.lessThan('tabletContent')`
-                flex-direction: column;
-                align-items: center;
-                gap: 48px;
-
-                & .footer-nav {
-                    & ul {
-                        flex-direction: column;
-                        gap: 16px;
-
-                        & li {
-                            text-align: center;
-                        }
-                    }
-                }
-            `}
         }
 
         & .copyright-social {
             display: flex;
             justify-content: space-between;
-
-            ${media.lessThan('tabletContent')`
-                flex-direction: column;
-                align-items: center;
-                gap: 48px;
-            `}
 
             & .social {
                 display: flex;
@@ -155,16 +109,77 @@ const StyledFooter = styled.footer`
             width: 100px;
             height: 4px;
             background-color: var(--color-6);
+        }
+    }
 
-            ${media.lessThan('desktopContent')`
-                left: 40px;
-            `}
+    ${media.lessThan('desktopContent')`
+        --padding-sides: 12px;
 
-            ${media.lessThan('tabletContent')`
+        & .footer-container {
+            padding-left: var(--padding-sides);
+            padding-right: var(--padding-sides);
+
+            & .line {
+                left: var(--padding-sides);
+            }
+        }
+    `}
+
+    ${media.lessThan('tablet')`
+        --padding-sides: 40px;
+
+        & .footer-container {
+            max-width: ${p => p.theme.viewports.tabletContent};
+            padding-left: var(--padding-sides);
+            padding-right: var(--padding-sides);
+
+            & .line {
+                left: var(--padding-sides);
+            }
+        }
+    `}
+    ${media.lessThan('tabletContent')`
+        --padding-sides: 24px;
+
+        ${Body} {
+            text-align: center;
+        }
+
+        height: 650px;
+
+        & .footer-container {
+            align-items: center;
+            gap: 48px;
+            padding: 50px var(--padding-sides) 40px;
+
+            & .footer-logo-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 48px;
+
+                & .footer-nav {
+                    & ul {
+                        flex-direction: column;
+                        gap: 16px;
+
+                        & li {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            & .copyright-social {
+                flex-direction: column;
+                align-items: center;
+                gap: 48px;
+            }
+
+            & .line {
                 left: 0;
                 right: 0;
                 margin: auto;
-            `}
+            }
         }
-    }
+    `}
 `;
