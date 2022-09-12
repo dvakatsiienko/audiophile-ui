@@ -1,3 +1,7 @@
+/* Core */
 @import 'reset-css';
-@import './font';
-@import './globals.scss';
+
+/* Instruments */
+@import '@/ui-kit/palette';
+@import './fonts';
+@import './globals';

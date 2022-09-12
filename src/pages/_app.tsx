@@ -13,7 +13,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
 
 /* Instruments */
-import { theme } from '@/ui';
+import { theme } from '@/ui-kit';
 import { store } from '@/lib/redux';
 import '@/theme/index.scss';
 

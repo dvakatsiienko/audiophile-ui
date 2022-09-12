@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /* Components */
-import { ActionButton, H1, media } from '@/ui';
+import { ActionButton, H1, media } from '@/ui-kit';
 
 /* Instruments */
 import { useDispatch, useSelector, counterSlice } from '@/lib/redux';

@@ -4,27 +4,27 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 /* Components */
-import { Nav } from '@/components';
+import { Nav, LogoSvg } from '@/components';
 import { MobileNavModal } from './MobileNavModal';
 
 /* Instruments */
-import { media, Tablet, Desktop } from '@/ui';
-import { LogoSvg, ShoppingCartSvg, BurgerMenuSvg } from './svg';
+import { media, Tablet, FromTo } from '@/ui-kit';
+import { ShoppingCartSvg, BurgerMenuSvg } from './svg';
 
 export const Header = () => {
     const [ isOpened, setIsOpened ] = useState(false);
 
     return (
         <SHeader $isOpened = { isOpened }>
-            <section className = 'header-container'>
-                <div className = 'header-content'>
-                    <Tablet>
+            <section className = 'container'>
+                <div className = 'content'>
+                    <FromTo from = 'zero' to = 'tablet'>
                         <BurgerMenuSvg
                             className = 'burger-menu-svg'
                             data-testid = 'burger-menu-svg'
                             onPointerDown = { () => setIsOpened(prev => !prev) }
                         />
-                    </Tablet>
+                    </FromTo>
 
                     <Link href = '/'>
                         <a>
@@ -32,9 +32,9 @@ export const Header = () => {
                         </a>
                     </Link>
 
-                    <Desktop>
+                    <Tablet>
                         <Nav />
-                    </Desktop>
+                    </Tablet>
 
                     <Link href = '/checkout'>
                         <a>
@@ -77,15 +77,13 @@ const SHeader = styled.header<SSectionProps>`
         z-index: -1;
     }
 
-    & .header-container {
+    & .container {
         height: 100%;
         border-bottom: 1px solid #333333;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
 
-        ${media.lessThan('desktopContent')`max-width: ${p => p.theme.viewports.tabletContent};`}
-
-        & .header-content {
+        & .content {
             display: grid;
             grid-auto-flow: row;
             grid-template-areas: 'logo nav cart';
@@ -95,10 +93,6 @@ const SHeader = styled.header<SSectionProps>`
             margin: auto;
             height: 100%;
             width: 100%;
-
-            ${media.lessThan('desktopContent')`padding: 0 40px;`}
-            ${media.lessThan('tablet')`grid-template-areas: 'burger logo cart';`}
-            ${media.lessThan('tabletContent')`padding: 0 24px;`}
 
             & svg {
                 &.burger-menu-svg {
@@ -113,6 +107,35 @@ const SHeader = styled.header<SSectionProps>`
             }
         }
     }
+
+    ${media.lessThan('desktopContent')`
+        & .container {
+            & .content {
+                padding: 0 12px;
+            }
+        }
+    `}
+
+    ${media.lessThan('tablet')`
+        & .container {
+            max-width: ${p => p.theme.viewports.tabletContent};
+
+            & .content {
+                grid-template-areas: 'burger logo cart';
+                padding: 0 40px;
+            }
+        }
+    `}
+
+    ${media.lessThan('tabletContent')`
+        & .container {
+            max-width: ${p => p.theme.viewports.tabletContent};
+
+            & .content {
+                padding: 0 24px;
+            }
+        }
+    `}
 `;
 
 /* Types */

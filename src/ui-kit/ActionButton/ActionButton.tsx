@@ -1,5 +1,4 @@
 /* Core */
-import React from 'react';
 import Image from 'next/future/image';
 import styled, { css } from 'styled-components';
 
@@ -97,16 +96,15 @@ const Button = styled.button<SButtonProps>`
 `;
 
 /* Types */
-interface ActionButtonProps {
+type ActionButtonProps = React.PropsWithChildren<{
     onPointerUp?: () => void;
-    children?: React.ReactNode;
     variant?: Variant;
     type?: 'button' | 'submit' | 'reset';
     as?: As;
     href?: Route;
     size?: Size;
     ['data-testid']?: string;
-}
+}>;
 
 type Variant = 'primary' | 'secondary' | 'inline';
 type As = 'button' | 'a';

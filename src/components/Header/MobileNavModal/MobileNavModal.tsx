@@ -1,13 +1,14 @@
 /* Core */
-import React, { useEffect } from 'react';
+import { useEffect, type Dispatch, type SetStateAction } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 /* Components */
-import { ActionButton, H6, media } from '@/ui';
+import {
+    ActionButton, H6, media, center
+} from '@/ui-kit';
 
 /* Instruments */
-import { center } from '@/theme';
 import type { Route } from '@/types';
 
 export const MobileNavModal = (props: MobileNavModalProps) => {
@@ -30,32 +31,27 @@ export const MobileNavModal = (props: MobileNavModalProps) => {
     return (
         <Section data-testid = 'mobile-nav-modal'>
             <ul>
-                <li onPointerUp = { () => navigate('/headphones') }>
-                    <Img />
-                    <H6>Headphones</H6>
-                    <ActionButton size = 'small' variant = 'inline'>
-                        Shop
-                    </ActionButton>
-                </li>
-
-                <li onPointerUp = { () => navigate('/speakers') }>
-                    <Img />
-                    <H6>Speakers</H6>
-                    <ActionButton size = 'small' variant = 'inline'>
-                        Shop
-                    </ActionButton>
-                </li>
-
-                <li onPointerUp = { () => navigate('/earphones') }>
-                    <Img />
-                    <H6>Earphones</H6>
-                    <ActionButton size = 'small' variant = 'inline'>
-                        Shop
-                    </ActionButton>
-                </li>
+                <LinkItem title = 'Headphones' onPointerUp = { () => navigate('/headphones') } />
+                <LinkItem title = 'Speakers' onPointerUp = { () => navigate('/speakers') } />
+                <LinkItem title = 'Earphones' onPointerUp = { () => navigate('/earphones') } />
             </ul>
         </Section>
     );
+};
+
+const LinkItem = (props: LinkItemProps) => {
+    return (
+        <li onPointerUp = { props.onPointerUp }>
+            <Img />
+            <H6>{props.title}</H6>
+            <ActionButton size = 'small' variant = 'inline'>
+                {props.buttonText}
+            </ActionButton>
+        </li>
+    );
+};
+LinkItem.defaultProps = {
+    buttonText: 'Shop',
 };
 
 /* Styles */
@@ -125,9 +121,15 @@ const Img = styled.div`
     border-radius: 50%;
 `;
 
-export type SetIsOpened = React.Dispatch<React.SetStateAction<boolean>>;
-
 /* Types */
 interface MobileNavModalProps {
     setIsOpened: SetIsOpened;
+}
+
+export type SetIsOpened = Dispatch<SetStateAction<boolean>>;
+
+interface LinkItemProps {
+    title: string;
+    buttonText?: string;
+    onPointerUp: React.PointerEventHandler;
 }

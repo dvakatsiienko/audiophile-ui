@@ -3,7 +3,7 @@ import { writeFile } from 'fs/promises';
 import { resolve } from 'path';
 
 /* Instruments */
-import palette from '../src/ui/palette.json';
+import palette from '@/ui-kit/palette.json';
 
 async function convert() {
     let vars = ':root {\n';

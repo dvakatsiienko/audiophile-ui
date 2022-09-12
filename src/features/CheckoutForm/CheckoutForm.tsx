@@ -7,7 +7,7 @@ import styled from 'styled-components';
 /* Components */
 import {
     H6, ActionButton, Subtitle, TextInput, RadioInput, NumberInput
-} from '@/ui';
+} from '@/ui-kit';
 
 /* Instruments */
 import { resolver, type FormShape } from './resolver';
@@ -35,11 +35,7 @@ export const CheckoutForm = (props: CheckoutFormProps) => {
     const router = useRouter();
     const [ checkoutState, setcheCkoutState ] = useState('waiting');
 
-    watch();
-    console.log(errors, getValues());
-
     const submit: SubmitHandler<FormShape> = async data => {
-        console.log(data);
         props.onSubmit();
 
         const response = await fetch('http://localhost:3000/api/checkout', {

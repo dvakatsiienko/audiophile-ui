@@ -1,9 +1,5 @@
 /* Core */
-import { cy, describe, it, beforeEach, expect } from 'local-cypress';
-
-/* Instruments */
-// import { mobile } from '@/ui';
-import { mobile } from '../../src/ui';
+import { cy, describe, it } from 'local-cypress';
 
 describe('<Header />:', () => {
     it('opens a mobile device by clicking on Burger Menu Icon', () => {
@@ -42,7 +38,10 @@ describe('<Header />:', () => {
         const mobileViewModal = cy.get('[data-testid=mobile-nav-modal]');
         mobileViewModal.should('exist');
         cy.type('{esc}');
-        cy.get('.header-container').should('not.have.descendants', '[data-testid=mobile-nav-modal]');
+        cy.get('.header-container').should(
+            'not.have.descendants',
+            '[data-testid=mobile-nav-modal]',
+        );
     });
 });
 

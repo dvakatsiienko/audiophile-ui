@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 /* Components */
 import {
-    Overline, H1, H2, Body, ActionButton, media
-} from '@/ui';
+    Overline, H1, H2, Body, ActionButton, media, center
+} from '@/ui-kit';
 
 /* Instruments */
-import { center } from '@/theme';
+import type { CategoryName } from '@/types';
 import heroImg from './img/hero-img.png';
 
 export const Hero = (props: HeroProps) => {
@@ -52,14 +52,10 @@ const Article = styled.article<SArticleProps>`
     color: var(--color-3);
     overflow: hidden;
 
-    ${p => p.$page === 'category' && media.lessThan('tabletContent')`height: 100px;`}
-
     & .hero-container {
         width: 100%;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
-
-        ${media.lessThan('desktopContent')`max-width: ${p => p.theme.viewports.tabletContent};`}
 
         & .hero-content {
             ${center}
@@ -67,23 +63,8 @@ const Article = styled.article<SArticleProps>`
             position: relative;
             align-items: ${p => (p.$page === 'home' ? 'start' : 'center')};
 
-            ${media.lessThan('desktopContent')`
-                align-items: center;
-                max-width: ${p => p.theme.viewports.tabletContent};
-            `}
-
-            ${H1} {
-                ${media.lessThan('tabletContent')`
-                    font-size: 36px;
-                    line-height: 40px;
-                    text-align: center;
-                `}
-            }
-
             ${Body} {
                 max-width: 350px;
-
-                ${media.lessThan('desktopContent')`text-align: center;`}
             }
 
             ${Overline} {
@@ -98,8 +79,6 @@ const Article = styled.article<SArticleProps>`
                 gap: 24px;
                 max-width: 400px;
                 z-index: 2;
-
-                ${media.lessThan('desktopContent')`align-items: center;`}
             }
 
             & .hero-img {
@@ -112,11 +91,42 @@ const Article = styled.article<SArticleProps>`
                 right: 0;
                 top: -200px;
                 z-index: 1;
-
-                ${media.lessThan('tabletContent')`right: auto;`}
             }
         }
     }
+
+    ${media.lessThan('desktopContent')`
+        ${Body} {
+            text-align: center;
+        }
+
+        & .hero-container {
+            max-width: ${p => p.theme.viewports.tabletContent};
+
+            & .hero-content {
+                align-items: center;
+                max-width: ${p => p.theme.viewports.tabletContent};
+
+                & .description {
+                    align-items: center;
+                }
+
+                & .hero-img {
+                    right: auto;
+                }
+            }
+        }
+    `}
+
+    ${media.lessThan<SArticleProps>('tablet')`
+        ${p => p.$page === 'category' && 'height: 100px;'}
+
+        ${H1} {
+            font-size: 36px;
+            line-height: 40px;
+            text-align: center;
+        }
+    `}
 `;
 
 /* Types */
@@ -130,4 +140,3 @@ interface SArticleProps {
 }
 
 type Page = 'home' | 'category';
-type CategoryName = 'headphones' | 'speakers' | 'earphones';
