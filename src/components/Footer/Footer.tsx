@@ -1,6 +1,6 @@
 /* Core */
 import Link from 'next/link';
-import styled from 'styled-components';
+import styled, { type ThemeProps, type DefaultTheme } from 'styled-components';
 
 /* Components */
 import { Nav, LogoSvg } from '@/components';
@@ -63,8 +63,6 @@ export const Footer = () => {
 
 /* Styles */
 const StyledFooter = styled.footer`
-    --padding-sides: 0px;
-
     grid-area: footer;
     height: 400px;
     background-color: ${p => p.theme.palette[ 'color-2' ]};
@@ -82,7 +80,7 @@ const StyledFooter = styled.footer`
         justify-content: space-between;
         gap: 36px;
         height: 100%;
-        padding: 75px 0 40px;
+        padding: 75px var(--padding-x) 40px;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
 
@@ -113,34 +111,23 @@ const StyledFooter = styled.footer`
     }
 
     ${media.lessThan('desktopContent')`
-        --padding-sides: 12px;
-
         & .footer-container {
-            padding-left: var(--padding-sides);
-            padding-right: var(--padding-sides);
-
             & .line {
-                left: var(--padding-sides);
+                left: var(--padding-x-tablet);
             }
         }
     `}
 
     ${media.lessThan('tablet')`
-        --padding-sides: 40px;
-
         & .footer-container {
-            max-width: ${p => p.theme.viewports.tabletContent};
-            padding-left: var(--padding-sides);
-            padding-right: var(--padding-sides);
+            max-width: ${(p: ThemeProps<DefaultTheme>) => p.theme.viewports.tabletContent};
 
             & .line {
-                left: var(--padding-sides);
+                left: var(--padding-x-tablet-content);
             }
         }
     `}
     ${media.lessThan('tabletContent')`
-        --padding-sides: 24px;
-
         ${Body} {
             text-align: center;
         }
@@ -150,7 +137,7 @@ const StyledFooter = styled.footer`
         & .footer-container {
             align-items: center;
             gap: 48px;
-            padding: 50px var(--padding-sides) 40px;
+            padding: 50px var(--padding-x) 40px;
 
             & .footer-logo-nav {
                 flex-direction: column;

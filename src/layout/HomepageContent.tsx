@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /* Instruments */
-import { center } from '@/ui-kit';
+import { center, media } from '@/ui-kit';
 
 export const HomepageContent = (props: HomepageContentProps) => {
     return (
@@ -23,10 +23,13 @@ const Layout = styled.section`
     & .container {
         ${center};
 
-        padding: 0 40px;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
     }
+
+    ${media.lessThan('desktopContent')`
+        padding: 150px var(--padding-x-tablet) 100px;
+    `}
 `;
 
 /* Types */
