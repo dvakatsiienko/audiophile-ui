@@ -26,13 +26,7 @@ const HeadphonesPage: NextPage = () => {
             <Hero categoryName = 'headphones' page = 'category' />
 
             <HomepageContent>
-                <ul
-                    css = { `
-                        margin-bottom: 150px;
-                    ` }
-                >
-                    {headephoneListJSX}
-                </ul>
+                <ul style = {{ marginBottom: 150 }}>{headephoneListJSX}</ul>
 
                 <CardNav />
             </HomepageContent>
