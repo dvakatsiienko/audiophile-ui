@@ -47,7 +47,7 @@ export const Header = () => {
                 </div>
             </section>
 
-            {isOpened && <CardNavModal setIsOpened = { setIsOpened } />}
+            {isOpened && <CardNavModal isOpened = { isOpened } setIsOpened = { setIsOpened } />}
         </Layout>
     );
 };
@@ -56,7 +56,6 @@ export const Header = () => {
 const Layout = styled.header<SLayoutProps>`
     --header-height: 90px;
 
-    position: sticky;
     top: 0;
     grid-area: header;
     height: var(--header-height);
@@ -78,10 +77,11 @@ const Layout = styled.header<SLayoutProps>`
     }
 
     & .container {
-        height: 100%;
-        border-bottom: 1px solid #333333;
         max-width: ${p => p.theme.viewports.desktopContent};
+        height: 100%;
         margin: 0 auto;
+        padding: 0 var(--padding-x);
+        border-bottom: 1px solid #333333;
 
         & .content {
             display: grid;
@@ -108,21 +108,14 @@ const Layout = styled.header<SLayoutProps>`
         }
     }
 
-    ${media.lessThan('desktopContent')`
-        & .container {
-            & .content {
-                padding: 0 12px;
-            }
-        }
-    `}
-
     ${media.lessThan('tablet')`
+        position: sticky;
+
         & .container {
             max-width: ${p => p.theme.viewports.tabletContent};
 
             & .content {
                 grid-template-areas: 'burger logo cart';
-                padding: 0 40px;
             }
         }
     `}
@@ -130,10 +123,6 @@ const Layout = styled.header<SLayoutProps>`
     ${media.lessThan('tabletContent')`
         & .container {
             max-width: ${p => p.theme.viewports.tabletContent};
-
-            & .content {
-                padding: 0 24px;
-            }
         }
     `}
 `;

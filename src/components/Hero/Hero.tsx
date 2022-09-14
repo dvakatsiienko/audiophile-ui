@@ -83,13 +83,13 @@ const Layout = styled.article<SLayoutProps>`
 
             & .hero-img {
                 position: absolute;
+                right: 0;
+                top: -200px;
                 height: 729px;
                 width: 710px;
                 background-image: url(${heroImg.src});
                 background-size: cover;
                 box-shadow: 0 0 50px 50px var(--color-2) inset;
-                right: 0;
-                top: -200px;
                 z-index: 1;
             }
         }

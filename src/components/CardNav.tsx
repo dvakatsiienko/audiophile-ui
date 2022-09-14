@@ -49,20 +49,24 @@ CardLink.defaultProps = {
 const Ul = styled.ul`
     display: flex;
     gap: 30px;
+    width: 100%;
 
     & li {
         ${center};
 
         position: relative;
         justify-content: end;
-        gap: 10px;
-        width: 350px;
+        gap: 15px;
+        width: 100%;
         height: 200px;
         padding-bottom: 30px;
         background-color: var(--color-5);
         cursor: pointer;
+        transition: box-shadow 300ms ease;
 
         &:hover {
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
             & button {
                 color: var(--color-6);
             }
@@ -73,21 +77,25 @@ const Ul = styled.ul`
         }
     }
 
-    /* width: 225px; */
-    /* height: 185px; */
-
-    ${media.lessThan('tablet')`
-        flex-direction: column;
-        gap: 68px;
+    ${media.lessThan('desktopContent')`
+        gap: 10px;
 
         & li {
-            width: 330px;
+            height: 165px;
+        }
+    `}
+    ${media.lessThan('tabletContent')`
+        flex-direction: column;
+        gap: 80px;
+
+        & li {
+            gap: 10px;
         }
     `}
 `;
 
 const Img = styled.div`
-    --img-height: 150px;
+    --img-height: 140px;
 
     position: absolute;
     top: calc(0px - var(--img-height) / 2);

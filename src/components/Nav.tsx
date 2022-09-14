@@ -7,24 +7,16 @@ export const Nav = (props: NavProps) => {
         <SNav className = { props.className }>
             <ul>
                 <li>
-                    <Link href = '/'>
-                        <a>Home</a>
-                    </Link>
+                    <Link href = '/'>Home</Link>
                 </li>
                 <li>
-                    <Link href = '/headphones'>
-                        <a>Headphones</a>
-                    </Link>
+                    <Link href = '/headphones'>Headphones</Link>
                 </li>
                 <li>
-                    <Link href = '/speakers'>
-                        <a>Speakres</a>
-                    </Link>
+                    <Link href = '/speakers'>Speakres</Link>
                 </li>
                 <li>
-                    <Link href = '/earphones'>
-                        <a>Earphones</a>
-                    </Link>
+                    <Link href = '/earphones'>Earphones</Link>
                 </li>
             </ul>
         </SNav>
