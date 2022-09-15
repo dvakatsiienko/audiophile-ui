@@ -1,21 +1,54 @@
 /* Core */
 import Image from 'next/future/image';
 import styled from 'styled-components';
+import path from 'path';
 
 /* Components */
-import { H2, Body, center } from '@/ui-kit';
+import {
+    H2,
+    H4,
+    Body,
+    center,
+    media,
+    TabletContent,
+    FromTo,
+    useDesktopContentMQ,
+    useTabletContentMQ,
+    useFromToMQ
+} from '@/ui-kit';
 
 /* Instruments */
-import aboutImg from './img/about-img.png';
+import aboutImgDesktop from './img/about-img-desktop.png';
+import aboutImgTablet from './img/about-img-tablet.png';
+import aboutImgMobile from './img/about-img-mobile.png';
 
 export const About = () => {
+    const headingText = (
+        <>
+            Bringing you the <strong>best</strong> audio gear
+        </>
+    );
+
+    const isMobile = useFromToMQ({ from: 'zero', to: 'tablet' });
+    const isTablet = useFromToMQ({ from: 'tablet', to: 'desktopContent' });
+    const isDC = useDesktopContentMQ();
+
+    let img = aboutImgDesktop;
+    if (isMobile) img = aboutImgMobile;
+    if (isTablet) img = aboutImgTablet;
+
+    console.log('🚀 ~ About ~ isMobile, isTablet, isDC ', isMobile, isTablet, isDC);
+
     return (
         <Layout>
             <section className = 'content'>
                 <section>
-                    <H2>
-                        Bringing you the <strong>best</strong> audio gear
-                    </H2>
+                    <FromTo from = 'zero' to = 'tabletContent'>
+                        <H4>{headingText}</H4>
+                    </FromTo>
+                    <TabletContent>
+                        <H2>{headingText}</H2>
+                    </TabletContent>
 
                     <Body>
                         Located at the heart of New York City, Audiophile is the premier store for
@@ -27,7 +60,7 @@ export const About = () => {
                     </Body>
                 </section>
 
-                <Image alt = 'about image' src = { aboutImg } />
+                <Image alt = 'about image' src = { img } />
             </section>
         </Layout>
     );
@@ -40,22 +73,49 @@ const Layout = styled.article`
     }
 
     & .content {
-        ${center};
-
-        flex-direction: row;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-areas: 'content image';
         gap: 125px;
         padding: 0 var(--padding-x);
 
         & section {
+            position: relative;
+
+            grid-area: content;
             display: flex;
             flex-direction: column;
             gap: 32px;
 
-            & h2 {
+            & h2,
+            & h4 {
                 & strong {
                     color: var(--color-6);
                 }
             }
         }
+
+        & img {
+            grid-area: image;
+        }
     }
+
+    ${media.lessThan('desktopContent')`
+        ${Body}, ${H2}, ${H4} {
+            text-align: center;
+        }
+
+        & .content {
+            grid-auto-flow: row;
+            grid-template-areas:
+            'image'
+            'content';
+            gap: 60px;
+
+            & img {
+                justify-self: center;
+            }
+        }
+
+    `}
 `;

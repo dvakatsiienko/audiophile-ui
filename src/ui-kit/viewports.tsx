@@ -30,6 +30,7 @@ const useFromToMQ = (options: Options) => {
 
     return useMediaQuery({ query });
 };
+const useZeroMQ = () => useMediaQuery({ query: '(min-width: 0px)' });
 const useMobileMQ = () => useMediaQuery({ query: `(min-width: ${mobile + 1}px)` });
 const useTabletContentMQ = () => useMediaQuery({ query: `(min-width: ${tabletContent + 1}px)` });
 const useTabletMQ = () => useMediaQuery({ query: `(min-width: ${tablet + 1}px)` });
@@ -101,6 +102,9 @@ export {
     desktop,
     viewports,
     media,
+
+    /* MQ hooks */
+    useFromToMQ,
     useMobileMQ,
     useTabletContentMQ,
     useTabletMQ,
