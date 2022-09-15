@@ -14,17 +14,20 @@ exports[`<ActionButton />: renders correctly inline variant 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 160px;
+  min-width: 160px;
   height: 40px;
   outline: none;
+  border: none;
   -webkit-transition: color 0.3s ease,background-color 0.3s ease;
   transition: color 0.3s ease,background-color 0.3s ease;
-  border: none;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 17px;
+  text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  gap: 13px;
   background-color: transparent;
   color: var(--color-8);
 }
@@ -33,24 +36,52 @@ exports[`<ActionButton />: renders correctly inline variant 1`] = `
   color: var(--color-6);
 }
 
+.c0 > span {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 13px;
+}
+
 <button
   class="c0"
   type="button"
 >
   <span>
-    Click
+    <span>
+      Click
+    </span>
+    <img
+      alt="chevron"
+      data-nimg="future"
+      decoding="async"
+      height="100"
+      loading="lazy"
+      src="http://localhost/_next/static/media/mocked-path.svg"
+      srcset="http://localhost/_next/static/media/mocked-path.svg 1x, http://localhost/_next/static/media/mocked-path.svg 2x"
+      style="color: transparent;"
+      width="100"
+    />
   </span>
-  <img
-    alt="chevron"
-    data-nimg="future"
-    decoding="async"
-    height="100"
-    loading="lazy"
-    src="http://localhost/_next/static/media/mocked-path.svg"
-    srcset="http://localhost/_next/static/media/mocked-path.svg 1x, http://localhost/_next/static/media/mocked-path.svg 2x"
-    style="color: transparent;"
-    width="100"
-  />
 </button>
 `;
 
@@ -68,12 +99,16 @@ exports[`<ActionButton />: renders correctly primary variant 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 160px;
+  min-width: 160px;
   height: 40px;
   outline: none;
+  border: none;
   -webkit-transition: color 0.3s ease,background-color 0.3s ease;
   transition: color 0.3s ease,background-color 0.3s ease;
-  border: none;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 17px;
+  text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -91,7 +126,9 @@ exports[`<ActionButton />: renders correctly primary variant 1`] = `
   type="button"
 >
   <span>
-    Click
+    <span>
+      Click
+    </span>
   </span>
 </button>
 `;
@@ -110,12 +147,16 @@ exports[`<ActionButton />: renders correctly secondary variant 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 160px;
+  min-width: 160px;
   height: 40px;
   outline: none;
+  border: none;
   -webkit-transition: color 0.3s ease,background-color 0.3s ease;
   transition: color 0.3s ease,background-color 0.3s ease;
-  border: none;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 17px;
+  text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -135,7 +176,9 @@ exports[`<ActionButton />: renders correctly secondary variant 1`] = `
   type="button"
 >
   <span>
-    Click
+    <span>
+      Click
+    </span>
   </span>
 </button>
 `;

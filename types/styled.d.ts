@@ -1,6 +1,13 @@
 /* Core */
 import 'styled-components';
+import type { CSSProp } from 'styled-components';
 import type {} from 'styled-components/cssprop';
+
+declare module 'react' {
+    interface Attributes {
+        css?: CSSProp<MyTheme>;
+    }
+}
 
 declare module 'styled-components' {
     export interface DefaultTheme {
@@ -24,9 +31,4 @@ declare module 'styled-components' {
             desktopContent: string;
         };
     }
-}
-
-declare global {
-    // eslint-disable-next-line vars-on-top, no-var
-    var TEST_TEST: string;
 }

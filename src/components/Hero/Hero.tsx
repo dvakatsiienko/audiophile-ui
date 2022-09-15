@@ -11,6 +11,11 @@ import type { CategoryName } from '@/types';
 import heroImg from './img/hero-img.png';
 
 export const Hero = (props: HeroProps) => {
+    let h2Message: CategoryName | string = props.categoryName ?? '';
+
+    if (props.categoryName === '404') h2Message = '👽 Page not Found';
+    if (props.categoryName === '500') h2Message = '🚧 Internal Server Error';
+
     return (
         <Layout $page = { props.page }>
             <section className = 'container'>
@@ -31,7 +36,7 @@ export const Hero = (props: HeroProps) => {
                         </>
                     )}
 
-                    {props.page === 'category' && <H2>{props.categoryName}</H2>}
+                    {props.page === 'category' && <H2>{h2Message}</H2>}
                 </div>
             </section>
         </Layout>
@@ -132,7 +137,7 @@ const Layout = styled.article<SLayoutProps>`
 /* Types */
 interface HeroProps {
     page: Page;
-    categoryName?: CategoryName;
+    categoryName?: CategoryName | '404' | '500';
 }
 
 interface SLayoutProps {
