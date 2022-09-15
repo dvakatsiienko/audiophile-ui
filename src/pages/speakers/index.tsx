@@ -6,22 +6,15 @@ import { Layout, HomepageContent } from '@/layout';
 import {
     Header, Hero, CardNav, About, Footer
 } from '@/components';
-import { Testing } from '@/features';
 
-const EarphonesPage: NextPage = () => {
+const SpeakersPage: NextPage = () => {
     return (
         <Layout>
             <Header />
 
-            <Hero categoryName = 'earphones' page = 'category' />
+            <Hero categoryName = 'speakers' page = 'category' />
 
             <HomepageContent>
-                <Testing
-                    css = { `
-                        margin-bottom: 150px;
-                    ` }
-                />
-
                 <CardNav />
 
                 <About />
@@ -32,4 +25,4 @@ const EarphonesPage: NextPage = () => {
     );
 };
 
-export default EarphonesPage;
+export default SpeakersPage;

@@ -7,7 +7,7 @@ import {
     Header, Hero, CardNav, Footer
 } from '@/components';
 
-const SpeakersPage: NextPage = () => {
+const SpeakerByIdPage: NextPage = () => {
     return (
         <Layout>
             <Header />
@@ -23,4 +23,4 @@ const SpeakersPage: NextPage = () => {
     );
 };
 
-export default SpeakersPage;
+export default SpeakerByIdPage;

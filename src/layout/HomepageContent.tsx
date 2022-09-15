@@ -17,14 +17,15 @@ HomepageContent.defaultProps = {
 
 /* Styles */
 const Layout = styled.section`
-    padding: 200px 0;
     background-color: var(--color-4);
 
     & .container {
         ${center};
 
+        gap: 150px;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
+        padding: 200px 0;
     }
 
     ${media.lessThan('desktopContent')`
