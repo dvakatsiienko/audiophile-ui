@@ -1,17 +1,33 @@
 /* Core */
-import { dehydrate, QueryClient } from '@tanstack/react-query';
+import { useQuery, dehydrate, QueryClient } from '@tanstack/react-query';
 import type { NextPage, GetStaticProps } from 'next';
 
 /* Components */
 import { Layout, HomepageContent } from '@/layout';
 import {
-    Header, Hero, CardNav, Footer
+    Header, Hero, CardNav, About, Footer
 } from '@/components';
 
 /* Instruments */
-import { fetchPost1 } from '@/api';
+import {
+    fetchPost1
+    // fetchCategories,
+    // fetchSpeakers,
+    // fetchEarphones,
+    // fetchProducts,
+    // fetchHeadphones
+} from '@/api';
 
 const Index: NextPage = () => {
+    // const categoriesQuery = useQuery([ 'categories' ], fetchCategories);
+    // const headphonesQuery = useQuery([ 'headphones' ], fetchHeadphones);
+    // const speakersQuery = useQuery([ 'speakers' ], fetchSpeakers);
+    // const earphonesQuery = useQuery([ 'earphones' ], fetchEarphones);
+
+    // console.log('categories', categoriesQuery.data?.categories);
+    // console.log('speakers', speakersQuery.data?.category?.products);
+    // console.log('earphones', earphonesQuery.data?.category?.products);
+
     return (
         <Layout>
             <Header />
@@ -20,6 +36,8 @@ const Index: NextPage = () => {
 
             <HomepageContent>
                 <CardNav />
+
+                <About />
             </HomepageContent>
 
             <Footer />

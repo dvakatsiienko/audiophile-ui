@@ -80,9 +80,9 @@ const Layout = styled.footer`
         justify-content: space-between;
         gap: 36px;
         height: 100%;
-        padding: 75px var(--padding-x) 40px;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
+        padding: 75px var(--padding-x) 40px;
 
         & .footer-logo-nav {
             display: flex;
