@@ -7,7 +7,7 @@ import { center, media } from '@/ui-kit';
 export const HomepageContent = (props: HomepageContentProps) => {
     return (
         <Layout>
-            <section className = 'container'>{props.children}</section>
+            <section className = 'homepage-layout-container'>{props.children}</section>
         </Layout>
     );
 };
@@ -19,17 +19,19 @@ HomepageContent.defaultProps = {
 const Layout = styled.section`
     background-color: var(--color-4);
 
-    & .container {
+    & .homepage-layout-container {
         ${center};
 
         gap: 150px;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
-        padding: 200px 0;
+        padding: 200px var(--padding-x);
     }
 
     ${media.lessThan('desktopContent')`
-        padding: 150px var(--padding-x-tablet) 100px;
+        & .homepage-layout-container {
+            padding: 150px var(--padding-x) 100px;
+        }
     `}
 `;
 
