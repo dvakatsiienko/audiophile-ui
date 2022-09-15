@@ -9,7 +9,7 @@ import { FacebookSvg, TwitterSvg, InstagramSvg } from './svg';
 
 export const Footer = () => {
     return (
-        <StyledFooter>
+        <Layout>
             <section className = 'footer-container'>
                 <section className = 'footer-logo-nav'>
                     <Link href = '/'>
@@ -57,12 +57,12 @@ export const Footer = () => {
 
                 <div className = 'line' />
             </section>
-        </StyledFooter>
+        </Layout>
     );
 };
 
 /* Styles */
-const StyledFooter = styled.footer`
+const Layout = styled.footer`
     grid-area: footer;
     height: 400px;
     background-color: ${p => p.theme.palette[ 'color-2' ]};

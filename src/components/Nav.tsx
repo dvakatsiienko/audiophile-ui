@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const Nav = (props: NavProps) => {
     return (
-        <SNav className = { props.className }>
+        <Container className = { props.className }>
             <ul>
                 <li>
                     <Link href = '/'>Home</Link>
@@ -19,7 +19,7 @@ export const Nav = (props: NavProps) => {
                     <Link href = '/earphones'>Earphones</Link>
                 </li>
             </ul>
-        </SNav>
+        </Container>
     );
 };
 Nav.defaultProps = {
@@ -27,7 +27,7 @@ Nav.defaultProps = {
 };
 
 /* Styles */
-const SNav = styled.nav`
+const Container = styled.nav`
     grid-area: nav;
 
     & ul {

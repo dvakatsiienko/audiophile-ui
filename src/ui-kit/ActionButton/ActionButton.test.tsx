@@ -40,10 +40,10 @@ describe.only('<ActionButton />:', () => {
         const href = '/speakers';
 
         styledRender(<ActionButton as = 'a' href = { href } />);
-        const button = screen.getByRole('link');
+        const link = screen.getByRole('link');
 
-        expect(button).toHaveAttribute('href', href);
-        expect(button.tagName).toBe('A');
+        expect(link).toHaveAttribute('href', href);
+        expect(link.tagName).toBe('A');
     });
 
     test('handles click handler passed via props', async () => {
