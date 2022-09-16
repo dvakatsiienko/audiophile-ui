@@ -1,5 +1,5 @@
 export interface SpeakersRes {
-    category: Category;
+    data: Category;
 }
 
 interface Category {

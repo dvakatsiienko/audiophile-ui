@@ -1,5 +1,5 @@
 export interface CategoriesRes {
-    categories: Category[];
+    data: Category[];
 }
 
 interface Category {
