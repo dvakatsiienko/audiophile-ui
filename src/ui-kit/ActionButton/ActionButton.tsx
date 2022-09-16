@@ -1,7 +1,7 @@
 /* Core */
 import Image from 'next/future/image';
 import NextLink from 'next/link';
-import styled, { css } from 'styled-components';
+import styled, { css, type FlattenSimpleInterpolation } from 'styled-components';
 
 /* Instruments */
 import { center } from '@/ui-kit';
@@ -92,7 +92,17 @@ const Link = styled.a<SButtonProps>`
     ${styles}
 `;
 
-const variants = {
+const secondary = css`
+    background-color: var(--color-5);
+    color: var(--color-1);
+    border: 1px solid black;
+
+    &:hover {
+        background-color: var(--color-1);
+        color: var(--color-5);
+    }
+`;
+const variants: Record<Variant, FlattenSimpleInterpolation> = {
     primary: css`
         background-color: var(--color-6);
         color: var(--color-3);
@@ -101,15 +111,19 @@ const variants = {
             background-color: var(--color-7);
         }
     `,
-    secondary: css`
-        background-color: var(--color-5);
-        color: var(--color-1);
-        border: 1px solid black;
+    'primary-black': css`
+        background-color: var(--color-1);
+        color: var(--color-3);
 
         &:hover {
-            background-color: var(--color-1);
-            color: var(--color-5);
+            background-color: var(--color-10);
         }
+    `,
+    secondary,
+    'secondary-transparent': css`
+        ${secondary};
+
+        background-color: transparent;
     `,
     inline: css`
         background-color: transparent;
@@ -133,7 +147,6 @@ const variants = {
 type ActionButtonProps = React.PropsWithChildren<{
     onPointerUp?: () => void;
     variant?: Variant;
-    // type?: string;
     type?: ButtonType;
     as?: As;
     href?: Route;
@@ -141,7 +154,7 @@ type ActionButtonProps = React.PropsWithChildren<{
     ['data-testid']?: string;
 }>;
 
-type Variant = 'primary' | 'secondary' | 'inline';
+type Variant = 'primary' | 'primary-black' | 'secondary' | 'secondary-transparent' | 'inline';
 type As = 'button' | 'a';
 type Size = 'small' | 'medium' | 'large';
 type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement>['type'];

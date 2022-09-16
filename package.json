@@ -27,7 +27,8 @@
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
     "validate": "npm-run-all --parallel check-types check-format lint build",
-    "clean": "rimraf .next"
+    "clean": "rimraf .next",
+    "transmog-palette": "node -r @swc-node/register ./scripts/paletteToCssVars.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "2.9.8",

@@ -22,15 +22,20 @@ const viewports = {
 const media = generateMedia(viewports);
 
 const useFromToMQ = (options: Options) => {
+    const [ isMounted, setIsMounted ] = useState(false);
+
+    useEffect(() => setIsMounted(true), []);
+
     const nextViewports = { ...viewports, zero: '0px' };
     const min = nextViewports[ options.from ];
     const max = nextViewports[ options.to ];
 
     const query = `(min-width: ${min}) and (max-width: ${max})`;
 
-    return useMediaQuery({ query });
+    const result = useMediaQuery({ query });
+
+    return isMounted ? result : null;
 };
-const useZeroMQ = () => useMediaQuery({ query: '(min-width: 0px)' });
 const useMobileMQ = () => useMediaQuery({ query: `(min-width: ${mobile + 1}px)` });
 const useTabletContentMQ = () => useMediaQuery({ query: `(min-width: ${tabletContent + 1}px)` });
 const useTabletMQ = () => useMediaQuery({ query: `(min-width: ${tablet + 1}px)` });
