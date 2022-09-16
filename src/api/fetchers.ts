@@ -2,7 +2,54 @@
 import waait from 'waait';
 
 /* Instruments */
-import { Headphone } from '@/pages/api/headphones';
+import { API_URL } from '@/utils';
+import type { Headphone } from '@/pages/api/headphones';
+import type {
+    CategoriesRes, HeadphonesRes, SpeakersRes, EarphonesRes, ProductsRes
+} from '@/types';
+
+export const fetchCategories = async () => {
+    const res = await fetch(`${API_URL}/api/category`);
+    const result: CategoriesRes = await res.json();
+
+    return result;
+};
+
+export const fetchHeadphones = async () => {
+    const res = await fetch(`${API_URL}/api/category/headphones`);
+    const result: HeadphonesRes = await res.json();
+
+    return result;
+};
+
+export const fetchSpeakers = async () => {
+    const res = await fetch(`${API_URL}/api/category/speakers`);
+    const result: SpeakersRes = await res.json();
+
+    return result;
+};
+
+export const fetchEarphones = async () => {
+    const res = await fetch(`${API_URL}/api/category/earphones`);
+    const result: EarphonesRes = await res.json();
+
+    return result;
+};
+
+export const fetchProducts = async () => {
+    const res = await fetch(`${API_URL}/api/product`);
+    const result: ProductsRes = await res.json();
+
+    return result;
+};
+
+/* TEST */
+export const fetchHeadphonesTest = async () => {
+    const res = await fetch('http://localhost:3000/api/headphones');
+    const result: Headphone[] = await res.json();
+
+    return result;
+};
 
 export const fetchUsers = async () => {
     const result = await fetch('https://jsonplaceholder.typicode.com/users').then<User[]>(res => res.json());
@@ -15,48 +62,7 @@ export const fetchUsers = async () => {
 export const fetchPost1 = () => {
     return fetch('https://jsonplaceholder.typicode.com/posts/1').then<Post>(res => res.json());
 };
-
-export const fetchCategories = async () => {
-    const res = await fetch('https://audiophile-express.herokuapp.com/api/category');
-    const result: Headphone[] = await res.json();
-
-    return result;
-};
-
-export const fetchHeadphones = async () => {
-    const res = await fetch('https://audiophile-express.herokuapp.com/api/category/headphones');
-    const result: Headphone[] = await res.json();
-
-    return result;
-};
-
-export const fetchSpeakers = async () => {
-    const res = await fetch('https://audiophile-express.herokuapp.com/api/category/speakers');
-    const result: Headphone[] = await res.json();
-
-    return result;
-};
-
-export const fetchEarphones = async () => {
-    const res = await fetch('https://audiophile-express.herokuapp.com/api/category/earphones');
-    const result: Headphone[] = await res.json();
-
-    return result;
-};
-
-export const fetchProducts = async () => {
-    const res = await fetch('https://audiophile-express.herokuapp.com/api/product');
-    const result: Headphone[] = await res.json();
-
-    return result;
-};
-
-export const fetchHeadphonesTest = async () => {
-    const res = await fetch('http://localhost:3000/api/headphones');
-    const result: Headphone[] = await res.json();
-
-    return result;
-};
+/* TEST */
 
 /* Types */
 interface User {

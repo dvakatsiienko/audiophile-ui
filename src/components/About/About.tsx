@@ -1,20 +1,10 @@
 /* Core */
 import Image from 'next/future/image';
 import styled from 'styled-components';
-import path from 'path';
 
 /* Components */
 import {
-    H2,
-    H4,
-    Body,
-    center,
-    media,
-    TabletContent,
-    FromTo,
-    useDesktopContentMQ,
-    useTabletContentMQ,
-    useFromToMQ
+    H2, H4, Body, media, TabletContent, FromTo, useFromToMQ
 } from '@/ui-kit';
 
 /* Instruments */
@@ -31,13 +21,10 @@ export const About = () => {
 
     const isMobile = useFromToMQ({ from: 'zero', to: 'tablet' });
     const isTablet = useFromToMQ({ from: 'tablet', to: 'desktopContent' });
-    const isDC = useDesktopContentMQ();
 
     let img = aboutImgDesktop;
     if (isMobile) img = aboutImgMobile;
     if (isTablet) img = aboutImgTablet;
-
-    console.log('🚀 ~ About ~ isMobile, isTablet, isDC ', isMobile, isTablet, isDC);
 
     return (
         <Layout>
@@ -60,7 +47,7 @@ export const About = () => {
                     </Body>
                 </section>
 
-                <Image alt = 'about image' src = { img } />
+                <Image alt = 'about image' placeholder = 'blur' quality = { 100 } src = { img } />
             </section>
         </Layout>
     );
@@ -69,7 +56,7 @@ export const About = () => {
 /* Styles */
 const Layout = styled.article`
     ${Body} {
-        color: #00000050;
+        color: var(--color-8);
     }
 
     & .content {

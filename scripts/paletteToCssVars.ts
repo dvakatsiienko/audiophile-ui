@@ -15,9 +15,9 @@ async function convert() {
 
         vars += '}';
 
-        await writeFile(resolve('.', 'src/ui/palette.scss'), vars);
+        await writeFile(resolve('.', 'src/ui-kit/palette.scss'), vars);
     } catch (error) {
-        console.log('Error writing palette.scss', error);
+        console.error('Error writing palette.scss', error);
     }
 }
 
