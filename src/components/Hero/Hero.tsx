@@ -61,6 +61,7 @@ const Layout = styled.article<SLayoutProps>`
         width: 100%;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
+        padding: 0 var(--padding-x);
 
         & .content {
             ${center}

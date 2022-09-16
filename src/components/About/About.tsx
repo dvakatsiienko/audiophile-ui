@@ -103,6 +103,18 @@ const Layout = styled.article`
                 justify-self: center;
             }
         }
+    `}
 
+    ${media.lessThan('tabletContent')`
+        & .content {
+            & img {
+                --width: 320px;
+                --height: 293px;
+
+                width: var(--width);
+                height: var(--height);
+                aspect-ratio: auto var(--width) / var(--height);
+            }
+        }
     `}
 `;

@@ -5,15 +5,21 @@ import styled from 'styled-components';
 
 /* Components */
 import {
-    H1, H4, Body, ActionButton
+    H1, H4, Body, ActionButton, useFromToMQ, media
 } from '@/ui-kit';
 
 /* Instruments */
 import { fetchSpeakers, fetchEarphones } from '@/api';
 import { getImgUrl } from '@/utils';
-import speaker1Img from './img/speaker-1-highlight-img.png';
-import speaker2Img from './img/speaker-2-highlight-img.png';
-import earphoneImg from './img/earphone-highlight-img.png';
+import speaker1DesktopImg from './img/speaker-1-desktop-img.png';
+import speaker1TabletImg from './img/speaker-1-tablet-img.png';
+import speaker1MobileImg from './img/speaker-1-mobile-img.png';
+import speaker2DesktopImg from './img/speaker-2-desktop-img.png';
+import speaker2TabletImg from './img/speaker-2-tablet-img.png';
+import speaker2MobileImg from './img/speaker-2-mobile-img.png';
+import earphoneDesktopImg from './img/earphone-desktop-img.png';
+import earphoneTabletImg from './img/earphone-tablet-img.png';
+import earphoneMobileImg from './img/earphone-mobile-img.png';
 
 // audiophile-express.herokuapp.com/assets/cart/preview-yx1-earphones.jpg
 
@@ -21,23 +27,38 @@ export const Featured = () => {
     const speakersQuery = useQuery([ 'speakers' ], fetchSpeakers);
     const earphonesQuery = useQuery([ 'earphones' ], fetchEarphones);
 
-    const speaker1 = speakersQuery.data?.category?.products?.at(1);
-    const speaker2 = speakersQuery.data?.category?.products?.at(0);
-    const earphone = earphonesQuery.data?.category.products?.at(0);
+    const speaker1 = speakersQuery.data?.data?.products?.at(1);
+    const speaker2 = speakersQuery.data?.data?.products?.at(0);
+    const earphone = earphonesQuery.data?.data?.products?.at(0);
 
-    // console.log('speakers', speakersQuery.data?.category?.products);
+    const isMobile = useFromToMQ({ from: 'zero', to: 'tablet' });
+    const isTablet = useFromToMQ({ from: 'tablet', to: 'desktopContent' });
+
+    console.log('speakers', speakersQuery.data?.data?.products);
     // console.log('earphones', earphonesQuery.data?.category?.products);
     // console.log('earphonesQuery', earphonesQuery?.data?.category.products);
+
+    let speaker1Img = speaker1DesktopImg;
+    if (isMobile) speaker1Img = speaker1MobileImg;
+    if (isTablet) speaker1Img = speaker1TabletImg;
+
+    let speaker2Img = speaker2DesktopImg;
+    if (isMobile) speaker2Img = speaker2MobileImg;
+    if (isTablet) speaker2Img = speaker2TabletImg;
+
+    let earphoneImg = earphoneDesktopImg;
+    if (isMobile) earphoneImg = earphoneMobileImg;
+    if (isTablet) earphoneImg = earphoneTabletImg;
 
     const xxx = getImgUrl(speaker1?.previewImage ?? '');
     // console.log('🚀 ~ Featured ~ speaker1Img', xxx);
 
     return (
         <Layout>
-            <section className = 'speaker-1'>
-                <Image alt = 'speaker 1 image' className = 'image' src = { speaker1Img } />
+            <section className = 'featured-1'>
+                <Image alt = 'speaker 1 image' src = { speaker1Img } />
 
-                <section className = 'content'>
+                <section>
                     <H1>{speaker1?.name}</H1>
                     <Body>{speaker1?.description}</Body>
                     <ActionButton size = 'large' variant = 'primary-black'>
@@ -50,10 +71,10 @@ export const Featured = () => {
                 <b className = 'circle-3' />
             </section>
 
-            <section className = 'speaker-2'>
-                <Image fill alt = 'speaker 2 image' className = 'image' src = { speaker2Img } />
+            <section className = 'featured-2'>
+                <Image fill alt = 'speaker 2 image' src = { speaker2Img } />
 
-                <section className = 'content'>
+                <section>
                     <H4>{speaker2?.name}</H4>
                     <ActionButton size = 'large' variant = 'secondary-transparent'>
                         SEE PRODUCT
@@ -61,10 +82,10 @@ export const Featured = () => {
                 </section>
             </section>
 
-            <section className = 'earphone'>
-                <Image alt = 'speaker 2 image' className = 'image' src = { earphoneImg } />
+            <section className = 'featured-3'>
+                <Image alt = 'speaker 2 image' src = { earphoneImg } />
 
-                <section className = 'content'>
+                <section>
                     <H4>{earphone?.name.toLowerCase().replace('wireless', '')}</H4>
                     <ActionButton size = 'large' variant = 'secondary'>
                         SEE PRODUCT
@@ -86,7 +107,7 @@ const Layout = styled.article`
         border-radius: 8px;
     }
 
-    & .speaker-1 {
+    & .featured-1 {
         position: relative;
         display: flex;
         align-items: center;
@@ -98,7 +119,7 @@ const Layout = styled.article`
         overflow: hidden;
         z-index: 1;
 
-        & .content {
+        & section {
             display: flex;
             flex-direction: column;
             gap: 24px;
@@ -151,12 +172,12 @@ const Layout = styled.article`
         }
     }
 
-    & .speaker-2 {
+    & .featured-2 {
         position: relative;
         height: 320px;
         padding-left: 100px;
 
-        & .content {
+        & section {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -169,24 +190,30 @@ const Layout = styled.article`
 
         & img {
             z-index: 1;
+            object-fit: cover;
+            object-position: 100% 100%;
         }
     }
 
-    & .earphone {
+    & .featured-3 {
         --gap: 30px;
         --width: 540px;
 
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 540px minmax(340px, 540px);
+        grid-template-rows: 320px;
+        grid-template-areas: 'img content';
         gap: var(--gap);
 
-        & .content,
         & img {
+            grid-area: img;
+            width: 540px;
             height: 320px;
-            min-width: 540px;
         }
 
-        & .content {
+        & section {
+            grid-area: content;
             display: flex;
             flex-direction: column;
             align-items: start;
@@ -194,7 +221,122 @@ const Layout = styled.article`
             gap: 32px;
             padding-left: 100px;
             background-color: var(--color-5);
-            border-radius: 8px;
         }
     }
+
+    ${media.lessThan('desktopContent')`
+        gap: 32px;
+
+        & .featured-1 {
+            justify-content: center;
+            align-items: end;
+            height: 720px;
+            padding: 0 0 64px;
+
+            & section {
+                align-items: center;
+
+                ${H1}, ${Body} { text-align: center; }
+            }
+
+            & img {
+                top: 50px;
+                right: 0;
+                bottom: initial;
+                left: 0;
+                margin: 0 auto;
+            }
+
+            & b {
+                &.circle-1, &.circle-2, &.circle-3 {
+                    top: calc((-1 * var(--size) / 2) + 175px);
+                    right: 0;
+                    bottom: initial;
+                    left: 0;
+                    margin: 0 auto;
+                }
+
+                &.circle-3 {
+                    right: -1000px;
+                    left: -1000px;
+                }
+            }
+        }
+
+        & .featured-2 {
+            padding-left: 64px;
+        }
+
+        & .featured-3 {
+            grid-template-columns: 340px minmax(auto, 100%);
+            gap: 10px;
+
+            & img {
+                width: 339px;
+                height: 320px;
+            }
+
+            & section { padding-left: 40px; }
+        }
+    `}
+
+    ${media.lessThan('tabletContent')`
+        gap: 24px;
+
+        & .featured-1 {
+            justify-content: center;
+            align-items: end;
+            height: 600px;
+            padding: 0 24px 56px;
+
+            & section {
+                align-items: center;
+
+                ${H1} {
+                    font-size: 36px;
+                    line-height: 40px;
+                }
+            }
+
+            & img {
+                top: 45px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            & b {
+                &.circle-1,
+                &.circle-2,
+                &.circle-3 { top: calc((-1 * var(--size) / 2) + 155px); }
+
+                &.circle-1 { --size: 279px; }
+                &.circle-2 { --size: 320px; }
+                &.circle-3 { --size: 558px; }
+            }
+        }
+
+        & .featured-2 {
+            padding-left: 24px;
+        }
+
+        & .featured-3 {
+            grid-auto-flow: column;
+            grid-template-columns: auto;
+            grid-template-rows: 200px 200px;
+            grid-template-areas:
+                'img'
+                'content';
+            gap: 24px;
+
+            & img {
+                justify-self: center;
+                width: 327px;
+                height: 200px;
+            }
+
+            & section { padding-left: 24px; }
+        }
+    `}
 `;
