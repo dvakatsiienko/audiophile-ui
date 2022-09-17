@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 /* Components */
 import {
-    H2, H4, Body, media, TabletContent, FromTo, useFromToMQ
+    H2, H4, Body, media, FromTo, useFromToMQ
 } from '@/ui-kit';
 
 /* Instruments */
@@ -19,7 +19,7 @@ export const About = () => {
         </>
     );
 
-    const isMobile = useFromToMQ({ from: 'zero', to: 'tablet' });
+    const isMobile = useFromToMQ({ from: 'MIN', to: 'tablet' });
     const isTablet = useFromToMQ({ from: 'tablet', to: 'desktopContent' });
 
     let img = aboutImgDesktop;
@@ -30,12 +30,12 @@ export const About = () => {
         <Layout>
             <section className = 'content'>
                 <section>
-                    <FromTo from = 'zero' to = 'tabletContent'>
+                    <FromTo from = 'MIN' to = 'tabletContent'>
                         <H4>{headingText}</H4>
                     </FromTo>
-                    <TabletContent>
+                    <FromTo from = 'tabletContent'>
                         <H2>{headingText}</H2>
-                    </TabletContent>
+                    </FromTo>
 
                     <Body>
                         Located at the heart of New York City, Audiophile is the premier store for
@@ -101,6 +101,13 @@ const Layout = styled.article`
 
             & img {
                 justify-self: center;
+
+                --width: 682px;
+                --height: 293px;
+
+                max-width: var(--width);
+                height: var(--height);
+                aspect-ratio: auto var(--width) / var(--height);
             }
         }
     `}

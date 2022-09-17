@@ -8,7 +8,7 @@ import { Nav, LogoSvg } from '@/components';
 import { CardNavModal } from './CardNavModal';
 
 /* Instruments */
-import { media, Tablet, FromTo } from '@/ui-kit';
+import { media, FromTo } from '@/ui-kit';
 import { ShoppingCartSvg, BurgerMenuSvg } from './svg';
 
 export const Header = () => {
@@ -18,7 +18,7 @@ export const Header = () => {
         <Layout $isOpened = { isOpened }>
             <section className = 'container'>
                 <div className = 'content'>
-                    <FromTo from = 'zero' to = 'tablet'>
+                    <FromTo from = 'MIN' to = 'tablet'>
                         <BurgerMenuSvg
                             className = 'burger-menu-svg'
                             data-testid = 'burger-menu-svg'
@@ -32,9 +32,9 @@ export const Header = () => {
                         </a>
                     </Link>
 
-                    <Tablet>
+                    <FromTo from = 'tablet'>
                         <Nav />
-                    </Tablet>
+                    </FromTo>
 
                     <Link href = '/checkout'>
                         <a>

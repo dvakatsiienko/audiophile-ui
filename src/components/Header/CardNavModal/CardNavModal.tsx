@@ -18,12 +18,11 @@ import { useClickOutside } from '@/utils';
 
 export const CardNavModal = (props: CardNavModalProps) => {
     const closeModal = () => props.setIsOpened(false);
-
     const ref = useRef() as RefObject<HTMLElement>;
-    useClickOutside(ref, closeModal, props.isOpened);
 
     // ? Close modal if it was open in mobile viewport and manually increased viewport sizee
     useMediaQuery({ maxWidth: tablet }, void 0, matches => !matches && props.setIsOpened(false));
+    useClickOutside(ref, closeModal, props.isOpened);
 
     useEffect(() => {
         const handleKeypress = (e: KeyboardEvent) => {

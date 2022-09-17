@@ -1,4 +1,5 @@
 /* Core */
+import { describe, expect } from '@jest/globals';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -18,11 +19,16 @@ const setIsOpened = jest.fn((bool: boolean) => {
 
 const routes: Route[] = [ '/headphones', '/speakers', '/earphones' ];
 
-describe('<CardNav />:', () => {
+describe('<CardNavModal />:', () => {
     routes.forEach((route, index) => {
         test(`routes to ${route}`, async () => {
             const user = userEvent.setup();
-            styledRender(<CardNavModal setIsOpened = { setIsOpened as unknown as SetIsOpened } />);
+            styledRender(
+                <CardNavModal
+                    isOpened = { isOpened }
+                    setIsOpened = { setIsOpened as unknown as SetIsOpened }
+                />,
+            );
             const listItems = screen.getAllByRole('listitem');
             const li = listItems[ index ];
 
@@ -35,18 +41,28 @@ describe('<CardNav />:', () => {
             expect(isOpened).toBe(false);
         });
     });
-});
 
-describe('<CardNavModal />:', () => {
     test('closes modal on Escape key press', async () => {
         const user = userEvent.setup();
-        styledRender(<CardNavModal setIsOpened = { setIsOpened as unknown as SetIsOpened } />);
+        styledRender(
+            <CardNavModal
+                isOpened = { isOpened }
+                setIsOpened = { setIsOpened as unknown as SetIsOpened }
+            />,
+        );
 
         await user.keyboard('[Escape]');
         expect(setIsOpened).toBeCalledTimes(1);
         expect(isOpened).toBe(false);
     });
 });
+
+jest.mock('next/future/image', () => ({
+    __esModule: true,
+    default:    () => {
+        return 'Next image stub';
+    },
+}));
 
 beforeEach(() => {
     // Set MobileNav opened
