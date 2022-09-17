@@ -9,7 +9,7 @@ import {
 } from '@/ui-kit';
 
 /* Instruments */
-import { fetchSpeakers, fetchEarphones } from '@/api';
+import { fetchSpeakers, fetchEarphones, fetchCategories } from '@/api';
 import { getImgUrl } from '@/utils';
 import speaker1DesktopImg from './img/speaker-1-desktop-img.png';
 import speaker1TabletImg from './img/speaker-1-tablet-img.png';
@@ -21,22 +21,22 @@ import earphoneDesktopImg from './img/earphone-desktop-img.png';
 import earphoneTabletImg from './img/earphone-tablet-img.png';
 import earphoneMobileImg from './img/earphone-mobile-img.png';
 
-// audiophile-express.herokuapp.com/assets/cart/preview-yx1-earphones.jpg
-
 export const Featured = () => {
     const speakersQuery = useQuery([ 'speakers' ], fetchSpeakers);
     const earphonesQuery = useQuery([ 'earphones' ], fetchEarphones);
+    // const categoriesQuery = useQuery([ 'categrories' ], fetchCategories);
 
     const speaker1 = speakersQuery.data?.data?.products?.at(1);
     const speaker2 = speakersQuery.data?.data?.products?.at(0);
     const earphone = earphonesQuery.data?.data?.products?.at(0);
 
-    const isMobile = useFromToMQ({ from: 'zero', to: 'tablet' });
+    const isMobile = useFromToMQ({ from: 'MIN', to: 'tablet' });
     const isTablet = useFromToMQ({ from: 'tablet', to: 'desktopContent' });
 
-    console.log('speakers', speakersQuery.data?.data?.products);
-    // console.log('earphones', earphonesQuery.data?.category?.products);
-    // console.log('earphonesQuery', earphonesQuery?.data?.category.products);
+    // console.log('speakers', speakersQuery.data?.data);
+    // console.log('earphones', earphonesQuery.data?.data);
+    // console.log('earphonesQuery', earphonesQuery?.data?.data);
+    // console.log('categoriesQuery', categoriesQuery?.data?.data);
 
     let speaker1Img = speaker1DesktopImg;
     if (isMobile) speaker1Img = speaker1MobileImg;

@@ -10,7 +10,6 @@ const NotFoundPage: NextPage = () => {
     return (
         <Layout>
             <Header />
-
             <Hero categoryName = '404' page = 'category' />
 
             <HomepageContent>
@@ -18,7 +17,6 @@ const NotFoundPage: NextPage = () => {
                     Return to Homepage
                 </ActionButton>
             </HomepageContent>
-
             <Footer />
         </Layout>
     );

@@ -4,6 +4,7 @@ import { generateMedia } from 'styled-media-query';
 import { useMediaQuery } from 'react-responsive';
 
 /* Viewports */
+const MIN = 0;
 const mobile = 375;
 const tabletContent = 690;
 const tablet = 768;
@@ -11,6 +12,7 @@ const desktopContent = 1110;
 const desktop = 1440;
 
 const viewports = {
+    MIN:            `${MIN}px`,
     mobile:         `${mobile}px`,
     tabletContent:  `${tabletContent}px`,
     tablet:         `${tablet}px`,
@@ -26,101 +28,52 @@ const useFromToMQ = (options: Options) => {
 
     useEffect(() => setIsMounted(true), []);
 
-    const nextViewports = { ...viewports, zero: '0px' };
-    const min = nextViewports[ options.from ];
-    const max = nextViewports[ options.to ];
+    const min = viewports[ options.from ];
+    const max = viewports[ options.to as To ];
 
-    const query = `(min-width: ${min}) and (max-width: ${max})`;
+    const nextMin = tuneMin(min, 1);
+
+    let query = `(min-width: ${nextMin}) and (max-width: ${max})`;
+    if (!options.to) query = `(min-width: ${nextMin})`;
 
     const result = useMediaQuery({ query });
 
     return isMounted ? result : null;
 };
-const useMobileMQ = () => useMediaQuery({ query: `(min-width: ${mobile + 1}px)` });
-const useTabletContentMQ = () => useMediaQuery({ query: `(min-width: ${tabletContent + 1}px)` });
-const useTabletMQ = () => useMediaQuery({ query: `(min-width: ${tablet + 1}px)` });
-const useDesktopContentMQ = () => useMediaQuery({ query: `(min-width: ${desktopContent + 1}px)` });
-const useDesktopMQ = () => useMediaQuery({ query: `(min-width: ${desktop + 1}px)` });
 
 /* Components */
 const FromTo = (props: FromToProps) => {
     const { children, ...rest } = props;
-    const ssrChildren = useSSRchildren(children);
     const isMobile = useFromToMQ(rest);
 
-    return isMobile ? ssrChildren : null;
-};
-const Mobile = (props: MQProps) => {
-    const ssrChildren = useSSRchildren(props.children);
-    const isMobile = useMobileMQ();
-
-    return isMobile ? ssrChildren : null;
-};
-const TabletContent = (props: MQProps) => {
-    const ssrChildren = useSSRchildren(props.children);
-    const isTabletContent = useTabletContentMQ();
-
-    return isTabletContent ? ssrChildren : null;
-};
-const Tablet = (props: MQProps) => {
-    const ssrChildren = useSSRchildren(props.children);
-    const isTablet = useTabletMQ();
-
-    return isTablet ? ssrChildren : null;
-};
-const DesktopContent = (props: MQProps) => {
-    const ssrChildren = useSSRchildren(props.children);
-    const isDesktopContent = useDesktopContentMQ();
-
-    return isDesktopContent ? ssrChildren : null;
-};
-const Desktop = (props: MQProps) => {
-    const ssrChildren = useSSRchildren(props.children);
-    const isDesktop = useDesktopMQ();
-
-    return isDesktop ? ssrChildren : null;
+    return isMobile ? children : null;
 };
 
 /* Helpers */
-const useSSRchildren = (children: MQProps['children']) => {
-    const [ ssrChildren, setSSRChildren ] = useState<MQProps['children'] | null>(null);
+const tuneMin = (strValue: string, amount = 0) => {
+    if (strValue === viewports.MIN) return strValue;
 
-    useEffect(() => setSSRChildren(children), []);
+    const numberValue = Number(strValue.replace('px', ''));
+    const nextNumberValue = numberValue + amount;
+    const result = `${nextNumberValue}px`;
 
-    return ssrChildren;
+    return result;
 };
 
 /* Types */
 interface MQProps {
     children: JSX.Element;
 }
-interface FromToProps extends MQProps, Options {}
 interface Options {
-    from: Viewport | 'zero';
-    to: Viewport;
+    from: From;
+    to?: To;
 }
+interface FromToProps extends MQProps, Options {}
+
 type Viewport = keyof typeof viewports;
+type From = Viewport | 'MIN';
+type To = Viewport;
 
 export {
-    mobile,
-    tablet,
-    desktop,
-    viewports,
-    media,
-
-    /* MQ hooks */
-    useFromToMQ,
-    useMobileMQ,
-    useTabletContentMQ,
-    useTabletMQ,
-    useDesktopContentMQ,
-    useDesktopMQ,
-
-    /* Components */
-    FromTo,
-    Mobile,
-    TabletContent,
-    Tablet,
-    DesktopContent,
-    Desktop
+    mobile, tablet, desktop, viewports, media, useFromToMQ, FromTo
 };

@@ -1,4 +1,5 @@
 /* Core */
+// import { describe, expect } from '@jest/globals';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -14,7 +15,7 @@ jest.spyOn(console, 'error');
 
 beforeEach(jest.clearAllMocks);
 
-describe.only('<ActionButton />:', () => {
+describe('<ActionButton />:', () => {
     test('renders correctly primary variant', async () => {
         styledRender(<ActionButton />);
         const button = screen.getByRole('button');

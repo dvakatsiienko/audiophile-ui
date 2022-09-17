@@ -22,15 +22,23 @@ const Layout = styled.section`
     & .homepage-layout-container {
         ${center};
 
-        gap: 150px;
+        gap: 160px;
         max-width: ${p => p.theme.viewports.desktopContent};
         margin: 0 auto;
-        padding: 200px var(--padding-x);
+        padding: 192px var(--padding-x) 200px;
     }
 
     ${media.lessThan('desktopContent')`
         & .homepage-layout-container {
-            padding: 150px var(--padding-x) 100px;
+            gap: 100px;
+            padding: 144px var(--padding-x) 100px;
+        }
+    `}
+
+    ${media.lessThan('tabletContent')`
+        & .homepage-layout-container {
+            gap: 80px;
+            padding: 80px var(--padding-x);
         }
     `}
 `;
