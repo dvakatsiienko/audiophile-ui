@@ -1,5 +1,5 @@
 export interface EarphonesRes {
-    data: Category;
+    payload: Category;
 }
 
 interface Category {

@@ -1,5 +1,5 @@
 export interface SpeakersRes {
-    data: Category;
+    payload: Category;
 }
 
 interface Category {

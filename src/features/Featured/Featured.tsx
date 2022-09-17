@@ -26,9 +26,9 @@ export const Featured = () => {
     const earphonesQuery = useQuery([ 'earphones' ], fetchEarphones);
     // const categoriesQuery = useQuery([ 'categrories' ], fetchCategories);
 
-    const speaker1 = speakersQuery.data?.data?.products?.at(1);
-    const speaker2 = speakersQuery.data?.data?.products?.at(0);
-    const earphone = earphonesQuery.data?.data?.products?.at(0);
+    const speaker1 = speakersQuery.data?.payload?.products?.at(1);
+    const speaker2 = speakersQuery.data?.payload?.products?.at(0);
+    const earphone = earphonesQuery.data?.payload?.products?.at(0);
 
     const isMobile = useFromToMQ({ from: 'MIN', to: 'tablet' });
     const isTablet = useFromToMQ({ from: 'tablet', to: 'desktopContent' });

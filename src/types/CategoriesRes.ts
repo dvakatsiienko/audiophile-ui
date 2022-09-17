@@ -1,5 +1,5 @@
 export interface CategoriesRes {
-    data: Category[];
+    payload: Category[];
 }
 
 interface Category {
