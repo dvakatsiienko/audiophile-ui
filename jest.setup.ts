@@ -2,12 +2,20 @@
 import React from 'react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+import env from 'dotenv';
 import '@testing-library/jest-dom';
 import 'whatwg-fetch';
 import 'jest-styled-components';
 
+env.config({ path: './.env.test' });
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 const server = setupServer(
-    rest.post('http://localhost:3000/api/checkout', (req, res, ctx) => {
+    rest.post(`${API_URL}/api/checkout`, (req, res, ctx) => {
+        return res(ctx.json({ message: 'Success...' }));
+    }),
+    rest.get(`${API_URL}/api/category`, (req, res, ctx) => {
         return res(ctx.json({ message: 'Success...' }));
     }),
 );
