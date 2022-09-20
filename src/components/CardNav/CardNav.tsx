@@ -1,6 +1,7 @@
 /* Core */
 import { useRouter } from 'next/router';
 import Image, { type StaticImageData } from 'next/future/image';
+import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
 
 /* Components */
@@ -9,6 +10,8 @@ import {
 } from '@/ui-kit';
 
 /* Instruments */
+import { fetchCategories } from '@/api';
+import { getImgUrl } from '@/utils';
 import headphoneDesktopImg from './img/headphone-desktop.png';
 import headphoneMobileImg from './img/headphone-mobile.png';
 import speakerDesktopImg from './img/speaker-desktop.png';
@@ -21,13 +24,26 @@ export const CardNav = (props: CardNavProps) => {
     const router = useRouter();
     const isMobile = useFromToMQ({ from: 'MIN', to: 'tablet' });
 
+    const categoriesQuery = useQuery([ 'categrories' ], fetchCategories);
+
+    const categories = categoriesQuery.data?.payload ?? [];
+    const headphone = categories.find(category => category.name === 'headphones') ?? {};
+    const speaker = categories.find(category => category.name === 'speakers') ?? {};
+    const earphone = categories.find(category => category.name === 'earphones') ?? {};
+
+    console.log('🚀 ~ CardNav ~ categoriesQuery ', headphone, speaker, earphone);
+
     const navigate = (route: Route) => {
         router.push(route);
         props.afterNavigate?.();
     };
+    let headphoneImg = getImgUrl(headphone?.image?.desktop ?? '');
+    if (isMobile) headphoneImg = getImgUrl(headphone?.image?.tablet ?? '');
 
-    let headphoneImg = headphoneDesktopImg;
-    if (isMobile) headphoneImg = headphoneMobileImg;
+    // let headphoneImg = headphoneDesktopImg;
+    // if (isMobile) headphoneImg = headphoneMobileImg;
+
+    console.log('🚀 ~ CardNav ~ headphoneImg ', headphoneImg);
 
     let speakerImg = speakerDesktopImg;
     if (isMobile) speakerImg = speakerMobileImg;
@@ -39,7 +55,9 @@ export const CardNav = (props: CardNavProps) => {
         <Ul>
             <CardLink
                 alt = 'headphone image'
+                imgHeight = { 160 }
                 imgSrc = { headphoneImg }
+                imgWidth = { 124 }
                 title = 'Headphones'
                 onPointerUp = { () => navigate('/headphones') }
             />
@@ -67,11 +85,9 @@ const CardLink = (props: CardLinkProps) => {
         <li onPointerUp = { props.onPointerUp }>
             <Image
                 alt = { props.alt }
-                css = { `
-                    filter: drop-shadow(0px 40px 32px rgba(0, 0, 0, 0.5));
-                    margin-bottom: 30px;
-                ` }
+                height = { typeof props.imgSrc === 'string' ? props.imgHeight : undefined }
                 src = { props.imgSrc }
+                width = { typeof props.imgSrc === 'string' ? props.imgWidth : undefined }
             />
             <H6>{props.title}</H6>
             <ActionButton size = 'small' variant = 'inline'>
@@ -82,6 +98,8 @@ const CardLink = (props: CardLinkProps) => {
 };
 CardLink.defaultProps = {
     buttonText: 'Shop',
+    imgHeight:  100,
+    imgWidth:   100,
 };
 
 /* Styles */
@@ -92,6 +110,10 @@ const Ul = styled.ul`
 
     & li {
         ${center};
+
+        ${H6} {
+            color: #000;
+        }
 
         position: relative;
         justify-content: end;
@@ -111,8 +133,9 @@ const Ul = styled.ul`
             }
         }
 
-        ${H6} {
-            color: #000;
+        & > img {
+            filter: drop-shadow(0px 40px 32px rgba(0, 0, 0, 0.5));
+            margin-bottom: 30px;
         }
     }
 
@@ -142,6 +165,8 @@ interface CardLinkProps {
     title: string;
     onPointerUp: React.PointerEventHandler;
     imgSrc: StaticImageData;
+    imgWidth?: number;
+    imgHeight?: number;
     alt: string;
     buttonText?: string;
 }

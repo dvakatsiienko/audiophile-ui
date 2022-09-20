@@ -10,7 +10,7 @@ import {
 import { Featured } from '@/features';
 
 /* Instruments */
-import { fetchPost1 } from '@/api';
+import { fetchCategories } from '@/api';
 
 const Index: NextPage = () => {
     return (
@@ -35,7 +35,7 @@ const Index: NextPage = () => {
 export const getStaticProps: GetStaticProps = async () => {
     const queryClient = new QueryClient();
 
-    await queryClient.prefetchQuery([ 'post-1' ], fetchPost1);
+    await queryClient.prefetchQuery([ 'categories' ], fetchCategories);
 
     return {
         props: {

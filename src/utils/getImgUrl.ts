@@ -2,8 +2,7 @@
 import { API_URL } from './api-url';
 
 export const getImgUrl = (url: string) => {
-    const realUrl = url.replace('./', '');
-    const result = `${API_URL}/${realUrl}`;
+    const result = `${API_URL}${url}`;
 
     return result;
 };

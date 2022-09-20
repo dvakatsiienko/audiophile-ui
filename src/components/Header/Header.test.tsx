@@ -1,9 +1,7 @@
 /* Core */
-// import { describe, expect } from '@jest/globals';
 import { Context as ResponsiveContext } from 'react-responsive';
-import { screen, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import waait from 'waait';
 
 /* Components */
 import { Header } from './Header';
@@ -15,10 +13,12 @@ import { styledRender } from '@/utils';
 describe('<Header />:', () => {
     test('renders burger menu on mobile devices', async () => {
         const user = userEvent.setup();
+
         styledRender(
             <ResponsiveContext.Provider value = {{ width: mobile }}>
                 <Header />
             </ResponsiveContext.Provider>,
+            { reactQuery: true },
         );
         const burgerSvg = screen.getByTestId('burger-menu-svg');
 
