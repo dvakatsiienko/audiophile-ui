@@ -4,9 +4,7 @@
     "compilerOptions": {
         /* Module resolution */
         "baseUrl": ".",
-        "paths": {
-            "@/*": ["src/*"]
-        },
+        "paths": { "@/*": ["src/*"] },
         "target": "ESNext",
         "lib": ["DOM", "DOM.Iterable", "ESNExt"],
         "allowJs": true,
