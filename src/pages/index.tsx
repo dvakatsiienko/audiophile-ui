@@ -9,9 +9,6 @@ import {
 } from '@/components';
 import { Featured } from '@/features';
 
-/* Instruments */
-import { fetchCategories } from '@/api';
-
 const Index: NextPage = () => {
     return (
         <Layout>
@@ -34,8 +31,6 @@ const Index: NextPage = () => {
 
 export const getStaticProps: GetStaticProps = async () => {
     const queryClient = new QueryClient();
-
-    await queryClient.prefetchQuery([ 'categories' ], fetchCategories);
 
     return {
         props: {

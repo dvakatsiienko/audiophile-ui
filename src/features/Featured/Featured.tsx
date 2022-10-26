@@ -9,8 +9,6 @@ import {
 } from '@/ui-kit';
 
 /* Instruments */
-import { fetchSpeakers, fetchEarphones, fetchCategories } from '@/api';
-import { getImgUrl } from '@/utils';
 import speaker1DesktopImg from './img/speaker-1-desktop-img.png';
 import speaker1TabletImg from './img/speaker-1-tablet-img.png';
 import speaker1MobileImg from './img/speaker-1-mobile-img.png';
@@ -22,21 +20,8 @@ import earphoneTabletImg from './img/earphone-tablet-img.png';
 import earphoneMobileImg from './img/earphone-mobile-img.png';
 
 export const Featured = () => {
-    const speakersQuery = useQuery([ 'speakers' ], fetchSpeakers);
-    const earphonesQuery = useQuery([ 'earphones' ], fetchEarphones);
-    // const categoriesQuery = useQuery([ 'categrories' ], fetchCategories);
-
-    const speaker1 = speakersQuery.data?.payload?.products?.at(1);
-    const speaker2 = speakersQuery.data?.payload?.products?.at(0);
-    const earphone = earphonesQuery.data?.payload?.products?.at(0);
-
     const isMobile = useFromToMQ({ from: 'MIN', to: 'tablet' });
     const isTablet = useFromToMQ({ from: 'tablet', to: 'desktopContent' });
-
-    // console.log('speakers', speakersQuery.data?.data);
-    // console.log('earphones', earphonesQuery.data?.data);
-    // console.log('earphonesQuery', earphonesQuery?.data?.data);
-    // console.log('categoriesQuery', categoriesQuery?.data?.data);
 
     let speaker1Img = speaker1DesktopImg;
     if (isMobile) speaker1Img = speaker1MobileImg;
@@ -50,17 +35,17 @@ export const Featured = () => {
     if (isMobile) earphoneImg = earphoneMobileImg;
     if (isTablet) earphoneImg = earphoneTabletImg;
 
-    const xxx = getImgUrl(speaker1?.previewImage ?? '');
-    // console.log('🚀 ~ Featured ~ speaker1Img', xxx);
-
     return (
         <Layout>
             <section className = 'featured-1'>
                 <Image alt = 'speaker 1 image' src = { speaker1Img } />
 
                 <section>
-                    <H1>{speaker1?.name}</H1>
-                    <Body>{speaker1?.description}</Body>
+                    <H1>ZX9 SPEAKER</H1>
+                    <Body>
+                        Upgrade to premium speakers that are phenomenally built to deliver truly
+                        remarkable sound.
+                    </Body>
                     <ActionButton size = 'large' variant = 'primary-black'>
                         SEE PRODUCT
                     </ActionButton>
@@ -75,7 +60,7 @@ export const Featured = () => {
                 <Image fill alt = 'speaker 2 image' src = { speaker2Img } />
 
                 <section>
-                    <H4>{speaker2?.name}</H4>
+                    <H4>ZX7 SPEAKER</H4>
                     <ActionButton size = 'large' variant = 'secondary-transparent'>
                         SEE PRODUCT
                     </ActionButton>
@@ -86,7 +71,7 @@ export const Featured = () => {
                 <Image alt = 'speaker 2 image' src = { earphoneImg } />
 
                 <section>
-                    <H4>{earphone?.name.toLowerCase().replace('wireless', '')}</H4>
+                    <H4>YX1 EARPHONES</H4>
                     <ActionButton size = 'large' variant = 'secondary'>
                         SEE PRODUCT
                     </ActionButton>

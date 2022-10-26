@@ -1,7 +1,6 @@
 /* Core */
 import { useRouter } from 'next/router';
 import Image, { type StaticImageData } from 'next/future/image';
-import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
 
 /* Components */
@@ -10,8 +9,6 @@ import {
 } from '@/ui-kit';
 
 /* Instruments */
-import { fetchCategories } from '@/api';
-import { getImgUrl } from '@/utils';
 import headphoneDesktopImg from './img/headphone-desktop.png';
 import headphoneMobileImg from './img/headphone-mobile.png';
 import speakerDesktopImg from './img/speaker-desktop.png';
@@ -24,26 +21,13 @@ export const CardNav = (props: CardNavProps) => {
     const router = useRouter();
     const isMobile = useFromToMQ({ from: 'MIN', to: 'tablet' });
 
-    const categoriesQuery = useQuery([ 'categrories' ], fetchCategories);
-
-    const categories = categoriesQuery.data?.payload ?? [];
-    const headphone = categories.find(category => category.name === 'headphones') ?? {};
-    const speaker = categories.find(category => category.name === 'speakers') ?? {};
-    const earphone = categories.find(category => category.name === 'earphones') ?? {};
-
-    console.log('🚀 ~ CardNav ~ categoriesQuery ', headphone, speaker, earphone);
-
     const navigate = (route: Route) => {
         router.push(route);
         props.afterNavigate?.();
     };
-    let headphoneImg = getImgUrl(headphone?.image?.desktop ?? '');
-    if (isMobile) headphoneImg = getImgUrl(headphone?.image?.tablet ?? '');
 
-    // let headphoneImg = headphoneDesktopImg;
-    // if (isMobile) headphoneImg = headphoneMobileImg;
-
-    console.log('🚀 ~ CardNav ~ headphoneImg ', headphoneImg);
+    let headphoneImg = headphoneDesktopImg;
+    if (isMobile) headphoneImg = headphoneMobileImg;
 
     let speakerImg = speakerDesktopImg;
     if (isMobile) speakerImg = speakerMobileImg;
